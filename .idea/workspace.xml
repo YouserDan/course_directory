@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="добавил файл админ меню фхмл">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/StartProgrammController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/StartProgrammController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/StartProgramm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/StartProgramm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/adminMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/adminMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/auth.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/auth.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="создал переход по кнопке на новое окно, пока без проверок" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,6 +19,24 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="testBrach" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="YouserDan &lt;velodrom19@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="master" />
@@ -119,12 +131,53 @@
       <option name="project" value="LOCAL" />
       <updated>1728380983633</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="создал переход по кнопке на новое окно, пока без проверок">
+      <option name="closed" value="true" />
+      <created>1728382197247</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1728382197247</updated>
+    </task>
+    <task id="LOCAL-00005" summary="создал переход по кнопке на новое окно, пока без проверок">
+      <option name="closed" value="true" />
+      <created>1728382272938</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1728382272938</updated>
+    </task>
+    <task id="LOCAL-00006" summary="создал переход по кнопке на новое окно, пока без проверок">
+      <option name="closed" value="true" />
+      <created>1728382278556</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1728382278556</updated>
+    </task>
+    <task id="LOCAL-00007" summary="создал переход по кнопке на новое окно, пока без проверок">
+      <option name="closed" value="true" />
+      <created>1728382401591</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1728382401592</updated>
+    </task>
+    <task id="LOCAL-00008" summary="создал переход по кнопке на новое окно, пока без проверок">
+      <option name="closed" value="true" />
+      <created>1728382410579</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1728382410579</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="refactor main file" />
     <MESSAGE value="добавил файл админ меню фхмл" />
-    <option name="LAST_COMMIT_MESSAGE" value="добавил файл админ меню фхмл" />
+    <MESSAGE value="создал переход по кнопке на новое окно, пока без проверок" />
+    <option name="LAST_COMMIT_MESSAGE" value="создал переход по кнопке на новое окно, пока без проверок" />
   </component>
 </project>
