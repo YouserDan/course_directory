@@ -1,4 +1,4 @@
-package org.example.course_directory;
+package controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
