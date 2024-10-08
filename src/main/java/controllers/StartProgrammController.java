@@ -35,6 +35,7 @@ public class StartProgrammController {
 
         // Показываем новое окно
         newStage.show();
+
         // закрываем текущее окно
         currentStage.close();
     }
