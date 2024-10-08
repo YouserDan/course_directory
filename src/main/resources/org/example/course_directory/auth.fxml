@@ -19,5 +19,5 @@
    </Text>
    <TextField />
    <PasswordField />
-    <Button onAction="#onHelloButtonClick" text="Войти" />
+    <Button onAction="#goToAdminMenu" text="Войти" />
 </VBox>
