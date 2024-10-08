@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controllers.StartProgrammController"
-            prefHeight="400.0" prefWidth="600.0">
-    <Label text="Добро пожаловать в администраторское меню" />
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.StartProgrammController">
+   <children>
+      <Button layoutX="14.0" layoutY="360.0" mnemonicParsing="false" text="Выйти" />
+      <RadioButton layoutX="43.0" layoutY="184.0" mnemonicParsing="false" text="RadioButton" />
+      <RadioButton layoutX="43.0" layoutY="144.0" mnemonicParsing="false" text="RadioButton" />
+      <RadioButton layoutX="41.0" layoutY="264.0" mnemonicParsing="false" text="RadioButton" />
+      <RadioButton layoutX="41.0" layoutY="224.0" mnemonicParsing="false" text="RadioButton" />
+   </children>
     <!-- Другие элементы интерфейса можно добавить сюда -->
 </AnchorPane>
