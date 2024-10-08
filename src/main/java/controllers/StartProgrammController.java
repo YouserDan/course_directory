@@ -30,7 +30,7 @@ public class StartProgrammController {
         newStage.setScene(newScene);
         newStage.setTitle("Админ Меню");
 
-        // Центрируем новое окно
+
         newStage.centerOnScreen();
 
         // Показываем новое окно
