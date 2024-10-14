@@ -3,8 +3,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
 public class AdminMenuController {
-    @FXML
-    private Label welcomeText;
 
 
 
