@@ -5,7 +5,6 @@
 <?import javafx.scene.shape.Rectangle?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.course_directory.controllers.StartProgrammController">
-   <children>
       <AnchorPane layoutX="217.0" layoutY="36.0" prefHeight="400.0" prefWidth="600.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="389.0" layoutX="21.0" layoutY="24.0" stroke="#b9b9b9" strokeType="OUTSIDE" width="154.0" />
       <Button layoutX="28.0" layoutY="378.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="129.0" text="Выйти" />
@@ -13,6 +12,5 @@
       <Button layoutX="28.0" layoutY="122.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="138.0" text="Главная" />
       <Button layoutX="28.0" layoutY="198.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="133.0" text="Добавление" />
       <Button layoutX="28.0" layoutY="234.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="130.0" text="Помощь" />
-   </children>
     <!-- Другие элементы интерфейса можно добавить сюда -->
 </AnchorPane>
