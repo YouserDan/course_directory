@@ -1,5 +1,6 @@
 package org.example.course_directory.controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -8,7 +9,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class StartProgrammController {
+public class StartProgramController {
     @FXML
     Button switchButton;
 
@@ -21,8 +22,6 @@ public class StartProgrammController {
 
         // Получаем текущую сцену
         Stage currentStage = (Stage) switchButton.getScene().getWindow();
-
-
 
         currentStage.show();
         // Создаем новое окно (Stage)
@@ -38,5 +37,13 @@ public class StartProgrammController {
 
         // закрываем текущее окно
         currentStage.close();
+    }
+
+    @FXML
+    public void handleExit(ActionEvent actionEvent) {
+        // Закрыть приложение
+        System.out.println("vmdvmkdmk");
+        Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow(); // Получаем текущее окно
+        stage.close(); // Закрыть текущее окно
     }
 }
