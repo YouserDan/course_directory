@@ -20,7 +20,8 @@
    </Text>
    <TextField />
    <PasswordField />
+    <Hyperlink text="Забыли пароль?" />
     <Button fx:id="switchButton" onAction="#handleSwitchWindow" text="Войти" />
-   <Hyperlink text="Hyperlink" />
+
 
 </VBox>
