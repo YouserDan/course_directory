@@ -58,7 +58,7 @@
             <!-- Default configuration for running with: mvn clean javafx:run -->
             <id>default-cli</id>
             <configuration>
-              <mainClass>org.example.course_directory/org.example.course_directory.StartProgramm</mainClass>
+              <mainClass>org.example.course_directory/org.example.course_directory.StartProgram</mainClass>
               <launcher>app</launcher>
               <jlinkZipName>app</jlinkZipName>
               <jlinkImageName>app</jlinkImageName>
