@@ -40,10 +40,25 @@ public class StartProgramController {
     }
 
     @FXML
-    public void handleExit(ActionEvent actionEvent) {
-        // Закрыть приложение
-        System.out.println("vmdvmkdmk");
-        Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow(); // Получаем текущее окно
-        stage.close(); // Закрыть текущее окно
+    public void handleExit(ActionEvent actionEvent) throws IOException {
+        // Получаем текущее окно
+        Stage currentStage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
+
+        // Загружаем новое окно (окно авторизации)
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/course_directory/auth.fxml"));
+        Scene authScene = new Scene(fxmlLoader.load());
+
+        // Создаем новое окно для авторизации
+        Stage authStage = new Stage();
+        authStage.setScene(authScene);
+        authStage.setTitle("Авторизация");
+        authStage.centerOnScreen();
+
+        // Показываем новое окно
+        authStage.show();
+
+        // Закрываем текущее окно
+        currentStage.close();
     }
+
 }
