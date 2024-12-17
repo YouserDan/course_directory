@@ -7,18 +7,19 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.Connection;
-import org.example.course_directory.connection.DatabaseConnection;  // Убедитесь, что импортируете правильный класс
+import org.example.course_directory.connection.DatabaseConnection;
+import org.example.course_directory.connection.ExecuteQuery;
 
 public class StartProgram extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
         DatabaseConnection dbConnection = new DatabaseConnection();
-
         Connection connection = dbConnection.connectToDatabase();
+        ExecuteQuery executeQuery = new ExecuteQuery(connection);
+        executeQuery.selectAllDataFromTable("administrator");
 
 
-        // Загружаем и отображаем FXML
         FXMLLoader fxmlLoader = new FXMLLoader(StartProgram.class.getResource("auth.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Авторизация");
