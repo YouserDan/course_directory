@@ -1,6 +1,7 @@
 module org.example.course_directory {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
 
 
     opens org.example.course_directory to javafx.fxml;
