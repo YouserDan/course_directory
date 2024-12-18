@@ -20,7 +20,7 @@ public class StartProgram extends Application {
         executeQuery.selectAllDataFromTable("administrator");
 
 
-        FXMLLoader fxmlLoader = new FXMLLoader(StartProgram.class.getResource("auth.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(StartProgram.class.getResource("startWindow.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Авторизация");
         stage.setScene(scene);
