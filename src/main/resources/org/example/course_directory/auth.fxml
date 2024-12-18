@@ -18,8 +18,8 @@
          <Font size="18.0" />
       </font>
    </Text>
-   <TextField />
-   <PasswordField />
+    <TextField fx:id="usernameField" promptText="Введите логин" />
+    <PasswordField fx:id="passwordField" promptText="Введите пароль" />
     <Hyperlink text="Забыли пароль?" />
     <Button fx:id="switchButton" onAction="#handleSwitchWindow" text="Войти" />
 
