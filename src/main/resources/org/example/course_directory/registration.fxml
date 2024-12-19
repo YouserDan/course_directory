@@ -7,27 +7,36 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #BC000F;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox alignment="TOP_CENTER" layoutX="89.0" layoutY="36.0" prefHeight="307.0" prefWidth="340.0" spacing="20.0" style="-fx-padding: 10;">
+      <VBox alignment="TOP_CENTER" layoutX="106.0" prefHeight="400.0" prefWidth="389.0" spacing="20.0" style="-fx-padding: 10;">
          <children>
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Введите данные для регистрации" wrappingWidth="368.6820831298828">
                <font>
                   <Font name="Comic Sans MS Bold" size="21.0" />
                </font>
             </Text>
-            <TextField focusTraversable="false" prefHeight="40.0" promptText="Почта" style="-fx-background-color: #BC000F; -fx-border-color: BLACK; -fx-border-width: 2;">
-               <font>
-                  <Font name="Comic Sans MS" size="14.0" />
-               </font>
-            </TextField>
             <TextField focusTraversable="false" prefHeight="40.0" promptText="Имя" style="-fx-background-color: #BC000F; -fx-border-color: BLACK; -fx-border-width: 2;">
                <font>
                   <Font name="Comic Sans MS" size="14.0" />
                </font>
             </TextField>
             <TextField focusTraversable="false" prefHeight="40.0" promptText="Фамилия" style="-fx-background-color: #BC000F; -fx-border-color: BLACK; -fx-border-width: 2;">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </TextField>
+            <TextField focusTraversable="false" prefHeight="40.0" promptText="Почта" style="-fx-background-color: #BC000F; -fx-border-color: BLACK; -fx-border-width: 2;">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </TextField>
+            <TextField focusTraversable="false" prefHeight="40.0" promptText="Логин" style="-fx-background-color: #BC000F; -fx-border-color: BLACK; -fx-border-width: 2;">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </TextField>
+            <TextField focusTraversable="false" prefHeight="40.0" promptText="Пароль" style="-fx-background-color: #BC000F; -fx-border-color: BLACK; -fx-border-width: 2;">
                <font>
                   <Font name="Comic Sans MS" size="14.0" />
                </font>
