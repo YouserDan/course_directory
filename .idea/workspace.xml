@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="сделал подключение к бд и вывод данных из таблицы">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/StartWindowController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/startWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/StartProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/StartProgram.java" afterDir="false" />
-    </list>
+    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="сделал подключение к бд и вывод данных из таблицы" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -276,7 +271,23 @@
       <option name="project" value="LOCAL" />
       <updated>1734533477530</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="сделал подключение к бд и вывод данных из таблицы">
+      <option name="closed" value="true" />
+      <created>1734538597659</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1734538597659</updated>
+    </task>
+    <task id="LOCAL-00022" summary="сделал подключение к бд и вывод данных из таблицы">
+      <option name="closed" value="true" />
+      <created>1734609556801</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1734609556801</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
