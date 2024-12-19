@@ -45,7 +45,7 @@ public class StartProgramController {
         Stage currentStage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
 
         // Загружаем новое окно (окно авторизации)
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/course_directory/auth.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/course_directory/registration.fxml"));
         Scene authScene = new Scene(fxmlLoader.load());
 
         // Создаем новое окно для авторизации

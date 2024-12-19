@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="сделал подключение к бд и вывод данных из таблицы" />
+    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="сделал дизайн стартового и окна аутентификации (регистрации)" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -287,7 +287,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734609556801</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="сделал дизайн стартового и окна аутентификации (регистрации)">
+      <option name="closed" value="true" />
+      <created>1734612131035</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1734612131035</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -313,6 +321,7 @@
     <MESSAGE value="сделал закрытие программы при нажатии кнопки выйти" />
     <MESSAGE value="сделал подключение к бд" />
     <MESSAGE value="сделал подключение к бд и вывод данных из таблицы" />
-    <option name="LAST_COMMIT_MESSAGE" value="сделал подключение к бд и вывод данных из таблицы" />
+    <MESSAGE value="сделал дизайн стартового и окна аутентификации (регистрации)" />
+    <option name="LAST_COMMIT_MESSAGE" value="сделал дизайн стартового и окна аутентификации (регистрации)" />
   </component>
 </project>
