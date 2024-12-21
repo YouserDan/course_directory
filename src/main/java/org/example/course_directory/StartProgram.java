@@ -15,9 +15,7 @@ public class StartProgram extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         DatabaseConnection dbConnection = new DatabaseConnection();
-        Connection connection = dbConnection.connectToDatabase();
-        ExecuteQuery executeQuery = new ExecuteQuery(connection);
-        executeQuery.selectAllDataFromTable("administrator");
+        dbConnection.connectToDatabase();
 
 
         FXMLLoader fxmlLoader = new FXMLLoader(StartProgram.class.getResource("startWindow.fxml"));
