@@ -7,10 +7,10 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #BC000F;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.course_directory.controllers.StartProgramController">
-   <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="252.0" spacing="10.0" style="-fx-border-color: BLACK; -fx-border-width: 0 2 0 0; border: ;">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #1F3D69;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.course_directory.controllers.StartProgramController">
+   <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="252.0" spacing="10.0" style="-fx-border-color: white; -fx-border-width: 0 2 0 0; border: ;">
       <children>
-         <TextField alignment="CENTER" editable="false" focusTraversable="false" prefHeight="38.0" prefWidth="250.0" style="-fx-background-color: #BC000F;" text="Логин пользователя">
+         <TextField alignment="CENTER" editable="false" focusTraversable="false" prefHeight="38.0" prefWidth="250.0" style=" -fx-text-fill: white; -fx-background-color: #1F3D69;" text="Логин пользователя">
             <font>
                <Font name="Comic Sans MS Bold" size="20.0" />
             </font>
