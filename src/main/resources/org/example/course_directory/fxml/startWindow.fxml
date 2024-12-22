@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FA9800;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.course_directory.controllers.StartWindowController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FA9800;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.course_directory.controllers.StartWindowController" stylesheets="@../styles/style.css">
    <children>
       <Text layoutX="-4.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Справочник курсов по программированию" textAlignment="CENTER" wrappingWidth="602.841796875">
          <font>
@@ -28,7 +28,7 @@
                         <Insets top="20.0" />
                      </VBox.margin>
                   </Text>
-                  <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="216.0" style="-fx-background-color: #1F3D69; -fx-text-fill: WHITE; -fx-border-color: White; -fx-border-width: 2;" text="Смотреть курсы" textFill="WHITE">
+                  <Button onAction="#viewCourses" mnemonicParsing="false" prefHeight="35.0" prefWidth="216.0"  text="Смотреть курсы" textFill="WHITE" styleClass="startWindowButtons">
                      <font>
                         <Font name="Comic Sans MS" size="20.0" />
                      </font>
@@ -68,12 +68,12 @@
                         <Insets left="20.0" right="20.0" />
                      </VBox.margin>
                   </PasswordField>
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="173.0" style="-fx-background-color: #1F3D69; -fx-text-fill: WHITE;" text="Зарегистрироваться" textFill="WHITE">
+                  <Button onAction="#regAdmin" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0"  text="Зарегистрироваться" textFill="WHITE" styleClass="regButton">
                      <font>
                         <Font name="Comic Sans MS" size="14.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="33.0" prefWidth="118.0" style="-fx-background-color: #1F3D69; -fx-text-fill: WHITE; -fx-border-color: white; -fx-border-width: 2;" text="Войти" textFill="WHITE">
+                  <Button onAction="#adminAutoris" mnemonicParsing="false" prefHeight="33.0" prefWidth="118.0"  text="Войти" textFill="WHITE" styleClass="startWindowButtons">
                      <font>
                         <Font name="Comic Sans MS" size="20.0" />
                      </font>

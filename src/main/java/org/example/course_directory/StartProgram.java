@@ -7,6 +7,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.Locale;
+
 import org.example.course_directory.connection.DatabaseConnection;
 import org.example.course_directory.connection.ExecuteQuery;
 
@@ -18,7 +20,8 @@ public class StartProgram extends Application {
         dbConnection.connectToDatabase();
 
 
-        FXMLLoader fxmlLoader = new FXMLLoader(StartProgram.class.getResource("startWindow.fxml"));
+
+        FXMLLoader fxmlLoader = new FXMLLoader(StartProgram.class.getResource("fxml/startWindow.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Авторизация");
         stage.setScene(scene);
