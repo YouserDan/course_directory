@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="подключил css к startWindow настроил ховеры">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/UserMenuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/userMenu.fxml" afterDir="false" />
+    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="сделал переключение на окно просмотров курсов и ваозвращение назад, запретил взаимодействие с devider и resizable">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/StartWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/StartWindowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/userMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/userMenu.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/styles/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -368,7 +366,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735124250082</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="сделал переключение на окно просмотров курсов и ваозвращение назад, запретил взаимодействие с devider и resizable">
+      <option name="closed" value="true" />
+      <created>1736075890305</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1736075890305</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -399,6 +405,7 @@
     <MESSAGE value="сделал редизайн" />
     <MESSAGE value="чуть причесал" />
     <MESSAGE value="подключил css к startWindow настроил ховеры" />
-    <option name="LAST_COMMIT_MESSAGE" value="подключил css к startWindow настроил ховеры" />
+    <MESSAGE value="сделал переключение на окно просмотров курсов и ваозвращение назад, запретил взаимодействие с devider и resizable" />
+    <option name="LAST_COMMIT_MESSAGE" value="сделал переключение на окно просмотров курсов и ваозвращение назад, запретил взаимодействие с devider и resizable" />
   </component>
 </project>

@@ -44,14 +44,28 @@
     -fx-underline: false;
 }
 
-/*НАСТРОЙКИ DEVIDER*/
-/* Устанавливаем цвет фона разделителя */
-.split-pane-divider {
-    -fx-background-color: white;
+.userButtons{
+   -fx-font-family: "Comic Sans MS";
+       -fx-font-size: 16px;          /* Шрифт для кнопки */
+       -fx-background-color: #1F3D69; /* Основной цвет фона */
+       -fx-text-fill: white;         /* Цвет текста */
+       -fx-padding: 10px 20px;       /* Отступы */
+       -fx-border-color: white;      /* Основной цвет бордера */
+       -fx-border-width: 2;          /* Толщина бордера */
+       -fx-background-radius: 0;     /* Убираем скругления */
+       -fx-border-radius: 0;         /* Убираем скругления */
+       -fx-font-weight: bold;        /* Жирный текст для строгого стиля */
+
 }
 
-/* Изменяем ширину горизонтального разделителя */
-.split-pane:horizontal > .split-pane-divider {
-    -fx-pref-width: 2px; /* Толщина горизонтального разделителя */
+.userButtons:hover {
+    -fx-background-color: #2A4C7A; /* Тёмно-синий фон при наведении */
+    -fx-text-fill: white;          /* Текст остаётся белым */
+}
+
+.userButtons:pressed {
+    -fx-background-color: #1B2F4D; /* Ещё более тёмный фон при нажатии */
+    -fx-text-fill: white;          /* Текст остаётся белым */
+    -fx-border-color: white;       /* Бордер возвращается к белому */
 }
 

@@ -19,22 +19,22 @@
                         <Font name="Comic Sans MS Bold" size="20.0" />
                      </font>
                   </TextField>
-                  <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="174.0" style="-fx-background-color: #FA9800;" text="Главная">
+                  <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="174.0" styleClass="userButtons" text="Главная">
                      <font>
                         <Font name="Comic Sans MS Bold" size="17.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="174.0" style="-fx-background-color: #FA9800;" text="Каталог курсов">
+                  <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="174.0" styleClass="userButtons" text="Каталог курсов">
                      <font>
                         <Font name="Comic Sans MS Bold" size="17.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="174.0" style="-fx-background-color: #FA9800;" text="Помощь">
+                  <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="174.0" styleClass="userButtons" text="Помощь">
                      <font>
                         <Font name="Comic Sans MS Bold" size="17.0" />
                      </font>
                   </Button>
-                  <Button onAction="#backToMenu" mnemonicParsing="false" prefHeight="45.0" prefWidth="174.0" style="-fx-background-color: #FA9800;" text="Выйти в меню">
+                  <Button mnemonicParsing="false" onAction="#backToMenu" prefHeight="45.0" prefWidth="174.0" styleClass="userButtons" text="Выйти в меню">
                      <font>
                         <Font name="Comic Sans MS Bold" size="17.0" />
                      </font>
