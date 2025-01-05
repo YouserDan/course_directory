@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="сделал переключение на окно просмотров курсов и ваозвращение назад, запретил взаимодействие с devider и resizable">
+    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="refactor папок админ и юзер fxml">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/UserCoursesController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/user/userCourses.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/userMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/userMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/styles/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/StartWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/StartWindowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/UserMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/UserHomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/user/userMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/user/userHome.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,6 +86,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/admin" />
+      <recent name="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/user" />
       <recent name="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -374,7 +379,23 @@
       <option name="project" value="LOCAL" />
       <updated>1736075890305</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="редизайн с анимацией наведения и нажатия на кнопки userMenu">
+      <option name="closed" value="true" />
+      <created>1736082731522</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1736082731523</updated>
+    </task>
+    <task id="LOCAL-00034" summary="refactor папок админ и юзер fxml">
+      <option name="closed" value="true" />
+      <created>1736082924898</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1736082924898</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -406,6 +427,8 @@
     <MESSAGE value="чуть причесал" />
     <MESSAGE value="подключил css к startWindow настроил ховеры" />
     <MESSAGE value="сделал переключение на окно просмотров курсов и ваозвращение назад, запретил взаимодействие с devider и resizable" />
-    <option name="LAST_COMMIT_MESSAGE" value="сделал переключение на окно просмотров курсов и ваозвращение назад, запретил взаимодействие с devider и resizable" />
+    <MESSAGE value="редизайн с анимацией наведения и нажатия на кнопки userMenu" />
+    <MESSAGE value="refactor папок админ и юзер fxml" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor папок админ и юзер fxml" />
   </component>
 </project>

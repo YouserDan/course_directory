@@ -9,10 +9,10 @@ import javafx.scene.control.SplitPane;
 import javafx.stage.Stage;
 import org.example.course_directory.StartProgram;
 import javafx.scene.Node;
-import javafx.stage.Window;
+
 import java.io.IOException;
 
-public class UserMenuController {
+public class UserHomeController {
 
     @FXML
     private SplitPane splitPane;
@@ -46,7 +46,6 @@ public class UserMenuController {
             stage.setScene(new Scene(root));
             stage.show();
 
-            // Закрываем текущее окно
             // Получаем текущий Stage из события
             Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             currentStage.close();
@@ -54,6 +53,28 @@ public class UserMenuController {
             e.printStackTrace();
             System.out.println("Не удалось загрузить окно просмотра курсов");
         }
+    }
+
+    public void viewCourses(javafx.event.ActionEvent event) {
+        try {
+            // Загрузка нового окна
+            FXMLLoader loader = new FXMLLoader(StartProgram.class.getResource("/org/example/course_directory/fxml/user/userCourses.fxml"));
+            Parent root = loader.load();
+
+            // Создаем новое окно (Stage)
+            Stage stage = new Stage();
+            stage.setTitle("Каталог курсов");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+            // Получаем текущий Stage из события
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            currentStage.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Не удалось загрузить окно просмотра курсов");
+        }
+
     }
 }
 

@@ -5,7 +5,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.example.course_directory.StartProgram;
 import javafx.scene.Node;
-import javafx.stage.Window;
 
 import java.io.IOException;
 
@@ -20,7 +19,7 @@ public class StartWindowController {
     public void viewCourses(javafx.event.ActionEvent event) {
         try {
             // Загрузка нового окна
-            FXMLLoader loader = new FXMLLoader(StartProgram.class.getResource("/org/example/course_directory/fxml/userMenu.fxml"));
+            FXMLLoader loader = new FXMLLoader(StartProgram.class.getResource("/org/example/course_directory/fxml/user/userHome.fxml"));
             Parent root = loader.load();
 
             // Создаем новое окно (Stage)
