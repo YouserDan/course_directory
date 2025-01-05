@@ -26,6 +26,7 @@ public class StartProgram extends Application {
         stage.setTitle("Авторизация");
         stage.setScene(scene);
         stage.centerOnScreen();
+        stage.setResizable(false);
         stage.show();
     }
 

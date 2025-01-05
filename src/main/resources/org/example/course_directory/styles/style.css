@@ -43,3 +43,15 @@
 .regButton:pressed {
     -fx-underline: false;
 }
+
+/*НАСТРОЙКИ DEVIDER*/
+/* Устанавливаем цвет фона разделителя */
+.split-pane-divider {
+    -fx-background-color: white;
+}
+
+/* Изменяем ширину горизонтального разделителя */
+.split-pane:horizontal > .split-pane-divider {
+    -fx-pref-width: 2px; /* Толщина горизонтального разделителя */
+}
+
