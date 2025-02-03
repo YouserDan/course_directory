@@ -21,7 +21,7 @@
                   <Insets top="20.0" />
                </VBox.margin>
             </Text>
-            <TextField fx:id="firstNameField" prefHeight="40.0" promptText="Логин" style="-fx-background-color: #1F3D69; -fx-border-color: white; -fx-border-width: 2; -fx-text-fill: white;">
+            <TextField fx:id="emailField" prefHeight="40.0" promptText="Почта" style="-fx-background-color: #1F3D69; -fx-border-color: white; -fx-border-width: 2; -fx-text-fill: white;">
                <font>
                   <Font name="Comic Sans MS" size="14.0" />
                </font>

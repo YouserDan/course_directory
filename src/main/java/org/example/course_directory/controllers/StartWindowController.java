@@ -1,23 +1,21 @@
 package org.example.course_directory.controllers;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
-import org.example.course_directory.StartProgram;
-import javafx.scene.Node;
-
-import java.io.IOException;
+import org.example.course_directory.services.NotificationService;
+import org.example.course_directory.services.OpenNewWindow;
 
 public class StartWindowController {
+    private NotificationService notificationService = new NotificationService();
 
     @FXML
-    private TextField firstNameField;
+    private TextField emailField;
 
     @FXML
     private PasswordField passwordField;
@@ -27,7 +25,7 @@ public class StartWindowController {
 
     @FXML
     public void initialize() {
-        firstNameField.setOnKeyPressed(event -> {
+        emailField.setOnKeyPressed(event -> {
             if (event.getCode().equals(KeyCode.ENTER)) {
                 passwordField.requestFocus();
             }
@@ -41,36 +39,32 @@ public class StartWindowController {
 
         autorisButton.setOnKeyPressed(event -> {
             if (event.getCode().equals(KeyCode.ENTER)) {
-                 // Вызываем метод авторизации
+                // Вызываем метод авторизации
             }
         });
     }
 
-
+    // Метод для авторизации (пока без реализации)
     public void autoris(ActionEvent actionEvent) {
         System.out.println("Попытка авторизации");
-    }
-    public void registr(javafx.event.ActionEvent event){
-        System.out.println("Переход в регистрацию");
-        try {
-            // Загрузка нового окна
-            FXMLLoader loader = new FXMLLoader(StartProgram.class.getResource("/org/example/course_directory/fxml/registration.fxml"));
-            Parent root = loader.load();
+        if (emailField.getText().isEmpty() || passwordField.getText().isEmpty() ) {
+            System.out.println("Заполните все поля!");
 
-            // Создаем новое окно (Stage)
-            Stage stage = new Stage();
-            stage.setTitle("Регистрация");
-            stage.setScene(new Scene(root));
-            stage.show();
-            stage.setResizable(false);
+            notificationService.showNotification("Ошибка", "Заполните все поля!", "Для авторизации требуется заполнить все поля.");
 
-            // Закрываем текущее окно
-            // Получаем текущий Stage из события
-            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            currentStage.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Не удалось загрузить окно регистрации");
         }
+    }
+
+    // Метод для перехода в окно регистрации
+    public void registr(ActionEvent event) {
+        System.out.println("Переход в регистрацию");
+
+        // Получаем текущее окно (Stage)
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        // Создаем объект OpenNewWindow и открываем новое окно
+        OpenNewWindow openNewWindow = new OpenNewWindow();
+        openNewWindow.openNewWindow(currentStage, "/org/example/course_directory/fxml/registration.fxml", "Регистрация");
+
     }
 }

@@ -2,25 +2,21 @@ package org.example.course_directory.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
-import org.example.course_directory.StartProgram;
 import org.example.course_directory.connection.DatabaseConnection;
 import org.example.course_directory.dao.UserDAO;
 import org.example.course_directory.entyty.User;
+import org.example.course_directory.services.NotificationService;
+import org.example.course_directory.services.OpenNewWindow;
 import org.mindrot.jbcrypt.BCrypt;
-
-import java.io.IOException;
 import java.sql.Connection;
 
 public class RegController {
+
+    private NotificationService notificationService = new NotificationService();
 
     @FXML
     private TextField firstNameField;
@@ -36,13 +32,6 @@ public class RegController {
 
     @FXML
     public void initialize(){
-        System.out.println("Инициализация контроллера...");
-
-        if (firstNameField == null) {
-            System.out.println("firstNameField не инициализирован! Проверьте FXML.");
-        } else {
-            System.out.println("firstNameField загружен.");
-        }
         firstNameField.setOnKeyPressed(event -> {
             if (event.getCode().equals(KeyCode.ENTER)) {
                 lastNameField.requestFocus();
@@ -69,35 +58,19 @@ public class RegController {
 
         regButton.setOnKeyPressed(event -> {
             if (event.getCode().equals(KeyCode.ENTER)) {
-                // Вызываем метод авторизации
+                // Вызываем метод регистрации
             }
         });
     }
 
     public void autoriz(javafx.event.ActionEvent event){
         System.out.println("Переход в регистрацию");
-        try {
-            // Загрузка нового окна
-            FXMLLoader loader = new FXMLLoader(StartProgram.class.getResource("/org/example/course_directory/fxml/startWindow.fxml"));
-            Parent root = loader.load();
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-            // Создаем новое окно (Stage)
-            Stage stage = new Stage();
-            stage.setTitle("Авторизация");
-            stage.setScene(new Scene(root));
-            stage.show();
-            stage.setResizable(false);
-
-            // Закрываем текущее окно
-            // Получаем текущий Stage из события
-            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            currentStage.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Не удалось загрузить окно входа");
-        }
+        OpenNewWindow openNewWindow = new OpenNewWindow();
+        openNewWindow.openNewWindow(currentStage, "/org/example/course_directory/fxml/startWindow.fxml", "Авторизация");
     }
-    public void registr(ActionEvent actionEvent) {
+    public void registr(ActionEvent event) {
         System.out.println("Попытка регистрации");
         String firstName = firstNameField.getText();
         String lastName = lastNameField.getText();
@@ -106,7 +79,10 @@ public class RegController {
 
         if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || password.isEmpty()) {
             System.out.println("Заполните все поля!");
-            return;
+
+            notificationService.showNotification("Ошибка", "Заполните все поля!", "Для регистрации требуется заполнить все поля.");
+
+
         }
 
         // Хеширование пароля перед сохранением
@@ -120,6 +96,11 @@ public class RegController {
             UserDAO userDAO = new UserDAO(connection);
             if (userDAO.registerUser(newUser)) {
                 System.out.println("Регистрация успешна!");
+                notificationService.showNotification("Успех", "Успешная регистрация!", "Вы успешно зарегистрировались, можете входить!");
+                Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                OpenNewWindow openNewWindow = new OpenNewWindow();
+                openNewWindow.openNewWindow(currentStage, "/org/example/course_directory/fxml/startWindow.fxml", "Авторизация");
+
             } else {
                 System.out.println("Ошибка при регистрации.");
             }

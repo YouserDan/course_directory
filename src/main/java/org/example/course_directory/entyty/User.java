@@ -1,14 +1,10 @@
 package org.example.course_directory.entyty;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-
 public class User {
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String passwordHash;
+    private final String firstName;
+    private final String lastName;
+    private final String email;
+    private final String passwordHash;
 
     public User(String firstName, String lastName, String email, String passwordHash) {
         this.firstName = firstName;
