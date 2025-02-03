@@ -2,6 +2,7 @@ module org.example.course_directory {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
+    requires jbcrypt;
 
 
     opens org.example.course_directory to javafx.fxml;

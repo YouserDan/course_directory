@@ -12,8 +12,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import org.example.course_directory.StartProgram;
+import org.example.course_directory.connection.DatabaseConnection;
+import org.example.course_directory.dao.UserDAO;
+import org.example.course_directory.entyty.User;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.IOException;
+import java.sql.Connection;
 
 public class RegController {
 
@@ -31,6 +36,13 @@ public class RegController {
 
     @FXML
     public void initialize(){
+        System.out.println("Инициализация контроллера...");
+
+        if (firstNameField == null) {
+            System.out.println("firstNameField не инициализирован! Проверьте FXML.");
+        } else {
+            System.out.println("firstNameField загружен.");
+        }
         firstNameField.setOnKeyPressed(event -> {
             if (event.getCode().equals(KeyCode.ENTER)) {
                 lastNameField.requestFocus();
@@ -87,6 +99,33 @@ public class RegController {
     }
     public void registr(ActionEvent actionEvent) {
         System.out.println("Попытка регистрации");
+        String firstName = firstNameField.getText();
+        String lastName = lastNameField.getText();
+        String email = mailField.getText();
+        String password = passwordField.getText();  // Нужно хешировать
+
+        if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || password.isEmpty()) {
+            System.out.println("Заполните все поля!");
+            return;
+        }
+
+        // Хеширование пароля перед сохранением
+        String passwordHash = BCrypt.hashpw(password, BCrypt.gensalt());
+
+        // Создаем объект пользователя
+        User newUser = new User(firstName, lastName, email, passwordHash);
+
+        // Сохраняем в БД через DAO
+        try (Connection connection = new DatabaseConnection().connectToDatabase()) {
+            UserDAO userDAO = new UserDAO(connection);
+            if (userDAO.registerUser(newUser)) {
+                System.out.println("Регистрация успешна!");
+            } else {
+                System.out.println("Ошибка при регистрации.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 

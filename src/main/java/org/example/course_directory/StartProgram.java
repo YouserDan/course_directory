@@ -16,10 +16,8 @@ public class StartProgram extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        DatabaseConnection dbConnection = new DatabaseConnection();
-//        dbConnection.connectToDatabase();
-
-
+        System.out.println("java version: "+System.getProperty("java.version"));
+        System.out.println("javafx.version: " + System.getProperty("javafx.version"));
 
         FXMLLoader fxmlLoader = new FXMLLoader(StartProgram.class.getResource("fxml/startWindow.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
