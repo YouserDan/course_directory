@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="refactor папок админ и юзер fxml">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/UserCoursesController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/user/userCourses.fxml" afterDir="false" />
+    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="ds">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/RegController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/registration.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/StartProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/StartProgram.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/StartWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/StartWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/UserMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/UserHomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/user/userMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/user/userHome.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/startWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/startWindow.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +53,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;YouserDan&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/YouserDan/course_directory.git&quot;,
+    &quot;accountId&quot;: &quot;cebdcd4d-2fe9-4d49-bf55-d373e9e9390a&quot;
+  }
+}</component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -62,7 +76,7 @@
   &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="2n6XgRkaOk4YFIoE0Sxm0iD49br" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -76,8 +90,9 @@
     &quot;Application.StartProgramm.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;testBrach&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Downloads/SceneBuilder.exe&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.4816092&quot;,
