@@ -13,9 +13,12 @@ import org.example.course_directory.services.NotificationService;
 import org.example.course_directory.services.OpenNewWindow;
 import org.mindrot.jbcrypt.BCrypt;
 import java.sql.Connection;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class RegController {
 
+    private static final Logger logger = Logger.getLogger(RegController.class.getName());
     private NotificationService notificationService = new NotificationService();
 
     @FXML
@@ -29,9 +32,8 @@ public class RegController {
     @FXML
     private Button regButton;
 
-
     @FXML
-    public void initialize(){
+    public void initialize() {
         firstNameField.setOnKeyPressed(event -> {
             if (event.getCode().equals(KeyCode.ENTER)) {
                 lastNameField.requestFocus();
@@ -55,58 +57,67 @@ public class RegController {
                 regButton.requestFocus();
             }
         });
-
-        regButton.setOnKeyPressed(event -> {
-            if (event.getCode().equals(KeyCode.ENTER)) {
-                // Вызываем метод регистрации
-            }
-        });
     }
 
-    public void autoriz(javafx.event.ActionEvent event){
-        System.out.println("Переход в регистрацию");
+    public void autoriz(ActionEvent event) {
+        System.out.println("Переход в авторизацию");
         Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
         OpenNewWindow openNewWindow = new OpenNewWindow();
         openNewWindow.openNewWindow(currentStage, "/org/example/course_directory/fxml/startWindow.fxml", "Авторизация");
     }
+
     public void registr(ActionEvent event) {
         System.out.println("Попытка регистрации");
-        String firstName = firstNameField.getText();
-        String lastName = lastNameField.getText();
-        String email = mailField.getText();
-        String password = passwordField.getText();  // Нужно хешировать
+        String firstName = firstNameField.getText().trim();
+        String lastName = lastNameField.getText().trim();
+        String email = mailField.getText().trim().toLowerCase();
+        String password = passwordField.getText().trim();
 
         if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || password.isEmpty()) {
-            System.out.println("Заполните все поля!");
-
             notificationService.showNotification("Ошибка", "Заполните все поля!", "Для регистрации требуется заполнить все поля.");
-
-
+            return;
         }
 
-        // Хеширование пароля перед сохранением
-        String passwordHash = BCrypt.hashpw(password, BCrypt.gensalt());
+        if (!isValidEmail(email)) {
+            notificationService.showNotification("Ошибка", "Некорректный email", "Введите корректный email-адрес.");
+            return;
+        }
 
-        // Создаем объект пользователя
-        User newUser = new User(firstName, lastName, email, passwordHash);
+        if (!isValidPassword(password)) {
+            notificationService.showNotification("Ошибка", "Слабый пароль", "Пароль должен содержать минимум 8 символов, включая буквы, цифры и спецсимволы.");
+            return;
+        }
 
-        // Сохраняем в БД через DAO
         try (Connection connection = new DatabaseConnection().connectToDatabase()) {
             UserDAO userDAO = new UserDAO(connection);
-            if (userDAO.registerUser(newUser)) {
-                System.out.println("Регистрация успешна!");
-                notificationService.showNotification("Успех", "Успешная регистрация!", "Вы успешно зарегистрировались, можете входить!");
-                Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                OpenNewWindow openNewWindow = new OpenNewWindow();
-                openNewWindow.openNewWindow(currentStage, "/org/example/course_directory/fxml/startWindow.fxml", "Авторизация");
+            if (userDAO.emailExists(email)) {
+                notificationService.showNotification("Ошибка", "Email уже зарегистрирован", "Этот email уже используется.");
+                return;
+            }
 
+            String passwordHash = BCrypt.hashpw(password, BCrypt.gensalt(12));
+            User newUser = new User(firstName, lastName, email, passwordHash);
+
+            if (userDAO.registerUser(newUser)) {
+                notificationService.showNotification("Успех", "Регистрация прошла успешно", "Теперь вы можете войти в систему.");
+                autoriz(event);
             } else {
-                System.out.println("Ошибка при регистрации.");
+                notificationService.showNotification("Ошибка", "Не удалось зарегистрироваться", "Попробуйте позже.");
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "Ошибка при регистрации пользователя", e);
+            notificationService.showNotification("Ошибка", "Ошибка базы данных", "Попробуйте позже.");
         }
+    }
+
+    private boolean isValidEmail(String email) {
+        String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
+        return email.matches(emailRegex);
+    }
+
+    private boolean isValidPassword(String password) {
+        String passwordRegex = "^.{5,}$";
+        return password.matches(passwordRegex);
     }
 
 
