@@ -1,6 +1,5 @@
 package org.example.course_directory.controllers;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -37,7 +36,7 @@ public class UserHomeController {
     public void backToMenu(javafx.event.ActionEvent event) {
         try {
             // Загрузка нового окна
-            FXMLLoader loader = new FXMLLoader(StartProgram.class.getResource("/org/example/course_directory/fxml/startWindow.fxml"));
+            FXMLLoader loader = new FXMLLoader(StartProgram.class.getResource("/org/example/course_directory/fxml/authWindow.fxml"));
             Parent root = loader.load();
 
             // Создаем новое окно (Stage)

@@ -63,7 +63,7 @@ public class RegController {
         System.out.println("Переход в авторизацию");
         Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         OpenNewWindow openNewWindow = new OpenNewWindow();
-        openNewWindow.openNewWindow(currentStage, "/org/example/course_directory/fxml/startWindow.fxml", "Авторизация");
+        openNewWindow.openNewWindow(currentStage, "/org/example/course_directory/fxml/authWindow.fxml", "Авторизация");
     }
 
     public void registr(ActionEvent event) {

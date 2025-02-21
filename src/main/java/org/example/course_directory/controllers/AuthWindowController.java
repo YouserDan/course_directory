@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
@@ -11,7 +12,7 @@ import javafx.stage.Stage;
 import org.example.course_directory.services.NotificationService;
 import org.example.course_directory.services.OpenNewWindow;
 
-public class StartWindowController {
+public class AuthWindowController {
     private NotificationService notificationService = new NotificationService();
 
     @FXML
@@ -22,6 +23,10 @@ public class StartWindowController {
 
     @FXML
     private Button autorisButton;
+
+    @FXML
+    private CheckBox adminBox;
+
 
     @FXML
     public void initialize() {
@@ -47,13 +52,43 @@ public class StartWindowController {
     // Метод для авторизации (пока без реализации)
     public void autoris(ActionEvent actionEvent) {
         System.out.println("Попытка авторизации");
-        if (emailField.getText().isEmpty() || passwordField.getText().isEmpty() ) {
+
+        String email = emailField.getText();
+        String password = passwordField.getText();
+
+        if (email.isEmpty() || password.isEmpty()) {
             System.out.println("Заполните все поля!");
-
             notificationService.showNotification("Ошибка", "Заполните все поля!", "Для авторизации требуется заполнить все поля.");
+            return;
+        }
 
+        boolean isAdmin = adminBox.isSelected(); // Проверяем, отмечен ли чекбокс
+
+        if (isAdmin) {
+            System.out.println("Вход как администратор");
+            // Здесь можно открыть окно администратора
+            openAdminWindow(actionEvent);
+        } else {
+            System.out.println("Вход как пользователь");
+            // Здесь можно открыть окно пользователя
+            openUserWindow(actionEvent);
         }
     }
+
+    // Метод для открытия окна администратора
+    private void openAdminWindow(ActionEvent event) {
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        OpenNewWindow openNewWindow = new OpenNewWindow();
+//        openNewWindow.openNewWindow(currentStage, "/org/example/course_directory/fxml/admin.fxml", "Админ-панель");
+    }
+
+    // Метод для открытия окна пользователя
+    private void openUserWindow(ActionEvent event) {
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        OpenNewWindow openNewWindow = new OpenNewWindow();
+        openNewWindow.openNewWindow(currentStage, "/org/example/course_directory/fxml/user/userHome.fxml", "Пользователь");
+    }
+
 
     // Метод для перехода в окно регистрации
     public void registr(ActionEvent event) {

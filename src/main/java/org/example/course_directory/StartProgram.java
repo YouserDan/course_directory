@@ -13,7 +13,7 @@ public class StartProgram extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(StartProgram.class.getResource("fxml/startWindow.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(StartProgram.class.getResource("fxml/authWindow.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Авторизация");
         stage.setScene(scene);
