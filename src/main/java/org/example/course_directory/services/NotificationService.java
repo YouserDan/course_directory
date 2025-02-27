@@ -1,8 +1,11 @@
 package org.example.course_directory.services;
 
+import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
+
+import java.util.Optional;
 
 public class NotificationService {
 
@@ -22,5 +25,20 @@ public class NotificationService {
 
         // Показываем диалог
         dialog.showAndWait();
+    }
+    public boolean showConfirmationDialog(String title, String content) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+
+        // Устанавливаем кнопки "Да" и "Нет"
+        ButtonType yesButton = new ButtonType("Да");
+        ButtonType noButton = new ButtonType("Нет");
+        alert.getButtonTypes().setAll(yesButton, noButton);
+
+        // Показываем диалог и ждём ответа
+        Optional<ButtonType> result = alert.showAndWait();
+        return result.isPresent() && result.get() == yesButton;
     }
 }

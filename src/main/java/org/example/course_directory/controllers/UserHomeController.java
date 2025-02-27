@@ -1,13 +1,16 @@
 package org.example.course_directory.controllers;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.SplitPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.example.course_directory.StartProgram;
 import javafx.scene.Node;
+import org.example.course_directory.services.NotificationService;
 
 import java.io.IOException;
 
@@ -15,6 +18,16 @@ public class UserHomeController {
 
     @FXML
     private SplitPane splitPane;
+
+    @FXML
+    private AnchorPane courseCatalog;
+
+    @FXML
+    private AnchorPane helpPage;
+
+    @FXML
+    private AnchorPane homePage;
+
 
     @FXML
     public void initialize() {
@@ -28,52 +41,55 @@ public class UserHomeController {
 
             // Фиксируем положение разделителя
             splitPane.setDividerPositions(0.3);
+
+            courseCatalog.setVisible(false);
+            helpPage.setVisible(false);
+            homePage.setVisible(true);
         });
     }
 
 
 
     public void backToMenu(javafx.event.ActionEvent event) {
-        try {
-            // Загрузка нового окна
-            FXMLLoader loader = new FXMLLoader(StartProgram.class.getResource("/org/example/course_directory/fxml/authWindow.fxml"));
-            Parent root = loader.load();
+        NotificationService notificationService = new NotificationService();
+        boolean confirmExit = notificationService.showConfirmationDialog("Подтверждение", "Вы уверены, что хотите выйти в главное меню?");
 
-            // Создаем новое окно (Stage)
-            Stage stage = new Stage();
-            stage.setTitle("Авторизация");
-            stage.setScene(new Scene(root));
-            stage.show();
+        if (confirmExit) {
+            try {
+                FXMLLoader loader = new FXMLLoader(StartProgram.class.getResource("/org/example/course_directory/fxml/authWindow.fxml"));
+                Parent root = loader.load();
 
-            // Получаем текущий Stage из события
-            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            currentStage.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Не удалось загрузить окно просмотра курсов");
+                Stage stage = new Stage();
+                stage.setTitle("Авторизация");
+                stage.setScene(new Scene(root));
+                stage.show();
+
+                // Закрываем текущее окно
+                Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                currentStage.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println("Не удалось загрузить окно авторизации");
+            }
         }
     }
 
     public void viewCourses(javafx.event.ActionEvent event) {
-        try {
-            // Загрузка нового окна
-            FXMLLoader loader = new FXMLLoader(StartProgram.class.getResource("/org/example/course_directory/fxml/user/userCourses.fxml"));
-            Parent root = loader.load();
+        helpPage.setVisible(false);
+        courseCatalog.setVisible(true);
+        homePage.setVisible(false);
+    }
 
-            // Создаем новое окно (Stage)
-            Stage stage = new Stage();
-            stage.setTitle("Каталог курсов");
-            stage.setScene(new Scene(root));
-            stage.show();
+    public void openHelpPage(ActionEvent event) {
+        helpPage.setVisible(true);
+        courseCatalog.setVisible(false);
+        homePage.setVisible(false);
+    }
 
-            // Получаем текущий Stage из события
-            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            currentStage.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Не удалось загрузить окно просмотра курсов");
-        }
-
+    public void openHomePage(ActionEvent event) {
+        homePage.setVisible(true);
+        helpPage.setVisible(false);
+        courseCatalog.setVisible(false);
     }
 }
 

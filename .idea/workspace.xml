@@ -5,12 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="Добавил проверки при регистрации">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/languages_icons/20d159cea262332bdcc183320079cf49.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/languages_icons/C_Logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/languages_icons/Csharp_Logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/languages_icons/Dart_programming_language_logo.svg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/languages_icons/Go-Logo_Blue.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/languages_icons/HTML5_logo_and_wordmark.svg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/languages_icons/ISO_C++_Logo.svg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/languages_icons/JavaScript-Logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/languages_icons/Java_logo.svg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/languages_icons/Kotlin_Icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/languages_icons/PHP-logo.svg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/languages_icons/Python-logo-notext.svg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/languages_icons/R_logo.svg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/languages_icons/Ruby_logo.svg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/languages_icons/Rust_programming_language_black_logo.svg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/languages_icons/Sql_data_base_with_logo.svg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/languages_icons/Swift_logo.svg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/languages_icons/Typescript_logo_2020.svg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/languages_icons/images.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/StartProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/StartProgram.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/RegController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/RegController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/StartWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/AuthWindowController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/UserHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/UserHomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/startWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/authWindow.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/services/NotificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/services/NotificationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/user/userHome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/user/userHome.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/styles/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +112,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/IdeaProjects/course_directory&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/IdeaProjects/course_directory/src/main/resources&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.3475712&quot;,
@@ -101,6 +120,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\IdeaProjects\course_directory\src\main\resources" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/admin" />
       <recent name="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/user" />
