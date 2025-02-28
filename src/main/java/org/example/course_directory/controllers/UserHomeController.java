@@ -74,6 +74,7 @@ public class UserHomeController {
         }
     }
 
+
     public void viewCourses(javafx.event.ActionEvent event) {
         helpPage.setVisible(false);
         courseCatalog.setVisible(true);
