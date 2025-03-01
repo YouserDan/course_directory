@@ -66,7 +66,6 @@ public class AuthWindowController {
 
         if (isAdmin) {
             System.out.println("Вход как администратор");
-            // Здесь можно открыть окно администратора
             openAdminWindow(actionEvent);
         } else {
             System.out.println("Вход как пользователь");
@@ -79,7 +78,7 @@ public class AuthWindowController {
     private void openAdminWindow(ActionEvent event) {
         Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         OpenNewWindow openNewWindow = new OpenNewWindow();
-//        openNewWindow.openNewWindow(currentStage, "/org/example/course_directory/fxml/admin.fxml", "Админ-панель");
+        openNewWindow.openNewWindow(currentStage, "/org/example/course_directory/fxml/admin/adminHome.fxml", "Админ-панель");
     }
 
     // Метод для открытия окна пользователя
