@@ -38,7 +38,6 @@ public class AdminHomeController {
 
 
 
-
     // Поля, которые будут связаны с элементами формы
     @FXML private TextField courseNameFieldAdd;
     @FXML private TextField courseAutorFieldAdd;
