@@ -48,6 +48,23 @@ public class UserHomeController {
         });
     }
 
+    public void viewCourses(javafx.event.ActionEvent event) {
+        helpPage.setVisible(false);
+        courseCatalog.setVisible(true);
+        homePage.setVisible(false);
+    }
+
+    public void openHelpPage(ActionEvent event) {
+        helpPage.setVisible(true);
+        courseCatalog.setVisible(false);
+        homePage.setVisible(false);
+    }
+
+    public void openHomePage(ActionEvent event) {
+        homePage.setVisible(true);
+        helpPage.setVisible(false);
+        courseCatalog.setVisible(false);
+    }
 
 
     public void backToMenu(javafx.event.ActionEvent event) {
@@ -75,22 +92,6 @@ public class UserHomeController {
     }
 
 
-    public void viewCourses(javafx.event.ActionEvent event) {
-        helpPage.setVisible(false);
-        courseCatalog.setVisible(true);
-        homePage.setVisible(false);
-    }
 
-    public void openHelpPage(ActionEvent event) {
-        helpPage.setVisible(true);
-        courseCatalog.setVisible(false);
-        homePage.setVisible(false);
-    }
-
-    public void openHomePage(ActionEvent event) {
-        homePage.setVisible(true);
-        helpPage.setVisible(false);
-        courseCatalog.setVisible(false);
-    }
 }
 

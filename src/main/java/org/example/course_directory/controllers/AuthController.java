@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 import org.example.course_directory.services.NotificationService;
 import org.example.course_directory.services.OpenNewWindow;
 
-public class AuthWindowController {
+public class AuthController {
     private NotificationService notificationService = new NotificationService();
 
     @FXML
