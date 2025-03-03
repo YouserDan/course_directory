@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import org.example.course_directory.StartProgram;
 import org.example.course_directory.dao.CourseDAO;
 import org.example.course_directory.entyty.Course;
+import org.example.course_directory.services.ClearForm;
 import org.example.course_directory.services.NotificationService;
 
 
@@ -39,22 +40,21 @@ public class AdminHomeController {
 
 
     // Поля, которые будут связаны с элементами формы
-    @FXML private TextField titleField;
-    @FXML private TextField authorField;
-    @FXML private TextField programmingLanguageField;
-    @FXML private TextField imageUrlField;
-    @FXML private TextField levelField;
-    @FXML private TextField durationField;
-    @FXML private TextField accessField;
-    @FXML private TextField priceField;
-    @FXML private TextField keywordsField;
-    @FXML private TextArea descriptionField;
-    @FXML private TextField languageOfCourseField;
-    @FXML private TextField resourceUrlField;
-    @FXML private TextField createdByField;
+    @FXML private TextField courseNameFieldAdd;
+    @FXML private TextField courseAutorFieldAdd;
+    @FXML private ChoiceBox programmingLanguageChoiseAdd;
+    @FXML private ImageView imageView;
+    @FXML private Spinner spinnerAdd;
+    @FXML private ChoiceBox dataTypeAdd;
+    @FXML private ChoiceBox levelChoiseAdd;
+    @FXML private ChoiceBox accessAdd;
+    @FXML private TextField priceFieldAdd;
+    @FXML private TextField keywordsFieldAdd;
+    @FXML private TextArea descriptionAdd;
+    @FXML private TextField languageOfCourseAdd;
+    @FXML private TextField urlAdd;
+    @FXML private String createdByField = "Admin";
 
-    @FXML
-    private ImageView imageView;
 
 
     @FXML
@@ -66,6 +66,11 @@ public class AdminHomeController {
         courseEditor.setVisible(false);
         helpPage.setVisible(false);
         addCourse.setVisible(false);
+        // Устанавливаем диапазон значений (от 1 до 100, шаг 1)
+        spinnerAdd.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 1000, 1));
+
+        // Включаем ввод вручную (если нужно)
+        spinnerAdd.setEditable(true);
 
     }
 
@@ -74,19 +79,20 @@ public class AdminHomeController {
     public void saveCourse() {
         try {
             // Считываем данные из формы
-            String title = titleField.getText();
-            String author = authorField.getText();
-            String programmingLanguage = programmingLanguageField.getText();
-            String imageUrl = imageUrlField.getText();
-            String level = levelField.getText();
-            String duration = durationField.getText();
-            String access = accessField.getText();
-            double price = Double.parseDouble(priceField.getText());
-            String keywords = keywordsField.getText();
-            String description = descriptionField.getText();
-            String languageOfCourse = languageOfCourseField.getText();
-            String resourceUrl = resourceUrlField.getText();
-            String createdBy = createdByField.getText();
+            String title = courseNameFieldAdd.getText();
+            String author = courseAutorFieldAdd.getText();
+            String programmingLanguage = (String) programmingLanguageChoiseAdd.getValue();
+            String imageUrl = String.valueOf(imageView.getImage());
+            String level = (String) levelChoiseAdd.getValue();
+            String duration = String.valueOf(spinnerAdd.getValue());
+            String durationType = (String) dataTypeAdd.getValue();
+            String access = (String) accessAdd.getValue();
+            double price = Double.parseDouble(priceFieldAdd.getText());
+            String keywords = keywordsFieldAdd.getText();
+            String description = descriptionAdd.getText();
+            String languageOfCourse = languageOfCourseAdd.getText();
+            String resourceUrl = urlAdd.getText();
+            String createdBy = createdByField;
 
             // Создаем объект Course с введенными данными
             Course newCourse = new Course(
@@ -96,6 +102,7 @@ public class AdminHomeController {
                     imageUrl,
                     level,
                     duration,
+                    durationType,
                     access,
                     price,
                     keywords,
@@ -116,11 +123,21 @@ public class AdminHomeController {
             // Уведомляем пользователя о том, что курс был успешно добавлен
             showAlert("Успех", "Курс был успешно добавлен в базу данных.");
 
+            ClearForm.clearForm(courseNameFieldAdd, courseAutorFieldAdd, programmingLanguageChoiseAdd, imageView,
+                    spinnerAdd, dataTypeAdd, levelChoiseAdd, accessAdd, priceFieldAdd, keywordsFieldAdd, descriptionAdd,
+                    languageOfCourseAdd, urlAdd);
+
+            homePage.setVisible(false);
+            courseCatalog.setVisible(false);
+            courseEditor.setVisible(true);
+            helpPage.setVisible(false);
+            addCourse.setVisible(false);
+
         } catch (SQLException e) {
             e.printStackTrace();
             showAlert("Ошибка", "Произошла ошибка при добавлении курса в базу данных.");
         } catch (NumberFormatException e) {
-            showAlert("Ошибка ввода", "Пожалуйста, убедитесь, что цена введена корректно.");
+            showAlert("Ошибка ввода", "Пожалуйста, убедитесь, что  все поля заполненны корректно.");
         }
     }
 

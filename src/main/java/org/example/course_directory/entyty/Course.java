@@ -11,6 +11,7 @@ public class Course {
     private String imageUrl;  // URL изображения
     private String level;  // Уровень сложности
     private String duration;  // Длительность курса
+    private String durationType;  // Длительность чч мм гг
     private String access;  // Доступность (например, бесплатно или платно)
     private double price;  // Цена курса
     private String keywords;  // Ключевые слова
@@ -24,7 +25,7 @@ public class Course {
 
     // Конструктор без ID, потому что ID обычно генерируется базой данных
     public Course(String title, String author, String programmingLanguage, String imageUrl, String level,
-                  String duration, String access, double price, String keywords, String description,
+                  String duration, String durationType, String access, double price, String keywords, String description,
                   String languageOfCourse, String resourceUrl, String createdBy) {
         this.title = title;
         this.author = author;
@@ -32,6 +33,7 @@ public class Course {
         this.imageUrl = imageUrl;
         this.level = level;
         this.duration = duration;
+        this.durationType = durationType;
         this.access = access;
         this.price = price;
         this.keywords = keywords;
@@ -93,6 +95,10 @@ public class Course {
 
     public String getDuration() {
         return duration;
+    }
+
+    public String getDurationType() {
+        return durationType;
     }
 
     public void setDuration(String duration) {

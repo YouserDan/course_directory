@@ -19,9 +19,9 @@ public class CourseDAO {
 
     // Метод для добавления курса
     public void addCourse(Course course) throws SQLException {
-        String sql = "INSERT INTO courses (title, author, programming_language, image_url, level, duration, access, price, " +
+        String sql = "INSERT INTO courses (title, author, programming_language, image_url, level, duration, duration_type, access, price, " +
                 "keywords, description, language_of_course, resource_url, created_by, created_at, updated_at) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, course.getTitle());
@@ -30,15 +30,16 @@ public class CourseDAO {
             statement.setString(4, course.getImageUrl());
             statement.setString(5, course.getLevel());
             statement.setString(6, course.getDuration());
-            statement.setString(7, course.getAccess());
-            statement.setDouble(8, course.getPrice());
-            statement.setString(9, course.getKeywords());
-            statement.setString(10, course.getDescription());
-            statement.setString(11, course.getLanguageOfCourse());
-            statement.setString(12, course.getResourceUrl());
-            statement.setString(13, course.getCreatedBy());
-            statement.setTimestamp(14, Timestamp.valueOf(course.getCreatedAt()));
-            statement.setTimestamp(15, Timestamp.valueOf(course.getUpdatedAt()));
+            statement.setString(7, course.getDurationType());
+            statement.setString(8, course.getAccess());
+            statement.setDouble(9, course.getPrice());
+            statement.setString(10, course.getKeywords());
+            statement.setString(11, course.getDescription());
+            statement.setString(12, course.getLanguageOfCourse());
+            statement.setString(13, course.getResourceUrl());
+            statement.setString(14, course.getCreatedBy());
+            statement.setTimestamp(15, Timestamp.valueOf(course.getCreatedAt()));
+            statement.setTimestamp(16, Timestamp.valueOf(course.getUpdatedAt()));
 
             statement.executeUpdate();
         }
@@ -62,7 +63,7 @@ public class CourseDAO {
     // Метод для обновления информации о курсе
     public void updateCourse(Course course) throws SQLException {
         String sql = "UPDATE courses SET title = ?, author = ?, programming_language = ?, image_url = ?, level = ?, " +
-                "duration = ?, access = ?, price = ?, keywords = ?, description = ?, language_of_course = ?, resource_url = ?, " +
+                "duration = ?, duration_type = ?, access = ?, price = ?, keywords = ?, description = ?, language_of_course = ?, resource_url = ?, " +
                 "updated_at = ?, updated_by = ? WHERE id = ?";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -72,6 +73,7 @@ public class CourseDAO {
             statement.setString(4, course.getImageUrl());
             statement.setString(5, course.getLevel());
             statement.setString(6, course.getDuration());
+            statement.setString(6, course.getDurationType());
             statement.setString(7, course.getAccess());
             statement.setDouble(8, course.getPrice());
             statement.setString(9, course.getKeywords());
@@ -120,6 +122,7 @@ public class CourseDAO {
                 resultSet.getString("image_url"),
                 resultSet.getString("level"),
                 resultSet.getString("duration"),
+                resultSet.getString("duration_type"),
                 resultSet.getString("access"),
                 resultSet.getDouble("price"),
                 resultSet.getString("keywords"),
