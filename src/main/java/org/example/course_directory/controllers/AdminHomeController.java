@@ -56,7 +56,6 @@ public class AdminHomeController {
     @FXML private String createdByField = "Admin";
 
 
-
     @FXML
     private Button saveCourseButton;
 
