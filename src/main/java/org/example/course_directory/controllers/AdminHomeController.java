@@ -72,6 +72,20 @@ public class AdminHomeController {
         // Включаем ввод вручную (если нужно)
         spinnerAdd.setEditable(true);
 
+        // Устанавливаем обработчик события изменения типа курса
+        accessAdd.setOnAction(event -> handleAccessChoiceSelection());
+
+    }
+
+    private void handleAccessChoiceSelection() {
+        // Проверяем, выбран ли тип курса "Бесплатный"
+        if ("Бесплатный".equals(accessAdd.getValue())) {
+            priceFieldAdd.setText("0");  // Устанавливаем цену в 0
+            priceFieldAdd.setDisable(true);  // Блокируем поле
+        } else {
+            priceFieldAdd.setDisable(false);  // Разблокируем поле для редактирования
+            priceFieldAdd.clear();  // Очистим поле, если курс не бесплатный
+        }
     }
 
     // Метод для сохранения курса в базу данных
@@ -87,7 +101,13 @@ public class AdminHomeController {
             String duration = String.valueOf(spinnerAdd.getValue());
             String durationType = (String) dataTypeAdd.getValue();
             String access = (String) accessAdd.getValue();
-            double price = Double.parseDouble(priceFieldAdd.getText());
+            double price = 0;
+
+            // Проверяем, является ли курс бесплатным
+            if (!"Бесплатный".equals(access)) {
+                price = Double.parseDouble(priceFieldAdd.getText());  // Если курс платный, берем цену из поля
+            }
+
             String keywords = keywordsFieldAdd.getText();
             String description = descriptionAdd.getText();
             String languageOfCourse = languageOfCourseAdd.getText();
@@ -123,10 +143,12 @@ public class AdminHomeController {
             // Уведомляем пользователя о том, что курс был успешно добавлен
             showAlert("Успех", "Курс был успешно добавлен в базу данных.");
 
+            // Очищаем форму после добавления
             ClearForm.clearForm(courseNameFieldAdd, courseAutorFieldAdd, programmingLanguageChoiseAdd, imageView,
                     spinnerAdd, dataTypeAdd, levelChoiseAdd, accessAdd, priceFieldAdd, keywordsFieldAdd, descriptionAdd,
                     languageOfCourseAdd, urlAdd);
 
+            // Переключаем страницы
             homePage.setVisible(false);
             courseCatalog.setVisible(false);
             courseEditor.setVisible(true);
@@ -137,7 +159,7 @@ public class AdminHomeController {
             e.printStackTrace();
             showAlert("Ошибка", "Произошла ошибка при добавлении курса в базу данных.");
         } catch (NumberFormatException e) {
-            showAlert("Ошибка ввода", "Пожалуйста, убедитесь, что  все поля заполненны корректно.");
+            showAlert("Ошибка ввода", "Пожалуйста, убедитесь, что все поля заполнены корректно.");
         }
     }
 
@@ -214,6 +236,17 @@ public class AdminHomeController {
         addCourse.setVisible(true);
     }
 
+    public void backToEditor(ActionEvent actionEvent) {
+        homePage.setVisible(false);
+        courseCatalog.setVisible(false);
+        courseEditor.setVisible(true);
+        helpPage.setVisible(false);
+        addCourse.setVisible(false);
+        ClearForm.clearForm(courseNameFieldAdd, courseAutorFieldAdd, programmingLanguageChoiseAdd, imageView,
+                spinnerAdd, dataTypeAdd, levelChoiseAdd, accessAdd, priceFieldAdd, keywordsFieldAdd, descriptionAdd,
+                languageOfCourseAdd, urlAdd);
+    }
+
     public void chooseImage(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Выберите изображение");
@@ -239,4 +272,6 @@ public class AdminHomeController {
             imageView.setImage(image);
         }
     }
+
+
 }

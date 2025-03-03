@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="Работал на DAO курса, восстанавливал код">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/services/ClearForm.java" afterDir="false" />
+    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="Улучшил сохранение курса и реализовал очистку его полей">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/AdminHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/AdminHomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/dao/CourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/dao/CourseDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/entyty/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/entyty/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/admin/adminHome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/admin/adminHome.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -470,7 +468,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740985112199</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Улучшил сохранение курса и реализовал очистку его полей">
+      <option name="closed" value="true" />
+      <created>1741004513929</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1741004513929</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -485,7 +491,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactor main file" />
     <MESSAGE value="добавил файл админ меню фхмл" />
     <MESSAGE value="создал переход по кнопке на новое окно, пока без проверок" />
     <MESSAGE value="добавил кнопки для админа" />
@@ -510,6 +515,7 @@
     <MESSAGE value="Добавил проверки при регистрации" />
     <MESSAGE value="Добавил админских окон, окно админа, редактор, добавление (не до конца). Сделал импорт картинки" />
     <MESSAGE value="Работал на DAO курса, восстанавливал код" />
-    <option name="LAST_COMMIT_MESSAGE" value="Работал на DAO курса, восстанавливал код" />
+    <MESSAGE value="Улучшил сохранение курса и реализовал очистку его полей" />
+    <option name="LAST_COMMIT_MESSAGE" value="Улучшил сохранение курса и реализовал очистку его полей" />
   </component>
 </project>
