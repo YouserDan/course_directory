@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="Улучшил сохранение курса и реализовал очистку его полей">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/AdminHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/AdminHomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/admin/adminHome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/admin/adminHome.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="Исправил платность при Бесплатный, сделал кнопку отмена при создании курса с учётом очистки формы" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,6 +57,9 @@
     &quot;accountId&quot;: &quot;cebdcd4d-2fe9-4d49-bf55-d373e9e9390a&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/AdminHomeController.java" root0="SKIP_INSPECTION" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -476,7 +475,39 @@
       <option name="project" value="LOCAL" />
       <updated>1741004513929</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Исправил платность при Бесплатный, сделал кнопку отмена при создании курса с учётом очистки формы">
+      <option name="closed" value="true" />
+      <created>1741005719148</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1741005719148</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Исправил платность при Бесплатный, сделал кнопку отмена при создании курса с учётом очистки формы">
+      <option name="closed" value="true" />
+      <created>1741005801500</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1741005801500</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Исправил платность при Бесплатный, сделал кнопку отмена при создании курса с учётом очистки формы">
+      <option name="closed" value="true" />
+      <created>1741005837874</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1741005837874</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Исправил платность при Бесплатный, сделал кнопку отмена при создании курса с учётом очистки формы">
+      <option name="closed" value="true" />
+      <created>1741005901204</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1741005901204</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -491,7 +522,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="добавил файл админ меню фхмл" />
     <MESSAGE value="создал переход по кнопке на новое окно, пока без проверок" />
     <MESSAGE value="добавил кнопки для админа" />
     <MESSAGE value="переместил контроллеры в папку org" />
@@ -516,6 +546,7 @@
     <MESSAGE value="Добавил админских окон, окно админа, редактор, добавление (не до конца). Сделал импорт картинки" />
     <MESSAGE value="Работал на DAO курса, восстанавливал код" />
     <MESSAGE value="Улучшил сохранение курса и реализовал очистку его полей" />
-    <option name="LAST_COMMIT_MESSAGE" value="Улучшил сохранение курса и реализовал очистку его полей" />
+    <MESSAGE value="Исправил платность при Бесплатный, сделал кнопку отмена при создании курса с учётом очистки формы" />
+    <option name="LAST_COMMIT_MESSAGE" value="Исправил платность при Бесплатный, сделал кнопку отмена при создании курса с учётом очистки формы" />
   </component>
 </project>
