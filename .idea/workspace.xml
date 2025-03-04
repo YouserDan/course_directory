@@ -147,14 +147,6 @@
       <option name="presentableId" value="Default" />
       <updated>1728294609573</updated>
     </task>
-    <task id="LOCAL-00004" summary="создал переход по кнопке на новое окно, пока без проверок">
-      <option name="closed" value="true" />
-      <created>1728382197247</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1728382197247</updated>
-    </task>
     <task id="LOCAL-00005" summary="создал переход по кнопке на новое окно, пока без проверок">
       <option name="closed" value="true" />
       <created>1728382272938</created>
@@ -539,7 +531,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741096304584</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Добавил окно карточки курса">
+      <option name="closed" value="true" />
+      <created>1741097436444</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1741097436444</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
