@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="Добавил поле валюты в форму. Всё работает">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/AdminHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/AdminHomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/admin/adminHome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/admin/adminHome.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/styles/style.css" afterDir="false" />
-    </list>
+    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="Добавил окно карточки курса" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -151,14 +146,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1728294609573</updated>
-    </task>
-    <task id="LOCAL-00003" summary="добавил файл админ меню фхмл">
-      <option name="closed" value="true" />
-      <created>1728380983633</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1728380983633</updated>
     </task>
     <task id="LOCAL-00004" summary="создал переход по кнопке на новое окно, пока без проверок">
       <option name="closed" value="true" />
@@ -544,7 +531,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741091158869</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="Добавил окно карточки курса">
+      <option name="closed" value="true" />
+      <created>1741096304584</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1741096304584</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -559,7 +554,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="переместил контроллеры в папку org" />
     <MESSAGE value="поубирал некоторые warning" />
     <MESSAGE value="убрал все  warning" />
     <MESSAGE value="подредактировал стили" />
@@ -584,6 +578,7 @@
     <MESSAGE value="Исправил платность при Бесплатный, сделал кнопку отмена при создании курса с учётом очистки формы" />
     <MESSAGE value="Сделал отображение таблицы в редакторе, сделал корректное добавление и удаление с корректным отображением данных" />
     <MESSAGE value="Добавил поле валюты в форму. Всё работает" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавил поле валюты в форму. Всё работает" />
+    <MESSAGE value="Добавил окно карточки курса" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил окно карточки курса" />
   </component>
 </project>
