@@ -117,9 +117,6 @@ public class AdminHomeController {
         editCourse.setVisible(false);
 
 
-
-
-
         //Подгружаем таблицу
         loadDataFromDatabase();
         // Устанавливаем диапазон значений (от 1 до 1000, шаг 1)
