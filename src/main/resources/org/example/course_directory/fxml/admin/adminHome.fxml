@@ -46,7 +46,7 @@
                         <Font name="Comic Sans MS Bold" size="17.0" />
                      </font>
                   </Button>
-                  <Button layoutX="60.0" layoutY="182.0" mnemonicParsing="false" onAction="#editCourse" prefHeight="45.0" prefWidth="200.0" styleClass="userButtons" text="Редактор курсов">
+                  <Button layoutX="60.0" layoutY="182.0" mnemonicParsing="false" onAction="#openEditorCoursePage" prefHeight="45.0" prefWidth="200.0" styleClass="userButtons" text="Редактор курсов">
                      <font>
                         <Font name="Comic Sans MS Bold" size="17.0" />
                      </font>
@@ -354,7 +354,7 @@
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="47.0" prefWidth="136.0" styleClass="userButtons" text="Изменить">
+                        <Button mnemonicParsing="false" onAction="#editCourse" prefHeight="47.0" prefWidth="136.0" styleClass="userButtons" text="Изменить">
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
@@ -378,7 +378,7 @@
                   </Button>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="addCourse" prefHeight="601.0" prefWidth="698.0">
+            <AnchorPane fx:id="addCourse" prefHeight="601.0" prefWidth="698.0" visible="false">
                <children>
                   <VBox fx:id="descriptionFieldAdd" alignment="TOP_CENTER" layoutX="343.0" layoutY="35.0" prefHeight="307.0" prefWidth="324.0">
                      <children>
@@ -618,6 +618,162 @@
                   </HBox>
                </children>
             </AnchorPane>
+
+
+<!--            Edit pane-->
+
+
+            <AnchorPane fx:id="editCourse" prefHeight="601.0" prefWidth="698.0">
+               <children>
+                  <VBox fx:id="descriptionFieldEdit" alignment="TOP_CENTER" layoutX="343.0" layoutY="35.0" prefHeight="307.0" prefWidth="324.0">
+                     <children>
+                        <TextField fx:id="courseNameFieldEdit" promptText="Название" styleClass="cardButtons">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="courseAutorFieldEdit" layoutX="10.0" layoutY="10.0" promptText="Автор" styleClass="cardButtons" />
+                        <HBox alignment="CENTER" prefHeight="40.0" prefWidth="324.0">
+                           <children>
+                              <Label prefHeight="38.0" prefWidth="246.0" styleClass="h1Text" text="Язык программирования" />
+                              <ChoiceBox fx:id="programmingLanguageChoiseEdit" prefHeight="25.0" prefWidth="109.0">
+                                 <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                       <String fx:value="Python" />
+                                       <String fx:value="Java" />
+                                       <String fx:value="C++" />
+                                       <String fx:value="C" />
+                                       <String fx:value="JavaScript" />
+                                       <String fx:value="C#" />
+                                       <String fx:value="SQL" />
+                                       <String fx:value="Go" />
+                                       <String fx:value="TypeScript" />
+                                       <String fx:value="HTML" />
+                                       <String fx:value="R" />
+                                       <String fx:value="Shell" />
+                                       <String fx:value="PHP" />
+                                       <String fx:value="Ruby" />
+                                       <String fx:value="SAS" />
+                                       <String fx:value="Swift" />
+                                       <String fx:value="Dart" />
+                                       <String fx:value="Rust" />
+                                       <String fx:value="Kotlin" />
+                                       <String fx:value="Matlab" />
+                                       <String fx:value="Scala" />
+                                       <String fx:value="Assembly" />
+                                       <String fx:value="Perl" />
+                                       <String fx:value="Visual Basic" />
+                                    </FXCollections>
+                                 </items>
+                              </ChoiceBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="40.0" prefWidth="324.0">
+                           <children>
+                              <Label prefHeight="38.0" prefWidth="246.0" styleClass="h1Text" text="Уровень" />
+                              <ChoiceBox fx:id="levelChoiseEdit" prefHeight="25.0" prefWidth="235.0">
+                                 <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                       <String fx:value="Начальный" />
+                                       <String fx:value="Средний" />
+                                       <String fx:value="Продвинутый" />
+                                    </FXCollections>
+                                 </items>
+                              </ChoiceBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="40.0" prefWidth="324.0">
+                           <children>
+                              <Label prefHeight="38.0" prefWidth="178.0" styleClass="h1Text" text="Длительность" />
+                              <Spinner fx:id="spinnerEdit" prefHeight="25.0" prefWidth="93.0">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </Spinner>
+                              <ChoiceBox fx:id="dataTypeEdit" prefHeight="25.0" prefWidth="83.0">
+                                 <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                       <String fx:value="чч" />
+                                       <String fx:value="мм" />
+                                       <String fx:value="гг" />
+                                    </FXCollections>
+                                 </items>
+                              </ChoiceBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="40.0" prefWidth="324.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="35.0" prefWidth="79.0" styleClass="h1Text" text="Доступ" />
+                              <ChoiceBox fx:id="accessEdit" prefHeight="26.0" prefWidth="88.0">
+                                 <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                       <String fx:value="Платный" />
+                                       <String fx:value="Бесплатный" />
+                                    </FXCollections>
+                                 </items>
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </ChoiceBox>
+                              <TextField fx:id="priceFieldEdit" maxWidth="-Infinity" prefHeight="35.0" prefWidth="91.0" promptText="Стоимость" styleClass="cardButtons">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <ChoiceBox fx:id="currencyEditChoiceBox" prefHeight="26.0" prefWidth="87.0">
+                                 <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                       <String fx:value="RUB" />
+                                       <String fx:value="EUR" />
+                                       <String fx:value="USD" />
+                                    </FXCollections>
+                                 </items>
+                              </ChoiceBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="5.0" top="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <TextField fx:id="keywordsFieldEdit" layoutX="10.0" layoutY="55.0" promptText="Ключевые слова (через запятую)" styleClass="cardButtons">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" layoutX="26.0" layoutY="81.0" prefHeight="196.0" prefWidth="298.0">
+                     <children>
+                        <ImageView id="selectedImage.Add" fx:id="imageEdit" fitHeight="211.0" fitWidth="298.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </VBox>
+                  <Button layoutX="99.0" layoutY="35.0" mnemonicParsing="false" onAction="#chooseImage" prefHeight="33.0" prefWidth="155.0" styleClass="cardButtons" text="Выбрать картинку" />
+                  <HBox alignment="CENTER" layoutX="6.0" layoutY="526.0" prefHeight="75.0" prefWidth="689.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#backToEditor" prefHeight="35.0" prefWidth="136.0" styleClass="cardButtons" text="Отмена">
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#saveEditedCourse" prefHeight="35.0" prefWidth="172.0" styleClass="cardButtons" text="Сохранить изменения">
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <TextArea fx:id="descriptionEdit" layoutX="27.0" layoutY="346.0" prefHeight="121.0" prefWidth="640.0" promptText="Описание" wrapText="true">
+                     <font>
+                        <Font name="Comic Sans MS" size="15.0" />
+                     </font>
+                  </TextArea>
+                  <TextField fx:id="urlEdit" layoutX="360.0" layoutY="485.0" prefHeight="35.0" prefWidth="307.0" promptText="Ссылка на ресурс" styleClass="cardButtons" />
+                  <TextField fx:id="languageOfCourseEdit" layoutX="141.0" layoutY="485.0" prefHeight="35.0" prefWidth="200.0" promptText="Язык курса" styleClass="cardButtons" />
+               </children>
+            </AnchorPane>
+
+
+
+
          </children>
       </AnchorPane>
    </items>

@@ -43,9 +43,11 @@ public class AdminHomeController {
     private AnchorPane helpPage;
     @FXML
     private AnchorPane addCourse;
+    @FXML
+    private AnchorPane editCourse;
 
 
-    // Заполнение формы
+    // Заполнение формы курса
     @FXML private TextField courseNameFieldAdd;
     @FXML private TextField courseAutorFieldAdd;
     @FXML private ChoiceBox programmingLanguageChoiseAdd;
@@ -61,6 +63,23 @@ public class AdminHomeController {
     @FXML private TextField languageOfCourseAdd;
     @FXML private TextField urlAdd;
     @FXML private String createdByField = "Admin";
+
+
+    //Изменение формы курса
+    @FXML private TextField courseNameFieldEdit;
+    @FXML private TextField courseAutorFieldEdit;
+    @FXML private ChoiceBox programmingLanguageChoiseEdit;
+    @FXML private ImageView imageEdit;
+    @FXML private Spinner spinnerEdit;
+    @FXML private ChoiceBox dataTypeEdit;
+    @FXML private ChoiceBox levelChoiseEdit;
+    @FXML private ChoiceBox accessEdit;
+    @FXML private TextField priceFieldEdit;
+    @FXML private ChoiceBox currencyEditChoiceBox;
+    @FXML private TextField keywordsFieldEdit;
+    @FXML private TextArea descriptionEdit;
+    @FXML private TextField languageOfCourseEdit;
+    @FXML private TextField urlEdit;
 
     // Выведение формы в TableView
     @FXML private TableView<Course> tableView;
@@ -95,14 +114,19 @@ public class AdminHomeController {
         courseEditor.setVisible(false);
         helpPage.setVisible(false);
         addCourse.setVisible(false);
+        editCourse.setVisible(false);
 
         //Подгружаем таблицу
         loadDataFromDatabase();
-        // Устанавливаем диапазон значений (от 1 до 100, шаг 1)
+        // Устанавливаем диапазон значений (от 1 до 1000, шаг 1)
         spinnerAdd.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 1000, 1));
-
         // Включаем ввод вручную (если нужно)
         spinnerAdd.setEditable(true);
+
+        // Устанавливаем диапазон значений (от 1 до 1000, шаг 1)
+        spinnerEdit.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 1000, 1));
+        // Включаем ввод вручную (если нужно)
+        spinnerEdit.setEditable(true);
 
         // Устанавливаем обработчик события изменения типа курса
         accessAdd.setOnAction(event -> handleAccessChoiceSelection());
@@ -292,6 +316,7 @@ public class AdminHomeController {
             courseEditor.setVisible(true);
             helpPage.setVisible(false);
             addCourse.setVisible(false);
+            editCourse.setVisible(false);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -317,14 +342,16 @@ public class AdminHomeController {
         courseEditor.setVisible(false);
         helpPage.setVisible(false);
         addCourse.setVisible(false);
+        editCourse.setVisible(false);
     }
 
-    public void editCourse(ActionEvent actionEvent) {
+    public void openEditorCoursePage(ActionEvent actionEvent) {
         homePage.setVisible(false);
         courseCatalog.setVisible(false);
         courseEditor.setVisible(true);
         helpPage.setVisible(false);
         addCourse.setVisible(false);
+        editCourse.setVisible(false);
     }
 
     public void openHelpPage(ActionEvent actionEvent) {
@@ -333,6 +360,7 @@ public class AdminHomeController {
         courseEditor.setVisible(false);
         helpPage.setVisible(true);
         addCourse.setVisible(false);
+        editCourse.setVisible(false);
     }
 
     public void backToMenu(javafx.event.ActionEvent event) {
@@ -365,6 +393,7 @@ public class AdminHomeController {
         courseEditor.setVisible(false);
         helpPage.setVisible(false);
         addCourse.setVisible(false);
+        editCourse.setVisible(false);
     }
 
     public void openAddPage(ActionEvent actionEvent) {
@@ -373,6 +402,7 @@ public class AdminHomeController {
         courseEditor.setVisible(false);
         helpPage.setVisible(false);
         addCourse.setVisible(true);
+        editCourse.setVisible(false);
     }
 
     public void backToEditor(ActionEvent actionEvent) {
@@ -381,10 +411,15 @@ public class AdminHomeController {
         courseEditor.setVisible(true);
         helpPage.setVisible(false);
         addCourse.setVisible(false);
+        editCourse.setVisible(false);
         ClearForm.clearForm(courseNameFieldAdd, courseAutorFieldAdd, programmingLanguageChoiseAdd, imageView,
                 spinnerAdd, dataTypeAdd, levelChoiseAdd, accessAdd, priceFieldAdd, currencyChoiceBox, keywordsFieldAdd, descriptionAdd,
                 languageOfCourseAdd, urlAdd);
+        ClearForm.clearForm(courseNameFieldEdit, courseAutorFieldEdit, programmingLanguageChoiseEdit, imageEdit,
+                spinnerEdit, dataTypeEdit, levelChoiseEdit, accessEdit, priceFieldEdit, currencyEditChoiceBox, keywordsFieldEdit, descriptionEdit,
+                languageOfCourseEdit, urlEdit);
     }
+
 
     public void chooseImage(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
@@ -453,5 +488,29 @@ public class AdminHomeController {
                 e.printStackTrace();
             }
         }
+    }
+
+    public void editCourse(ActionEvent actionEvent) {
+        // Получаем выбранный курс
+        Course selectedCourse = tableView.getSelectionModel().getSelectedItem();
+
+        if (selectedCourse == null) {
+            // Если курс не выбран, показываем уведомление
+            notificationService.showNotification("Ошибка", "Вы не выбрали курс", "Пожалуйста, выберите курс для изменения.");
+            return;
+        }
+
+        homePage.setVisible(false);
+        courseCatalog.setVisible(false);
+        courseEditor.setVisible(false);
+        helpPage.setVisible(false);
+        addCourse.setVisible(false);
+        editCourse.setVisible(true);
+
+
+    }
+
+    public void saveEditedCourse(ActionEvent actionEvent) {
+
     }
 }
