@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="Добавил окно карточки курса">
+    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="Сделал переход в окно изменения, применил очистку при выходе">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/AdminHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/AdminHomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/admin/adminHome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/admin/adminHome.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,22 +148,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1728294609573</updated>
-    </task>
-    <task id="LOCAL-00005" summary="создал переход по кнопке на новое окно, пока без проверок">
-      <option name="closed" value="true" />
-      <created>1728382272938</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1728382272938</updated>
-    </task>
-    <task id="LOCAL-00006" summary="создал переход по кнопке на новое окно, пока без проверок">
-      <option name="closed" value="true" />
-      <created>1728382278556</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1728382278556</updated>
     </task>
     <task id="LOCAL-00007" summary="создал переход по кнопке на новое окно, пока без проверок">
       <option name="closed" value="true" />
@@ -543,7 +525,23 @@
       <option name="project" value="LOCAL" />
       <updated>1741097436444</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="Сделал переход в окно изменения, применил очистку при выходе">
+      <option name="closed" value="true" />
+      <created>1741101160092</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1741101160092</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Сделал переход в окно изменения, применил очистку при выходе">
+      <option name="closed" value="true" />
+      <created>1741101173541</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1741101173541</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -558,7 +556,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="поубирал некоторые warning" />
     <MESSAGE value="убрал все  warning" />
     <MESSAGE value="подредактировал стили" />
     <MESSAGE value="сделал закрытие программы при нажатии кнопки выйти" />
@@ -583,6 +580,7 @@
     <MESSAGE value="Сделал отображение таблицы в редакторе, сделал корректное добавление и удаление с корректным отображением данных" />
     <MESSAGE value="Добавил поле валюты в форму. Всё работает" />
     <MESSAGE value="Добавил окно карточки курса" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавил окно карточки курса" />
+    <MESSAGE value="Сделал переход в окно изменения, применил очистку при выходе" />
+    <option name="LAST_COMMIT_MESSAGE" value="Сделал переход в окно изменения, применил очистку при выходе" />
   </component>
 </project>
