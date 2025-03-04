@@ -19,9 +19,9 @@ public class CourseDAO {
 
     // Метод для добавления курса
     public void addCourse(Course course) throws SQLException {
-        String sql = "INSERT INTO courses (title, author, programming_language, image_url, level, duration, duration_type, access, price, " +
+        String sql = "INSERT INTO courses (title, author, programming_language, image_url, level, duration, duration_type, access, price, currency, " +
                 "keywords, description, language_of_course, resource_url, created_by, created_at, updated_at) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, course.getTitle());
@@ -33,13 +33,14 @@ public class CourseDAO {
             statement.setString(7, course.getDurationType());
             statement.setString(8, course.getAccess());
             statement.setDouble(9, course.getPrice());
-            statement.setString(10, course.getKeywords());
-            statement.setString(11, course.getDescription());
-            statement.setString(12, course.getLanguageOfCourse());
-            statement.setString(13, course.getResourceUrl());
-            statement.setString(14, course.getCreatedBy());
-            statement.setTimestamp(15, Timestamp.valueOf(course.getCreatedAt()));
-            statement.setTimestamp(16, Timestamp.valueOf(course.getUpdatedAt()));
+            statement.setString(10, course.getCurrency());
+            statement.setString(11, course.getKeywords());
+            statement.setString(12, course.getDescription());
+            statement.setString(13, course.getLanguageOfCourse());
+            statement.setString(14, course.getResourceUrl());
+            statement.setString(15, course.getCreatedBy());
+            statement.setTimestamp(16, Timestamp.valueOf(course.getCreatedAt()));
+            statement.setTimestamp(17, Timestamp.valueOf(course.getUpdatedAt()));
 
             statement.executeUpdate();
         }
@@ -125,6 +126,7 @@ public class CourseDAO {
                 resultSet.getString("duration_type"),
                 resultSet.getString("access"),
                 resultSet.getDouble("price"),
+                resultSet.getString("currency"),
                 resultSet.getString("keywords"),
                 resultSet.getString("description"),
                 resultSet.getString("language_of_course"),

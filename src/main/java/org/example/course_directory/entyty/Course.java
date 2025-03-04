@@ -1,6 +1,8 @@
 package org.example.course_directory.entyty;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 public class Course {
 
@@ -14,6 +16,7 @@ public class Course {
     private String durationType;  // Длительность чч мм гг
     private String access;  // Доступность (например, бесплатно или платно)
     private double price;  // Цена курса
+    private String currency;
     private String keywords;  // Ключевые слова
     private String description;  // Описание курса
     private String languageOfCourse;  // Язык курса
@@ -25,7 +28,7 @@ public class Course {
 
     // Конструктор без ID, потому что ID обычно генерируется базой данных
     public Course(String title, String author, String programmingLanguage, String imageUrl, String level,
-                  String duration, String durationType, String access, double price, String keywords, String description,
+                  String duration, String durationType, String access, double price, String currency, String keywords, String description,
                   String languageOfCourse, String resourceUrl, String createdBy) {
         this.title = title;
         this.author = author;
@@ -36,6 +39,7 @@ public class Course {
         this.durationType = durationType;
         this.access = access;
         this.price = price;
+        this.currency = currency;
         this.keywords = keywords;
         this.description = description;
         this.languageOfCourse = languageOfCourse;
@@ -44,6 +48,54 @@ public class Course {
         this.createdAt = LocalDateTime.now();  // Устанавливаем текущее время как дату создания
         this.updatedAt = LocalDateTime.now();  // Устанавливаем текущее время как дату обновления
     }
+
+    // Конструктор (создаёт объект курса из данных БД) для вывода
+    public Course(int id, String title, String author, String programmingLanguage, String imageUrl, String level, int duration,
+                  String durationType, String access, double price, String currency, String description, String languageOfCourse, String resourceUrl,
+                  String createdBy, String createdAt, String updatedBy, String updatedAt) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.programmingLanguage = programmingLanguage;
+        this.imageUrl = imageUrl;
+        this.level = level;
+        this.duration = String.valueOf(duration);
+        this.durationType = durationType;
+        this.access = access;
+        this.price = price;
+        this.currency = currency;
+        this.description = description;
+        this.languageOfCourse = languageOfCourse;
+        this.resourceUrl = resourceUrl;
+        this.createdBy = createdBy;
+
+        // Указываем формат для парсинга
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+        // Парсим строки в LocalDateTime с использованием форматтера
+        this.createdAt = LocalDateTime.parse(createdAt, formatter);
+        this.updatedBy = updatedBy;
+        try {
+            // Для createdAt
+            this.createdAt = LocalDateTime.parse(createdAt.trim(), formatter);
+
+            // Для updatedAt
+            this.updatedAt = LocalDateTime.parse(updatedAt.trim(), formatter);
+        } catch (DateTimeParseException e) {
+            // Логирование ошибки
+            System.err.println("Error parsing date: " + e.getMessage());
+        }
+    }
+
+    // Геттер и сеттер для валюты
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
     // Геттеры и сеттеры для всех полей
     public int getId() {
         return id;

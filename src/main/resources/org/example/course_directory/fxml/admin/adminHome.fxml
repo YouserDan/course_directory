@@ -324,15 +324,26 @@
             </AnchorPane>
             <AnchorPane fx:id="courseEditor" prefHeight="601.0" prefWidth="698.0" visible="false">
                <children>
-                  <TableView layoutX="15.0" layoutY="65.0" prefHeight="458.0" prefWidth="670.0">
+                  <TableView fx:id="tableView" layoutX="15.0" layoutY="65.0" prefHeight="458.0" prefWidth="670.0">
                     <columns>
-                        <TableColumn prefWidth="75.0" text="ID курса" />
-                      <TableColumn prefWidth="75.0" text="Название" />
-                      <TableColumn prefWidth="152.23233032226562" text="Язык программирования" />
-                        <TableColumn minWidth="0.0" prefWidth="141.82464599609375" text="Продолжительность" />
-                        <TableColumn minWidth="0.0" prefWidth="69.14697265625" text="Уровень" />
-                        <TableColumn minWidth="0.0" prefWidth="69.14697265625" text="Стоимость" />
-                        <TableColumn minWidth="0.0" prefWidth="69.14697265625" text="Дата создания" />
+                        <TableColumn fx:id="colId" prefWidth="75.0" text="ID курса" />
+                        <TableColumn fx:id="colName" prefWidth="75.0" text="Название" />
+                        <TableColumn fx:id="colAuthor" text="Автор" />
+                        <TableColumn fx:id="colProgLang" prefWidth="141.82464599609375" text="Язык программирования" />
+                        <TableColumn fx:id="colImgURL" minWidth="0.0" prefWidth="69.14697265625" text="Картинка" />
+                        <TableColumn fx:id="colLevel" minWidth="0.0" prefWidth="69.14697265625" text="Уровень" />
+                        <TableColumn fx:id="colDuration" minWidth="0.0" prefWidth="69.14697265625" text="Продолжительность" />
+                        <TableColumn fx:id="colDurType" text="Вид продолжительности" />
+                        <TableColumn fx:id="colAccess" text="Доступ" />
+                        <TableColumn fx:id="colPrice" text="Стоимость" />
+                       <TableColumn fx:id="colCurrency" text="Валюта" />
+                        <TableColumn fx:id="colDescription" text="Описание" />
+                        <TableColumn fx:id="colCourseLang" text="Язык курса" />
+                        <TableColumn fx:id="colResourceURL" text="Ссылка на ресурс" />
+                        <TableColumn fx:id="colCreatedBy" text="Создатель" />
+                        <TableColumn fx:id="colCreatedAt" text="Дата создания" />
+                        <TableColumn fx:id="colUpdatedAt" text="Кто изменил" />
+                        <TableColumn fx:id="colUpdatedBy" text="Когда изменил" />
                     </columns>
                   </TableView>
                   <HBox alignment="CENTER" layoutX="15.0" layoutY="537.0" prefHeight="56.0" prefWidth="670.0">
@@ -347,7 +358,7 @@
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="47.0" prefWidth="136.0" styleClass="userButtons" text="Удалить">
+                        <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#deleteCourse" prefHeight="47.0" prefWidth="136.0" styleClass="userButtons" text="Удалить">
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
@@ -448,8 +459,8 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="40.0" prefWidth="324.0">
                            <children>
-                              <Label prefHeight="35.0" prefWidth="88.0" styleClass="h1Text" text="Доступ" />
-                              <ChoiceBox fx:id="accessAdd" prefHeight="25.0" prefWidth="123.0">
+                              <Label alignment="CENTER" prefHeight="35.0" prefWidth="79.0" styleClass="h1Text" text="Доступ" />
+                              <ChoiceBox fx:id="accessAdd" prefHeight="26.0" prefWidth="88.0">
                                  <items>
                                     <FXCollections fx:factory="observableArrayList">
                                        <String fx:value="Платный" />
@@ -460,7 +471,19 @@
                                     <Insets right="5.0" />
                                  </HBox.margin>
                               </ChoiceBox>
-                              <TextField fx:id="priceFieldAdd" maxWidth="-Infinity" prefHeight="35.0" prefWidth="103.0" promptText="Стоимость" styleClass="cardButtons" />
+                              <TextField fx:id="priceFieldAdd" maxWidth="-Infinity" prefHeight="35.0" prefWidth="91.0" promptText="Стоимость" styleClass="cardButtons">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin></TextField>
+                              <ChoiceBox fx:id="currencyChoiceBox" prefHeight="26.0" prefWidth="87.0">
+                                 <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                       <String fx:value="RUB" />
+                                       <String fx:value="EUR" />
+                                       <String fx:value="USD" />
+                                    </FXCollections>
+                                 </items>
+                              </ChoiceBox>
                            </children>
                            <VBox.margin>
                               <Insets bottom="5.0" top="5.0" />
@@ -481,12 +504,12 @@
                   <Button layoutX="99.0" layoutY="35.0" mnemonicParsing="false" onAction="#chooseImage" prefHeight="33.0" prefWidth="155.0" styleClass="cardButtons" text="Выбрать картинку" />
                   <HBox alignment="CENTER" layoutX="6.0" layoutY="526.0" prefHeight="75.0" prefWidth="689.0">
                      <children>
-                        <Button onAction="#backToEditor" mnemonicParsing="false" prefHeight="35.0" prefWidth="136.0" styleClass="cardButtons" text="Отмена">
+                        <Button mnemonicParsing="false" onAction="#backToEditor" prefHeight="35.0" prefWidth="136.0" styleClass="cardButtons" text="Отмена">
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
                         </Button>
-                        <Button onAction="#saveCourse" mnemonicParsing="false" prefHeight="35.0" prefWidth="136.0" styleClass="cardButtons" text="Сохранить">
+                        <Button mnemonicParsing="false" onAction="#saveCourse" prefHeight="35.0" prefWidth="136.0" styleClass="cardButtons" text="Сохранить">
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
