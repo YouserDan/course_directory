@@ -23,6 +23,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
 
 <SplitPane fx:id="splitPane" dividerPositions="0.3" prefHeight="603.0" prefWidth="1004.0" style="-fx-background-color: #1F3D69;" stylesheets="@../../styles/style.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.course_directory.controllers.AdminHomeController">
    <items>
@@ -523,6 +524,98 @@
                   </TextArea>
                   <TextField fx:id="urlAdd" layoutX="360.0" layoutY="485.0" prefHeight="35.0" prefWidth="307.0" promptText="Ссылка на ресурс" styleClass="cardButtons" />
                   <TextField fx:id="languageOfCourseAdd" layoutX="141.0" layoutY="485.0" prefHeight="35.0" prefWidth="200.0" promptText="Язык курса" styleClass="cardButtons" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="-1.0" prefHeight="601.0" prefWidth="724.0" visible="false">
+               <children>
+                  <VBox layoutX="337.0" layoutY="42.0" prefHeight="285.0" prefWidth="374.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="57.0" prefWidth="383.0" styleClass="h1Text" text="Удивительный Питон" />
+                        <HBox alignment="CENTER_LEFT" prefHeight="32.0" prefWidth="338.0">
+                           <children>
+                              <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="35.0" prefWidth="138.0" styleClass="h1Text" text="Автор:" />
+                              <Label alignment="TOP_RIGHT" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="35.0" prefWidth="246.0" styleClass="h1Text" text="Иванов И И" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="102.0" prefHeight="15.0" prefWidth="338.0">
+                           <children>
+                              <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="35.0" prefWidth="139.0" styleClass="h1Text" text="Уровень:" />
+                              <Label alignment="TOP_RIGHT" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="35.0" prefWidth="240.0" styleClass="h1Text" text="Начальный" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="67.0" prefHeight="15.0" prefWidth="338.0">
+                           <children>
+                              <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="35.0" prefWidth="257.0" styleClass="h1Text" text="Язык программирования:" />
+                              <Label alignment="TOP_RIGHT" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="57.0" prefWidth="128.0" styleClass="h1Text" text="Python" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="15.0" layoutY="137.0" prefHeight="15.0" prefWidth="338.0">
+                           <children>
+                              <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="35.0" prefWidth="198.0" styleClass="h1Text" text="Длительность курса:" />
+                              <Label alignment="TOP_RIGHT" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="35.0" prefWidth="127.0" styleClass="h1Text" text="4" />
+                              <Label alignment="TOP_RIGHT" contentDisplay="CENTER" layoutX="208.0" layoutY="10.0" prefHeight="35.0" prefWidth="50.0" styleClass="h1Text" text="мм" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="15.0" layoutY="172.0" prefHeight="15.0" prefWidth="338.0">
+                           <children>
+                              <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="35.0" prefWidth="87.0" styleClass="h1Text" text="Доступ:" />
+                              <Label alignment="TOP_RIGHT" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="35.0" prefWidth="280.0" styleClass="h1Text" text="Платный" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="15.0" layoutY="207.0" prefHeight="15.0" prefWidth="338.0">
+                           <children>
+                              <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="35.0" prefWidth="143.0" styleClass="h1Text" text="Стоимость:" />
+                              <Label alignment="TOP_RIGHT" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="35.0" prefWidth="150.0" styleClass="h1Text" text="3000" />
+                              <Label alignment="TOP_RIGHT" contentDisplay="CENTER" layoutX="124.0" layoutY="10.0" prefHeight="35.0" prefWidth="62.0" styleClass="h1Text" text="RUB" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="15.0" layoutY="242.0" prefHeight="15.0" prefWidth="338.0">
+                           <children>
+                              <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="35.0" prefWidth="126.0" styleClass="h1Text" text="Язык курса:" />
+                              <Label alignment="TOP_RIGHT" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="35.0" prefWidth="240.0" styleClass="h1Text" text="русский" />
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets left="5.0" right="5.0" />
+                     </padding>
+                  </VBox>
+                  <VBox alignment="CENTER" layoutX="33.0" layoutY="50.0" prefHeight="214.0" prefWidth="301.0">
+                     <children>
+                        <ImageView fitHeight="211.0" fitWidth="253.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../../../../languages_icons/Python-logo-notext.svg.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </VBox>
+                  <HBox alignment="TOP_CENTER" layoutX="22.0" layoutY="350.0" prefHeight="162.0" prefWidth="689.0">
+                     <children>
+                        <TextFlow prefHeight="137.0" prefWidth="689.0" style="-fx-text-indent: 20;">
+                           <children>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="descText" text="Изучение программирования — непростой и длительный процесс. Изучение синтаксиса языка — самая простая и короткая часть в пути, но без неё невозможно начать. Этот курс посвящен азам написания программ на Python. Он готовит плацдарм для написания осмысленных программ.Изучение программирования — непростой и длительный процесс. Изучение синтаксиса языка — самая простая и короткая часть в пути, но без неё невозможно начать. Этот курс посвящен азам написания программ на Python. Он готовит плацдарм для ааапопопоааоаоаоапопопопнаписания осмысленных программ." wrappingWidth="669.5198974609375">
+                                 <font>
+                                    <Font name="Comic Sans MS" size="16.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </TextFlow>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="30.0" layoutY="519.0" prefHeight="50.0" prefWidth="678.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="115.0" styleClass="cardButtons" text="Назад">
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="170.0" styleClass="cardButtons" text="Перейти на ресурс">
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
                </children>
             </AnchorPane>
          </children>

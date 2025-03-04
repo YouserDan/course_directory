@@ -121,3 +121,14 @@
 
 
 }
+
+.descText {
+    -fx-background-color: #1F3D69;
+    -fx-font-family: "Comic Sans MS";
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+
+}
+
+
+

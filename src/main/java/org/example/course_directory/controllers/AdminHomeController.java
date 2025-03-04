@@ -238,6 +238,13 @@ public class AdminHomeController {
             String resourceUrl = urlAdd.getText();
             String createdBy = createdByField;
 
+            // Проверяем, не превышает ли описание 550 символов
+            if (description.length() > 550) {
+                // Показать уведомление, если длина описания больше 550 символов
+                showAlert("Ошибка ввода", "Описание не может содержать более 550 символов.");
+                return;  // Прерываем выполнение метода, чтобы не сохранять курс
+            }
+
             // Создаем объект Course с введенными данными
             Course newCourse = new Course(
                     title,
@@ -294,6 +301,7 @@ public class AdminHomeController {
         }
     }
 
+    //Можно оптимизировать
     // Метод для отображения сообщений об успехе или ошибке
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);

@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="Сделал отображение таблицы в редакторе, сделал корректное добавление и удаление с корректным отображением данных">
+    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="Добавил поле валюты в форму. Всё работает">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/AdminHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/AdminHomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/dao/CourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/dao/CourseDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/entyty/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/entyty/Course.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/admin/adminHome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/admin/adminHome.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/styles/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,14 +151,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1728294609573</updated>
-    </task>
-    <task id="LOCAL-00002" summary="добавил файл админ меню фхмл">
-      <option name="closed" value="true" />
-      <created>1728380875956</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1728380875956</updated>
     </task>
     <task id="LOCAL-00003" summary="добавил файл админ меню фхмл">
       <option name="closed" value="true" />
@@ -545,7 +536,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741079375227</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Добавил поле валюты в форму. Всё работает">
+      <option name="closed" value="true" />
+      <created>1741091158869</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1741091158869</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -560,7 +559,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="добавил кнопки для админа" />
     <MESSAGE value="переместил контроллеры в папку org" />
     <MESSAGE value="поубирал некоторые warning" />
     <MESSAGE value="убрал все  warning" />
@@ -585,6 +583,7 @@
     <MESSAGE value="Улучшил сохранение курса и реализовал очистку его полей" />
     <MESSAGE value="Исправил платность при Бесплатный, сделал кнопку отмена при создании курса с учётом очистки формы" />
     <MESSAGE value="Сделал отображение таблицы в редакторе, сделал корректное добавление и удаление с корректным отображением данных" />
-    <option name="LAST_COMMIT_MESSAGE" value="Сделал отображение таблицы в редакторе, сделал корректное добавление и удаление с корректным отображением данных" />
+    <MESSAGE value="Добавил поле валюты в форму. Всё работает" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил поле валюты в форму. Всё работает" />
   </component>
 </project>
