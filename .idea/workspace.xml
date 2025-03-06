@@ -6,6 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="Сделал переход в окно изменения, применил очистку при выходе">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/AdminHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/AdminHomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/entyty/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/entyty/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/admin/adminHome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/admin/adminHome.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,30 +153,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1728294609573</updated>
-    </task>
-    <task id="LOCAL-00007" summary="создал переход по кнопке на новое окно, пока без проверок">
-      <option name="closed" value="true" />
-      <created>1728382401591</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1728382401592</updated>
-    </task>
-    <task id="LOCAL-00008" summary="создал переход по кнопке на новое окно, пока без проверок">
-      <option name="closed" value="true" />
-      <created>1728382410579</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1728382410579</updated>
-    </task>
-    <task id="LOCAL-00009" summary="создал переход по кнопке на новое окно, пока без проверок">
-      <option name="closed" value="true" />
-      <created>1728382462658</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1728382462658</updated>
     </task>
     <task id="LOCAL-00010" summary="добавил кнопки для админа">
       <option name="closed" value="true" />
@@ -541,7 +522,31 @@
       <option name="project" value="LOCAL" />
       <updated>1741101173541</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="Сделал переход в окно изменения, применил очистку при выходе">
+      <option name="closed" value="true" />
+      <created>1741111442686</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1741111442686</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Сделал переход в окно изменения, применил очистку при выходе">
+      <option name="closed" value="true" />
+      <created>1741111469175</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1741111469175</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Сделал переход в окно изменения, применил очистку при выходе">
+      <option name="closed" value="true" />
+      <created>1741111475784</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1741111475785</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

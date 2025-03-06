@@ -1,5 +1,7 @@
 package org.example.course_directory.controllers;
 
+import com.mysql.cj.x.protobuf.MysqlxResultset;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,6 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import org.apache.poi.ss.usermodel.Cell;
 import org.example.course_directory.StartProgram;
 import org.example.course_directory.dao.CourseDAO;
 import org.example.course_directory.entyty.Course;
@@ -21,15 +24,23 @@ import org.example.course_directory.services.ClearForm;
 import org.example.course_directory.services.NotificationService;
 import org.example.course_directory.connection.DatabaseConnection;
 import javafx.scene.control.cell.PropertyValueFactory;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.List;
 
 
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDateTime;
 
 public class AdminHomeController {
 
@@ -497,21 +508,219 @@ public class AdminHomeController {
 
         if (selectedCourse == null) {
             // Если курс не выбран, показываем уведомление
-            notificationService.showNotification("Ошибка", "Вы не выбрали курс", "Пожалуйста, выберите курс для изменения.");
+            Platform.runLater(() -> {
+                notificationService.showNotification("Ошибка", "Вы не выбрали курс", "Пожалуйста, выберите курс для изменения.");
+            });
             return;
         }
 
+        // Заполняем форму данными из выбранного курса
+        courseNameFieldEdit.setText(selectedCourse.getTitle());
+        courseAutorFieldEdit.setText(selectedCourse.getAuthor());
+        programmingLanguageChoiseEdit.setValue(selectedCourse.getProgrammingLanguage());
+        // Устанавливаем изображение
+        if (selectedCourse.getImageUrl() != null && !selectedCourse.getImageUrl().isEmpty()) {
+            try {
+                imageEdit.setImage(new Image(selectedCourse.getImageUrl()));
+            } catch (Exception e) {
+                notificationService.showNotification("Ошибка", "Ошибка загрузки изображения", "Проверьте URL изображения.");
+            }
+        }
+        levelChoiseEdit.setValue(selectedCourse.getLevel());
+        // Проверяем, что duration является числом
+        try {
+            int duration = Integer.parseInt(selectedCourse.getDuration());
+
+            if (spinnerEdit.getValueFactory() == null) {
+                spinnerEdit.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 100, duration));
+            } else {
+                spinnerEdit.getValueFactory().setValue(duration);
+            }
+        } catch (NumberFormatException e) {
+            notificationService.showNotification("Ошибка", "Некорректное значение длительности", "Пожалуйста, проверьте данные курса.");
+        }
+        dataTypeEdit.setValue(selectedCourse.getDurationType());
+        accessEdit.setValue(selectedCourse.getAccess());
+        priceFieldEdit.setText(String.valueOf(selectedCourse.getPrice()));
+        currencyEditChoiceBox.setValue(selectedCourse.getCurrency());
+        keywordsFieldEdit.setText(selectedCourse.getKeywords());
+        descriptionEdit.setText(selectedCourse.getDescription());
+        languageOfCourseEdit.setText(selectedCourse.getLanguageOfCourse());
+        urlEdit.setText(selectedCourse.getResourceUrl());
+
+        // Переключение видимости страниц
         homePage.setVisible(false);
         courseCatalog.setVisible(false);
         courseEditor.setVisible(false);
         helpPage.setVisible(false);
         addCourse.setVisible(false);
         editCourse.setVisible(true);
-
-
     }
+
 
     public void saveEditedCourse(ActionEvent actionEvent) {
+        Course selectedCourse = tableView.getSelectionModel().getSelectedItem();
 
+        if (selectedCourse == null) {
+            notificationService.showNotification("Ошибка", "Нет выбранного курса", "Выберите курс перед редактированием.");
+            return;
+        }
+
+        try {
+            // Обновляем данные курса из формы
+            selectedCourse.setTitle(courseNameFieldEdit.getText());
+            selectedCourse.setAuthor(courseAutorFieldEdit.getText());
+
+            String programmingLanguage = (String) programmingLanguageChoiseEdit.getValue();
+            if (programmingLanguage != null) {
+                selectedCourse.setProgrammingLanguage(programmingLanguage);
+            } else {
+                notificationService.showNotification("Ошибка", "Не выбран язык программирования", "Пожалуйста, выберите язык программирования.");
+                return;
+            }
+
+            // Обработка изображения
+            Image image = imageEdit.getImage();
+            if (image != null && image.getUrl() != null) {
+                selectedCourse.setImageUrl(image.getUrl());
+            } else {
+                selectedCourse.setImageUrl(""); // Устанавливаем пустое значение или URL по умолчанию
+            }
+
+            selectedCourse.setLevel((String) levelChoiseEdit.getValue());
+
+            Integer duration = (Integer) spinnerEdit.getValue();
+            if (duration != null) {
+                selectedCourse.setDuration(String.valueOf(duration));
+            } else {
+                notificationService.showNotification("Ошибка", "Не выбрана продолжительность", "Пожалуйста, выберите продолжительность.");
+                return;
+            }
+
+            selectedCourse.setDurationType((String) dataTypeEdit.getValue());
+            selectedCourse.setAccess((String) accessEdit.getValue());
+
+            try {
+                selectedCourse.setPrice(Double.parseDouble(priceFieldEdit.getText()));
+            } catch (NumberFormatException e) {
+                notificationService.showNotification("Ошибка", "Неверный формат цены", "Введите правильную цену.");
+                return;
+            }
+
+            selectedCourse.setCurrency((String) currencyEditChoiceBox.getValue());
+            selectedCourse.setKeywords(keywordsFieldEdit.getText());
+            selectedCourse.setDescription(descriptionEdit.getText());
+            selectedCourse.setLanguageOfCourse(languageOfCourseEdit.getText());
+            selectedCourse.setResourceUrl(urlEdit.getText());
+            selectedCourse.setUpdatedBy("Admin");
+            selectedCourse.setUpdatedAt(LocalDateTime.now());
+
+            // Обновляем курс в базе данных
+            courseDAO.updateCourse(selectedCourse);
+
+            // Обновляем таблицу
+            tableView.refresh();
+
+            // Показываем уведомление
+            notificationService.showNotification("Успех", "Редактирование курса", "Изменения успешно сохранены.");
+
+            // Возвращаемся в редактор курсов
+            backToEditor(actionEvent);
+        } catch (Exception e) {
+            e.printStackTrace();
+            notificationService.showNotification("Ошибка", "Ошибка сохранения", "Произошла ошибка при сохранении изменений.");
+        }
     }
+
+
+    public void doReport(ActionEvent actionEvent) {
+        // Выбираем файл для сохранения
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Сохранить отчет");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Excel файлы (*.xlsx)", "*.xlsx"));
+        File file = fileChooser.showSaveDialog(new Stage());
+
+        if (file != null) {
+            try (Workbook workbook = new XSSFWorkbook(); FileOutputStream fileOut = new FileOutputStream(file)) {
+                Sheet sheet = workbook.createSheet("Курсы");
+
+                // Создаём стиль для форматирования даты
+                CreationHelper createHelper = workbook.getCreationHelper();
+                CellStyle dateCellStyle = workbook.createCellStyle();
+                dateCellStyle.setDataFormat(createHelper.createDataFormat().getFormat("dd.MM.yyyy HH:mm"));
+
+                // Заголовки
+                Row headerRow = sheet.createRow(0);
+                String[] columns = {"ID", "Название", "Автор", "Язык программирования", "URL изображения", "Уровень",
+                        "Длительность", "Тип длительности", "Доступ", "Цена", "Валюта",
+                        "Описание", "Язык курса", "URL ресурса", "Создано", "Дата создания",
+                        "Обновлено", "Дата обновления"};
+
+                for (int i = 0; i < columns.length; i++) {
+                    Cell cell = headerRow.createCell(i);
+                    cell.setCellValue(columns[i]);
+                    CellStyle headerStyle = workbook.createCellStyle();
+                    Font font = workbook.createFont();
+                    font.setBold(true);
+                    headerStyle.setFont(font);
+                    cell.setCellStyle(headerStyle);
+                }
+
+                // Получаем данные из таблицы
+                List<Course> courses = tableView.getItems();
+
+                // Заполняем данные
+                int rowNum = 1;
+                for (Course course : courses) {
+                    Row row = sheet.createRow(rowNum++);
+                    row.createCell(0).setCellValue(course.getId());
+                    row.createCell(1).setCellValue(course.getTitle());
+                    row.createCell(2).setCellValue(course.getAuthor());
+                    row.createCell(3).setCellValue(course.getProgrammingLanguage());
+                    row.createCell(4).setCellValue(course.getImageUrl());
+                    row.createCell(5).setCellValue(course.getLevel());
+                    row.createCell(6).setCellValue(course.getDuration());
+                    row.createCell(7).setCellValue(course.getDurationType());
+                    row.createCell(8).setCellValue(course.getAccess());
+                    row.createCell(9).setCellValue(course.getPrice());
+                    row.createCell(10).setCellValue(course.getCurrency());
+                    row.createCell(11).setCellValue(course.getDescription());
+                    row.createCell(12).setCellValue(course.getLanguageOfCourse());
+                    row.createCell(13).setCellValue(course.getResourceUrl());
+                    row.createCell(14).setCellValue(course.getCreatedBy());
+
+                    // Дата создания
+                    if (course.getCreatedAt() != null) {
+                        Cell createdAtCell = row.createCell(15);
+                        createdAtCell.setCellValue(java.sql.Timestamp.valueOf(course.getCreatedAt()));
+                        createdAtCell.setCellStyle(dateCellStyle);
+                    }
+
+                    row.createCell(16).setCellValue(course.getUpdatedBy());
+
+                    // Дата обновления
+                    if (course.getUpdatedAt() != null) {
+                        Cell updatedAtCell = row.createCell(17);
+                        updatedAtCell.setCellValue(java.sql.Timestamp.valueOf(course.getUpdatedAt()));
+                        updatedAtCell.setCellStyle(dateCellStyle);
+                    }
+                }
+
+                // Авторазмер колонок
+                for (int i = 0; i < columns.length; i++) {
+                    sheet.autoSizeColumn(i);
+                }
+
+                // Сохраняем в файл
+                workbook.write(fileOut);
+
+                // Уведомление
+                notificationService.showNotification("Успех", "Отчет сохранен", "Файл успешно сохранен в " + file.getAbsolutePath());
+            } catch (IOException e) {
+                e.printStackTrace();
+                notificationService.showNotification("Ошибка", "Ошибка экспорта", "Не удалось сохранить отчет.");
+            }
+        }
+    }
+
 }

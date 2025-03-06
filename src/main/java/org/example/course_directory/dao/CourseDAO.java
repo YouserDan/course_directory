@@ -74,16 +74,16 @@ public class CourseDAO {
             statement.setString(4, course.getImageUrl());
             statement.setString(5, course.getLevel());
             statement.setString(6, course.getDuration());
-            statement.setString(6, course.getDurationType());
-            statement.setString(7, course.getAccess());
-            statement.setDouble(8, course.getPrice());
-            statement.setString(9, course.getKeywords());
-            statement.setString(10, course.getDescription());
-            statement.setString(11, course.getLanguageOfCourse());
-            statement.setString(12, course.getResourceUrl());
-            statement.setTimestamp(13, Timestamp.valueOf(course.getUpdatedAt()));
-            statement.setString(14, course.getUpdatedBy());
-            statement.setInt(15, course.getId());
+            statement.setString(7, course.getDurationType());
+            statement.setString(8, course.getAccess());
+            statement.setDouble(9, course.getPrice());
+            statement.setString(10, course.getKeywords());
+            statement.setString(11, course.getDescription());
+            statement.setString(12, course.getLanguageOfCourse());
+            statement.setString(13, course.getResourceUrl());
+            statement.setTimestamp(14, Timestamp.valueOf(course.getUpdatedAt()));
+            statement.setString(15, course.getUpdatedBy());
+            statement.setInt(16, course.getId());
 
             statement.executeUpdate();
         }
