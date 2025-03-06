@@ -147,6 +147,7 @@ public class AdminHomeController {
 
         // Устанавливаем обработчик события изменения типа курса
         accessAdd.setOnAction(event -> handleAccessChoiceSelection());
+
         // Устанавливаем обработчик для нажатия клавиши в поле поиска
         searchlInTableField.setOnAction(this::searchInTable);  // Это будет вызывать метод поиска при нажатии Enter
 
@@ -567,7 +568,14 @@ public class AdminHomeController {
         descriptionEdit.setText(selectedCourse.getDescription());
         languageOfCourseEdit.setText(selectedCourse.getLanguageOfCourse());
         urlEdit.setText(selectedCourse.getResourceUrl());
+        // Проверка на бесплатный курс
+        // Обработчик изменения типа доступа
+        accessEdit.setOnAction(event -> {
+            updatePriceAndCurrencyFields();
+        });
 
+        // Вызовем функцию блокировки полей сразу после загрузки данных
+        updatePriceAndCurrencyFields();
         // Переключение видимости страниц
         homePage.setVisible(false);
         courseCatalog.setVisible(false);
@@ -576,7 +584,21 @@ public class AdminHomeController {
         addCourse.setVisible(false);
         editCourse.setVisible(true);
     }
+    private void updatePriceAndCurrencyFields() {
+        // Получаем текущий тип доступа
+        String access = (String) accessEdit.getValue();
 
+        if ("Бесплатный".equals(access)) {
+            // Если курс бесплатный, устанавливаем цену в 0 и блокируем поля
+            priceFieldEdit.setText("0");
+            priceFieldEdit.setDisable(true);  // Блокируем поле цены
+            currencyEditChoiceBox.setDisable(true);  // Блокируем выбор валюты
+        } else {
+            // Если курс не бесплатный, разблокируем поля
+            priceFieldEdit.setDisable(false);
+            currencyEditChoiceBox.setDisable(false);
+        }
+    }
 
     public void saveEditedCourse(ActionEvent actionEvent) {
         Course selectedCourse = tableView.getSelectionModel().getSelectedItem();
@@ -653,9 +675,6 @@ public class AdminHomeController {
             notificationService.showNotification("Ошибка", "Ошибка сохранения", "Произошла ошибка при сохранении изменений.");
         }
     }
-
-
-
 
 
     public void doReport(ActionEvent actionEvent) {
