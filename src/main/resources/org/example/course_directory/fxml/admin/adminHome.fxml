@@ -291,12 +291,12 @@
                         <Font name="Comic Sans MS" size="14.0" />
                      </font>
                   </SplitMenuButton>
-                  <TextField fx:id="emailField" layoutX="382.0" layoutY="15.0" prefHeight="35.0" prefWidth="219.0" promptText="Поиск 🔍" style="-fx-background-color: #1F3D69; -fx-border-color: white; -fx-border-width: 2; -fx-text-fill: white;">
+                  <TextField fx:id="search" layoutX="382.0" layoutY="15.0" prefHeight="35.0" prefWidth="219.0" promptText="Поиск 🔍" style="-fx-background-color: #1F3D69; -fx-border-color: white; -fx-border-width: 2; -fx-text-fill: white;">
                      <font>
                         <Font name="Comic Sans MS" size="14.0" />
                      </font>
                   </TextField>
-                  <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="608.0" layoutY="15.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0" styleClass="cardButtons" text="🔍" textAlignment="CENTER">
+                  <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="608.0" layoutY="15.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#searchInTable" prefHeight="35.0" prefWidth="35.0" styleClass="cardButtons" text="🔍" textAlignment="CENTER">
                      <font>
                         <Font name="Comic Sans MS Bold" size="14.0" />
                      </font>
@@ -371,12 +371,17 @@
                         </Button>
                      </children>
                   </HBox>
-                  <TextField fx:id="emailField1" layoutX="424.0" layoutY="15.0" prefHeight="35.0" prefWidth="219.0" promptText="Поиск 🔍" style="-fx-background-color: #1F3D69; -fx-border-color: white; -fx-border-width: 2; -fx-text-fill: white;">
+                  <TextField onKeyReleased="#handleSearchInput" fx:id="searchlInTableField" layoutX="424.0" layoutY="15.0" prefHeight="35.0" prefWidth="219.0" promptText="Поиск 🔍" style="-fx-background-color: #1F3D69; -fx-border-color: white; -fx-border-width: 2; -fx-text-fill: white;">
                      <font>
                         <Font name="Comic Sans MS" size="14.0" />
                      </font>
                   </TextField>
-                  <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="650.0" layoutY="15.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0" styleClass="cardButtons" text="🔍" textAlignment="CENTER">
+                  <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="650.0" layoutY="15.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#searchInTable" prefHeight="35.0" prefWidth="35.0" styleClass="cardButtons" text="🔍" textAlignment="CENTER">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="15.0" layoutY="15.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#reloadDataInTable" prefHeight="35.0" prefWidth="150.0" styleClass="cardButtons" text="Обновить таблицу" textAlignment="CENTER">
                      <font>
                         <Font name="Comic Sans MS Bold" size="14.0" />
                      </font>

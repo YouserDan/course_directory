@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -29,6 +30,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 
@@ -56,6 +58,9 @@ public class AdminHomeController {
     private AnchorPane addCourse;
     @FXML
     private AnchorPane editCourse;
+
+    //Для поиска
+    @FXML private TextField searchlInTableField;
 
 
     // Заполнение формы курса
@@ -142,6 +147,8 @@ public class AdminHomeController {
 
         // Устанавливаем обработчик события изменения типа курса
         accessAdd.setOnAction(event -> handleAccessChoiceSelection());
+        // Устанавливаем обработчик для нажатия клавиши в поле поиска
+        searchlInTableField.setOnAction(this::searchInTable);  // Это будет вызывать метод поиска при нажатии Enter
 
     }
     private void loadDataFromDatabase() {
@@ -233,7 +240,6 @@ public class AdminHomeController {
     }
 
 
-
     private void handleAccessChoiceSelection() {
         // Проверяем, выбран ли тип курса "Бесплатный"
         if ("Бесплатный".equals(accessAdd.getValue())) {
@@ -255,7 +261,13 @@ public class AdminHomeController {
             String title = courseNameFieldAdd.getText();
             String author = courseAutorFieldAdd.getText();
             String programmingLanguage = (String) programmingLanguageChoiseAdd.getValue();
-            String imageUrl = String.valueOf(imageView.getImage());
+
+            // Получаем URL изображения (проверяем, не пусто ли оно)
+            String imageUrl = "";
+            if (imageView.getImage() != null) {
+                imageUrl = imageView.getImage().getUrl();
+            }
+
             String level = (String) levelChoiseAdd.getValue();
             String duration = String.valueOf(spinnerAdd.getValue());
             String durationType = (String) dataTypeAdd.getValue();
@@ -316,7 +328,6 @@ public class AdminHomeController {
                     spinnerAdd, dataTypeAdd, levelChoiseAdd, accessAdd, priceFieldAdd, currencyChoiceBox, keywordsFieldAdd, descriptionAdd,
                     languageOfCourseAdd, urlAdd);
 
-
             // Очистить текущую таблицу
             courseList.clear(); // Очистить коллекцию
 
@@ -337,6 +348,7 @@ public class AdminHomeController {
             showAlert("Ошибка ввода", "Пожалуйста, убедитесь, что все поля заполнены корректно.");
         }
     }
+
 
     //Можно оптимизировать
     // Метод для отображения сообщений об успехе или ошибке
@@ -437,7 +449,7 @@ public class AdminHomeController {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Выберите изображение");
 
-        // Фильтр для изображений
+        // Фильтр для выбора изображений
         fileChooser.getExtensionFilters().add(
                 new FileChooser.ExtensionFilter("Изображения", "*.png", "*.jpg", "*.jpeg", "*.gif")
         );
@@ -445,19 +457,27 @@ public class AdminHomeController {
         // Получаем текущее окно (Stage)
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-        // Открываем диалоговое окно
+        // Открываем диалоговое окно выбора изображения
         File file = fileChooser.showOpenDialog(stage);
 
         if (file != null) {
             System.out.println("Выбран файл: " + file.getAbsolutePath());
 
             // Создаём Image из выбранного файла
-            Image image = new Image(file.toURI().toString());
+            Image newImage = new Image(file.toURI().toString());
 
-            // Отображаем в ImageView
-            imageView.setImage(image);
+            // 🔹 Обновляем картинку в форме редактирования
+            Platform.runLater(() -> imageEdit.setImage(newImage));
+
+            // 🔹 Обновляем ссылку на изображение в объекте выбранного курса
+            Course selectedCourse = tableView.getSelectionModel().getSelectedItem();
+            if (selectedCourse != null) {
+                selectedCourse.setImageUrl(file.toURI().toString());
+            }
         }
     }
+
+
 
     //УДАЛЕНИЕ КУРСА
     private NotificationService notificationService = new NotificationService();
@@ -579,12 +599,11 @@ public class AdminHomeController {
                 return;
             }
 
-            // Обработка изображения
-            Image image = imageEdit.getImage();
-            if (image != null && image.getUrl() != null) {
-                selectedCourse.setImageUrl(image.getUrl());
+            // 🔹 ВАЖНО! Убедимся, что изображение сохраняется
+            if (imageEdit.getImage() != null && imageEdit.getImage().getUrl() != null) {
+                selectedCourse.setImageUrl(imageEdit.getImage().getUrl());
             } else {
-                selectedCourse.setImageUrl(""); // Устанавливаем пустое значение или URL по умолчанию
+                selectedCourse.setImageUrl(""); // Если нет картинки, сохраняем пустую строку
             }
 
             selectedCourse.setLevel((String) levelChoiseEdit.getValue());
@@ -615,10 +634,13 @@ public class AdminHomeController {
             selectedCourse.setUpdatedBy("Admin");
             selectedCourse.setUpdatedAt(LocalDateTime.now());
 
-            // Обновляем курс в базе данных
+            // 🔹 ЛОГ для отладки
+            System.out.println("Сохраняемое изображение: " + selectedCourse.getImageUrl());
+
+            // 🔹 Обновляем курс в базе данных
             courseDAO.updateCourse(selectedCourse);
 
-            // Обновляем таблицу
+            // 🔹 Обновляем таблицу
             tableView.refresh();
 
             // Показываем уведомление
@@ -633,13 +655,27 @@ public class AdminHomeController {
     }
 
 
+
+
+
     public void doReport(ActionEvent actionEvent) {
-        // Выбираем файл для сохранения
+        // Получаем текущую дату и время в нужном формате
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss");
+        String formattedDateTime = now.format(formatter);
+
+        // Создаем объект FileChooser для выбора места сохранения
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Сохранить отчет");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Excel файлы (*.xlsx)", "*.xlsx"));
+
+        // Устанавливаем начальное имя файла с датой и временем
+        fileChooser.setInitialFileName("отчет_от_" + formattedDateTime + ".xlsx");
+
+        // Показываем диалоговое окно выбора файла
         File file = fileChooser.showSaveDialog(new Stage());
 
+        // Если пользователь выбрал файл для сохранения
         if (file != null) {
             try (Workbook workbook = new XSSFWorkbook(); FileOutputStream fileOut = new FileOutputStream(file)) {
                 Sheet sheet = workbook.createSheet("Курсы");
@@ -653,8 +689,8 @@ public class AdminHomeController {
                 Row headerRow = sheet.createRow(0);
                 String[] columns = {"ID", "Название", "Автор", "Язык программирования", "URL изображения", "Уровень",
                         "Длительность", "Тип длительности", "Доступ", "Цена", "Валюта",
-                        "Описание", "Язык курса", "URL ресурса", "Создано", "Дата создания",
-                        "Обновлено", "Дата обновления"};
+                        "Описание", "Язык курса", "URL ресурса", "Кем создано", "Дата создания",
+                        "Кем обновлено", "Дата обновления"};
 
                 for (int i = 0; i < columns.length; i++) {
                     Cell cell = headerRow.createCell(i);
@@ -723,4 +759,72 @@ public class AdminHomeController {
         }
     }
 
+
+    @FXML
+    private void searchInTable(ActionEvent event) {
+        System.out.println("Поиск применён");
+        String query = searchlInTableField.getText().toLowerCase();  // Получаем текст поиска
+        filterTable(query);  // Применяем фильтрацию
+    }
+    @FXML
+    private void handleSearchInput(KeyEvent event) {
+        String query = searchlInTableField.getText().toLowerCase();  // Получаем текст поиска
+        filterTable(query);  // Применяем фильтрацию
+    }
+
+
+    private void filterTable(String query) {
+        ObservableList<Course> filteredCourses = FXCollections.observableArrayList();
+
+        // Преобразуем запрос в нижний регистр для поиска без учета регистра
+        query = query.toLowerCase();
+
+        // Проходим по всем курсам и фильтруем по нескольким полям
+        for (Course course : courseList) {
+            // Проверяем, содержат ли какие-либо из полей курс совпадение с запросом
+            if (course.getTitle().toLowerCase().contains(query) ||  // Проверяем название курса
+                    course.getAuthor().toLowerCase().contains(query) ||  // Проверяем автора
+                    course.getProgrammingLanguage().toLowerCase().contains(query) ||  // Проверяем язык программирования
+                    course.getLevel().toLowerCase().contains(query) ||  // Проверяем уровень
+                    course.getAccess().toLowerCase().contains(query) || // Доступ
+                    course.getDescription().toLowerCase().contains(query) ||  // Проверяем описание
+                    course.getLanguageOfCourse().toLowerCase().contains(query) ||  // Проверяем язык курса
+                    course.getResourceUrl().toLowerCase().contains(query)) {  // Проверяем URL ресурса
+                filteredCourses.add(course); // Добавляем курс, если совпадает
+            }
+        }
+
+        // Обновляем таблицу с отфильтрованными курсами
+        tableView.setItems(filteredCourses);
+
+        // Если найден хотя бы один курс, выделим его и прокрутим
+        if (!filteredCourses.isEmpty()) {
+            // Дополнительно можно выделить и прокрутить ко всем найденным совпадениям
+            Course firstMatch = filteredCourses.get(0);  // Берем первый подходящий курс
+            selectAndScrollToCourse(firstMatch);
+        }
+    }
+
+
+    private void selectAndScrollToCourse(Course course) {
+        // Находим индекс нужного курса в таблице
+        int index = tableView.getItems().indexOf(course);
+
+        if (index != -1) {
+            // Выделяем строку
+            tableView.getSelectionModel().select(index);
+
+            // Прокручиваем таблицу до выбранной строки
+            tableView.scrollTo(index);
+        }
+    }
+
+
+    public void reloadDataInTable(ActionEvent actionEvent) {
+        // Очищаем список перед загрузкой новых данных
+        courseList.clear();
+        loadDataFromDatabase();
+        setupColumns();
+        tableView.refresh();
+    }
 }
