@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.course_directory.cardMaker.CourseCardController"
+            stylesheets="@../../../../../resources/org/example/course_directory/styles/style.css"
+            prefHeight="400.0" prefWidth="600.0">
+    <VBox fx:id="courseCard" alignment="BOTTOM_CENTER" layoutX="20.0" layoutY="20.0" minWidth="-Infinity" prefHeight="231.0" prefWidth="200.0" style="-fx-border-color: white;" styleClass="card">
+        <children>
+            <ImageView fx:id="courseImage" fitHeight="124.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@" />
+                </image>
+            </ImageView>
+            <Label fx:id="courseTitle" alignment="CENTER" prefHeight="41.0" prefWidth="186.0" text="Название" textFill="WHITE">
+                <font>
+                    <Font name="Comic Sans MS" size="17.0" />
+                </font>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                <children>
+                    <Label fx:id="progLang" alignment="CENTER" prefHeight="41.0" prefWidth="186.0" text="Язык" textAlignment="CENTER" textFill="WHITE">
+                        <font>
+                            <Font name="Comic Sans MS" size="17.0" />
+                        </font>
+                        <HBox.margin>
+                            <Insets left="5.0" />
+                        </HBox.margin>
+                    </Label>
+                    <Label fx:id="courseAccess" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="41.0" prefWidth="186.0" text="Доступ" textFill="WHITE">
+                        <font>
+                            <Font name="Comic Sans MS" size="17.0" />
+                        </font>
+                        <HBox.margin>
+                            <Insets right="5.0" />
+                        </HBox.margin>
+                    </Label>
+                </children>
+            </HBox>
+            <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="206.0" styleClass="cardButtons" text="Посмотреть">
+                <VBox.margin>
+                    <Insets top="5.0" />
+                </VBox.margin>
+            </Button>
+        </children>
+        <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+        </padding>
+    </VBox>
+
+</AnchorPane>

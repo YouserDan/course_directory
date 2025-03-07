@@ -15,10 +15,12 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.apache.poi.ss.usermodel.Cell;
 import org.example.course_directory.StartProgram;
+import org.example.course_directory.cardMaker.CourseLoader;
 import org.example.course_directory.dao.CourseDAO;
 import org.example.course_directory.entyty.Course;
 import org.example.course_directory.services.ClearForm;
@@ -61,6 +63,11 @@ public class AdminHomeController {
 
     //Для поиска
     @FXML private TextField searchlInTableField;
+
+    //Для карточек курса
+    @FXML
+    private FlowPane courseFlowPane; // Контейнер для карточек курсов
+    private CourseLoader courseLoader; // Класс для загрузки курсов
 
 
     // Заполнение формы курса
@@ -132,9 +139,13 @@ public class AdminHomeController {
         addCourse.setVisible(false);
         editCourse.setVisible(false);
 
-
         //Подгружаем таблицу
         loadDataFromDatabase();
+
+//        //Подгружаем карточки из бд
+//        courseLoader = new CourseLoader(courseFlowPane); // Передаем FlowPane в CourseLoader
+//        courseLoader.loadCourses(); // Загружаем курсы при старте
+
         // Устанавливаем диапазон значений (от 1 до 1000, шаг 1)
         spinnerAdd.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 1000, 1));
         // Включаем ввод вручную (если нужно)
@@ -320,6 +331,7 @@ public class AdminHomeController {
             // Добавляем курс в базу данных через CourseDAO
             CourseDAO courseDAO = new CourseDAO();
             courseDAO.addCourse(newCourse);
+//            courseLoader.addCourseToFlowPane(course); // Добавляем курс в интерфейс
 
             // Уведомляем пользователя о том, что курс был успешно добавлен
             showAlert("Успех", "Курс был успешно добавлен в базу данных.");
@@ -466,6 +478,9 @@ public class AdminHomeController {
 
             // Создаём Image из выбранного файла
             Image newImage = new Image(file.toURI().toString());
+
+            // 🔹 Обновляем картинку в форме создания
+            Platform.runLater(() -> imageView.setImage(newImage));
 
             // 🔹 Обновляем картинку в форме редактирования
             Platform.runLater(() -> imageEdit.setImage(newImage));

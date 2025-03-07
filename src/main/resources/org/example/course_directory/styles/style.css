@@ -131,4 +131,11 @@
 }
 
 
+.scroll-pane {
+    -fx-background: #1F3D69; /* Цвет фона ScrollPane */
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: #1F3D69; /* Цвет фона области прокрутки */
+}
 

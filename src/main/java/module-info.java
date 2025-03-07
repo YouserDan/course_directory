@@ -5,6 +5,7 @@ module org.example.course_directory {
     requires jbcrypt;
     requires org.apache.poi.ooxml;
     requires mysql.connector.j;
+    requires java.desktop;
 
 
     opens org.example.course_directory.entyty to javafx.base;
