@@ -16,6 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.apache.poi.ss.usermodel.Cell;
@@ -66,8 +67,10 @@ public class AdminHomeController {
 
     //Для карточек курса
     @FXML
-    private FlowPane courseFlowPane; // Контейнер для карточек курсов
-    private CourseLoader courseLoader; // Класс для загрузки курсов
+    private FlowPane courseFlowPane; // Это поле должно быть связано с FXML
+    private CourseLoader courseLoader;
+
+
 
 
     // Заполнение формы курса
@@ -142,9 +145,25 @@ public class AdminHomeController {
         //Подгружаем таблицу
         loadDataFromDatabase();
 
-//        //Подгружаем карточки из бд
-//        courseLoader = new CourseLoader(courseFlowPane); // Передаем FlowPane в CourseLoader
-//        courseLoader.loadCourses(); // Загружаем курсы при старте
+        if (courseFlowPane == null) {
+            System.out.println("Ошибка: courseFlowPane не загружен из FXML!");
+        } else {
+            courseLoader = new CourseLoader(courseFlowPane);
+            System.out.println("CourseLoader успешно инициализирован!");
+        }
+
+// Проверяем, что tableView не пустой перед работой с ним
+        if (tableView != null) {
+            tableView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+                if (newSelection != null) {
+                    String imageUrl = newSelection.getImageUrl();
+                    if (imageUrl != null && !imageUrl.isEmpty()) {
+                        Image image = new Image(imageUrl);
+                        imageEdit.setImage(image);
+                    }
+                }
+            });
+        }
 
         // Устанавливаем диапазон значений (от 1 до 1000, шаг 1)
         spinnerAdd.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 1000, 1));
@@ -373,7 +392,14 @@ public class AdminHomeController {
         alert.showAndWait();
     }
 
-    public void viewCourses(ActionEvent actionEvent) {
+    public void viewCourses(ActionEvent actionEvent) throws SQLException {
+        // Проверяем, что courseLoader был инициализирован
+        if (courseLoader != null) {
+            courseLoader.loadCourses();  // Загружаем курсы
+        } else {
+            System.out.println("Ошибка: CourseLoader не инициализирован!");
+        }
+
         homePage.setVisible(false);
         courseCatalog.setVisible(true);
         courseEditor.setVisible(false);
@@ -381,6 +407,8 @@ public class AdminHomeController {
         addCourse.setVisible(false);
         editCourse.setVisible(false);
     }
+
+
 
     public void openEditorCoursePage(ActionEvent actionEvent) {
         homePage.setVisible(false);

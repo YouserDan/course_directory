@@ -13,4 +13,5 @@ module org.example.course_directory {
     exports org.example.course_directory;
     exports org.example.course_directory.controllers;
     opens org.example.course_directory.controllers to javafx.fxml;
+    opens org.example.course_directory.cardMaker to javafx.fxml;
 }

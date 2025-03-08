@@ -12,7 +12,7 @@ public class CourseCardController {
     @FXML
     private VBox courseCard; // Основной контейнер карточки
     @FXML
-    private ImageView courseImage; // Картинка курса
+    private ImageView courseImageView; // Картинка курса
     @FXML
     private Label courseTitle; // Название курса
     @FXML
@@ -22,38 +22,25 @@ public class CourseCardController {
     @FXML
     private Button openCourseButton; // Кнопка "Посмотреть"
 
-    private Course course; // Данные курса
-
     // Устанавливаем данные курса в карточку
-    public void setCourseData(Course course) {
-        this.course = course;
-
+    public void setCourse(Course course) {
         // Устанавливаем текстовые данные
+        System.out.println("Устанавливаем курс: " + course.getTitle()); // Отладочная информация
+
         courseTitle.setText(course.getTitle());
         progLang.setText(course.getProgrammingLanguage());
-        courseAccess.setText(course.getAccess()); // Например, "Бесплатный" или "Платный"
+        courseAccess.setText(course.getAccess());
 
-        // Загружаем картинку, если есть
+        // Устанавливаем картинку для курса
         if (course.getImageUrl() != null && !course.getImageUrl().isEmpty()) {
-            try {
-                courseImage.setImage(new Image(course.getImageUrl()));
-            } catch (Exception e) {
-                System.out.println("Ошибка загрузки изображения");
-            }
+            Image image = new Image(course.getImageUrl());
+            courseImageView.setImage(image);
+        } else {
+            // Если URL пустой, можно задать дефолтное изображение
+            Image defaultImage = new Image("default_image_path_here"); // Укажите путь к изображению по умолчанию
+            courseImageView.setImage(defaultImage);
         }
-
-//        // Назначаем действие для кнопки "Посмотреть"
-//        openCourseButton.setOnAction(event -> openCourseLink());
     }
 
-//    // Открытие ссылки на курс в браузере
-//    private void openCourseLink() {
-//        if (course.getResourceUrl() != null && !course.getResourceUrl().isEmpty()) {
-//            try {
-//                Desktop.getDesktop().browse(new URI(course.getResourceUrl()));
-//            } catch (IOException | URISyntaxException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    }
+
 }
