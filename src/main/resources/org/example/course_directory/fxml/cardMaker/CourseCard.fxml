@@ -13,31 +13,28 @@
     <VBox fx:id="courseCard" alignment="BOTTOM_CENTER" layoutX="20.0" layoutY="20.0" minWidth="-Infinity" prefHeight="231.0" prefWidth="200.0" style="-fx-border-color: white;" styleClass="card">
         <children>
             <ImageView fx:id="courseImageView" fitHeight="124.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true" />
-            <Label fx:id="courseTitle" alignment="CENTER" prefHeight="41.0" prefWidth="186.0" text="Название" textFill="WHITE">
+            <Label fx:id="courseTitle" alignment="CENTER" prefHeight="41.0" prefWidth="186.0" text="Название">
                 <font>
                     <Font name="Comic Sans MS" size="17.0" />
                 </font>
+            <VBox.margin>
+               <Insets bottom="5.0" top="5.0" />
+            </VBox.margin>
             </Label>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                <children>
-                    <Label fx:id="progLang" alignment="CENTER" prefHeight="40.0" prefWidth="174.0" text="Язык" textAlignment="CENTER" textFill="WHITE">
+         <HBox prefHeight="100.0" prefWidth="200.0">
+            <children>
+                    <Label fx:id="progLang" alignment="CENTER" prefHeight="40.0" prefWidth="160.0" text="Python" textAlignment="CENTER">
                         <font>
                             <Font name="Comic Sans MS" size="17.0" />
                         </font>
-                        <HBox.margin>
-                            <Insets left="5.0" />
-                        </HBox.margin>
                     </Label>
-                    <Label fx:id="courseAccess" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="41.0" prefWidth="186.0" text="Доступ" textFill="WHITE">
+                    <Label fx:id="courseAccess" alignment="CENTER" prefHeight="30.0" prefWidth="178.0" text="Бесплатный">
                         <font>
                             <Font name="Comic Sans MS" size="17.0" />
                         </font>
-                        <HBox.margin>
-                            <Insets right="5.0" />
-                        </HBox.margin>
                     </Label>
-                </children>
-            </HBox>
+            </children>
+         </HBox>
             <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="206.0" styleClass="cardButtons" text="Посмотреть">
                 <VBox.margin>
                     <Insets top="5.0" />

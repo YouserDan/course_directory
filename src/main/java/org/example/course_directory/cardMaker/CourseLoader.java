@@ -10,11 +10,15 @@ import org.example.course_directory.entyty.Course;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CourseLoader {
     private final FlowPane flowPane;  // Контейнер, куда добавляются карточки курсов
     private final CourseDAO courseDAO;  // Работа с базой данных
+
+    private List<Course> cachedCourses = new ArrayList<>();
+
 
     public CourseLoader(FlowPane flowPane) {
         this.flowPane = flowPane;
@@ -23,32 +27,46 @@ public class CourseLoader {
 
     // Метод для загрузки всех курсов
     public void loadCourses() {
-        List<Course> courses = null;
+        List<Course> newCourses;
         try {
-            courses = courseDAO.getAllCourses();
-            System.out.println("Курсы загружены: " + courses.size());
+            newCourses = courseDAO.getAllCourses();
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Ошибка загрузки курсов!");
             return;
         }
 
-        if (flowPane == null) {
-            System.out.println("Ошибка: FlowPane не инициализирован!");
+        // Проверяем, изменились ли курсы
+        if (isCourseListEqual(newCourses, cachedCourses)) {
+            System.out.println("Курсы не изменились, загрузка не требуется.");
             return;
         }
 
-        // Очищаем FlowPane перед добавлением новых элементов
-        flowPane.getChildren().clear();
+        // Обновляем кэш
+        cachedCourses = newCourses;
 
-        // Загружаем все курсы и добавляем их в FlowPane
-        for (Course course : courses) {
-            addCourseToFlowPane(course);
-        }
-
-        System.out.println("Курсы добавлены");
-        System.out.println("Количество элементов в FlowPane: " + flowPane.getChildren().size());
+        // Очищаем и загружаем новые курсы
+        Platform.runLater(() -> {
+            flowPane.getChildren().clear();
+            for (Course course : newCourses) {
+                addCourseToFlowPane(course);
+            }
+            System.out.println("Курсы обновлены.");
+        });
     }
+
+    // Метод для сравнения двух списков курсов
+    private boolean isCourseListEqual(List<Course> list1, List<Course> list2) {
+        if (list1.size() != list2.size()) return false;
+
+        for (int i = 0; i < list1.size(); i++) {
+            if (!list1.get(i).equals(list2.get(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 
 
     // Метод для добавления одной карточки в FlowPane

@@ -23,23 +23,30 @@ public class CourseCardController {
     private Button openCourseButton; // Кнопка "Посмотреть"
 
     // Устанавливаем данные курса в карточку
-    public void setCourse(Course course) {
-        // Устанавливаем текстовые данные
-        System.out.println("Устанавливаем курс: " + course.getTitle()); // Отладочная информация
+    private Course currentCourse; // Хранит последний установленный курс
 
+    public void setCourse(Course course) {
+        // Проверяем, изменились ли данные курса
+        if (currentCourse != null && currentCourse.equals(course)) {
+            System.out.println("Данные курса не изменились, пропускаем установку.");
+            return;
+        }
+
+        System.out.println("Обновляем курс: " + course.getTitle()); // Отладочная информация
+
+        // Устанавливаем текстовые данные
         courseTitle.setText(course.getTitle());
         progLang.setText(course.getProgrammingLanguage());
         courseAccess.setText(course.getAccess());
 
-        // Устанавливаем картинку для курса
-        if (course.getImageUrl() != null && !course.getImageUrl().isEmpty()) {
-            Image image = new Image(course.getImageUrl());
+        // Загружаем картинку только если URL изменился
+        if (course.getImageUrl() != null && !course.getImageUrl().equals(currentCourse == null ? null : currentCourse.getImageUrl())) {
+            Image image = new Image(course.getImageUrl(), true);
             courseImageView.setImage(image);
-        } else {
-            // Если URL пустой, можно задать дефолтное изображение
-            Image defaultImage = new Image("default_image_path_here"); // Укажите путь к изображению по умолчанию
-            courseImageView.setImage(defaultImage);
         }
+
+        // Сохраняем текущий курс
+        currentCourse = course;
     }
 
 

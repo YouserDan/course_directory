@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="пофиксил баг с отображением картинки в создании курса. заложил основу для автозаполнения карточек курса">
+    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="Добавлен каталог карточек курсов из базы данных в окне администратора.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/cardMaker/CourseCard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/cardMaker/CourseCard.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/cardMaker/CourseCardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/cardMaker/CourseCardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/cardMaker/CourseLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/cardMaker/CourseLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/AdminHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/AdminHomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/admin/adminHome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/admin/adminHome.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/cardMaker/CourseCard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/cardMaker/CourseCard.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,14 +152,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1728294609573</updated>
-    </task>
-    <task id="LOCAL-00013" summary="убрал все  warning">
-      <option name="closed" value="true" />
-      <created>1728912960668</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1728912960668</updated>
     </task>
     <task id="LOCAL-00014" summary="убрал все  warning">
       <option name="closed" value="true" />
@@ -548,7 +537,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741328876854</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="Добавлен каталог карточек курсов из базы данных в окне администратора.">
+      <option name="closed" value="true" />
+      <created>1741432105821</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1741432105821</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -563,7 +560,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="сделал подключение к бд" />
     <MESSAGE value="сделал подключение к бд и вывод данных из таблицы" />
     <MESSAGE value="сделал дизайн стартового и окна аутентификации (регистрации)" />
     <MESSAGE value="сделал дизайн админ меню" />
@@ -588,6 +584,7 @@
     <MESSAGE value="Сделал изменение курса и вывод отчёта в эксель" />
     <MESSAGE value="Доработал тип доступа в режиме изменения курса" />
     <MESSAGE value="пофиксил баг с отображением картинки в создании курса. заложил основу для автозаполнения карточек курса" />
-    <option name="LAST_COMMIT_MESSAGE" value="пофиксил баг с отображением картинки в создании курса. заложил основу для автозаполнения карточек курса" />
+    <MESSAGE value="Добавлен каталог карточек курсов из базы данных в окне администратора." />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавлен каталог карточек курсов из базы данных в окне администратора." />
   </component>
 </project>
