@@ -4,14 +4,75 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="SOLID: вынес лист курсов в отдельный класс">
+    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="Сделал отображение курсов в окне пользователя">
+      <change afterPath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/cardMaker/CourseCardController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/cardMaker/CourseLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/controllers/AdminHomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/dao/CourseDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/entyty/Course.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/services/ClearForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/services/CourseManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/course_directory/src/main/resources/org/example/course_directory/fxml/admin/adminHome.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/course_directory/src/main/resources/org/example/course_directory/fxml/cardMaker/CourseCard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/cardMaker/CourseCardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/cardMaker/CourseCardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/cardMaker/CourseLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/cardMaker/CourseLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/AdminHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/AdminHomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/UserHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/UserHomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/services/CourseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/services/CourseManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/cardMaker/CourseCard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/cardMaker/CourseCard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course_directory/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/course_directory/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/StartProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/StartProgram.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/connection/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/connection/DatabaseConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/controllers/AdminMenuController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/controllers/AuthWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/controllers/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/controllers/StartProgramController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/controllers/UserCoursesController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/controllers/UserHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/controllers/UserHomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/dao/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course_directory/src/main/resources/org/example/course_directory/fxml/admin/adminMenu.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/course_directory/src/main/resources/org/example/course_directory/fxml/admin/registration.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/course_directory/src/main/resources/org/example/course_directory/fxml/user/userCourses.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/course_directory/src/main/resources/org/example/course_directory/fxml/user/userHome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/course_directory/src/main/resources/org/example/course_directory/fxml/user/userHome.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course_directory/src/main/resources/org/example/course_directory/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/course_directory/src/main/resources/org/example/course_directory/styles/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/StartProgram.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/cardMaker/CourseCardController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/cardMaker/CourseLoader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/connection/DatabaseConnection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/connection/ExecuteQuery.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/AdminHomeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/AuthController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/RegController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/UserHomeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/dao/CourseDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/dao/UserDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/entyty/Course.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/entyty/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/services/ClearForm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/services/CourseManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/services/NotificationService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/services/OpenNewWindow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/languages_icons/20d159cea262332bdcc183320079cf49.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/languages_icons/C_Logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/languages_icons/Csharp_Logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/languages_icons/Dart_programming_language_logo.svg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/languages_icons/Go-Logo_Blue.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/languages_icons/HTML5_logo_and_wordmark.svg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/languages_icons/ISO_C++_Logo.svg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/languages_icons/JavaScript-Logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/languages_icons/Java_logo.svg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/languages_icons/Kotlin_Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/languages_icons/PHP-logo.svg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/languages_icons/Python-logo-notext.svg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/languages_icons/R_logo.svg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/languages_icons/Ruby_logo.svg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/languages_icons/Rust_programming_language_black_logo.svg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/languages_icons/Sql_data_base_with_logo.svg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/languages_icons/Swift_logo.svg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/languages_icons/Typescript_logo_2020.svg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/languages_icons/images.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/admin/adminHome.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/authWindow.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/cardMaker/CourseCard.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/registration.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/user/userHome.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/styles/style.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,14 +217,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1728294609573</updated>
-    </task>
-    <task id="LOCAL-00016" summary="подредактировал стили">
-      <option name="closed" value="true" />
-      <created>1729071978329</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1729071978329</updated>
     </task>
     <task id="LOCAL-00017" summary="сделал закрытие программы при нажатии кнопки выйти">
       <option name="closed" value="true" />
@@ -549,7 +602,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741546473354</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="Сделал отображение курсов в окне пользователя">
+      <option name="closed" value="true" />
+      <created>1741553600805</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1741553600805</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -564,7 +625,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="сделал дизайн админ меню" />
     <MESSAGE value="сделал редизайн" />
     <MESSAGE value="чуть причесал" />
     <MESSAGE value="подключил css к startWindow настроил ховеры" />
@@ -589,7 +649,8 @@
     <MESSAGE value="Добавлен каталог карточек курсов из базы данных в окне администратора." />
     <MESSAGE value="Дабавление курсов пользователю" />
     <MESSAGE value="SOLID: вынес лист курсов в отдельный класс" />
-    <option name="LAST_COMMIT_MESSAGE" value="SOLID: вынес лист курсов в отдельный класс" />
+    <MESSAGE value="Сделал отображение курсов в окне пользователя" />
+    <option name="LAST_COMMIT_MESSAGE" value="Сделал отображение курсов в окне пользователя" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
