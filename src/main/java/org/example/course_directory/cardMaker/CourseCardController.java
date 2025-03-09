@@ -1,5 +1,6 @@
 package org.example.course_directory.cardMaker;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -25,6 +26,7 @@ public class CourseCardController {
     // Устанавливаем данные курса в карточку
     private Course currentCourse; // Хранит последний установленный курс
 
+
     public void setCourse(Course course) {
         // Проверяем, изменились ли данные курса
         if (currentCourse != null && currentCourse.equals(course)) {
@@ -47,6 +49,16 @@ public class CourseCardController {
 
         // Сохраняем текущий курс
         currentCourse = course;
+    }
+
+    // Метод, который вызывается при нажатии на кнопку
+    @FXML
+    private void openAboutCoursePage() {
+        if (currentCourse != null) {
+            System.out.println("Название курса: " + currentCourse.getTitle());
+        } else {
+            System.out.println("Курс не загружен!");
+        }
     }
 
 

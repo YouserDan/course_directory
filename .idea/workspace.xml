@@ -4,16 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="Дабавление курсов пользователю">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/services/CourseManager.java" afterDir="false" />
+    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="SOLID: вынес лист курсов в отдельный класс">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/course_directory/src/main/resources/org/example/course_directory/fxml/user/userHome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/course_directory/src/main/resources/org/example/course_directory/fxml/user/userHome.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/cardMaker/CourseCardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/cardMaker/CourseCardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/cardMaker/CourseLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/cardMaker/CourseLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/AdminHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/AdminHomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/UserHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/UserHomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/admin/adminHome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/admin/adminHome.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/admin/adminMenu.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/admin/registration.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/user/userCourses.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/services/CourseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/services/CourseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/cardMaker/CourseCard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/cardMaker/CourseCard.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +50,7 @@
         <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/course_directory" />
     <option name="RESET_MODE" value="HARD" />
     <option name="ROOT_SYNC" value="SYNC" />
     <option name="UPDATE_TYPE" value="REBASE" />
@@ -158,14 +156,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1728294609573</updated>
-    </task>
-    <task id="LOCAL-00015" summary="убрал все  warning">
-      <option name="closed" value="true" />
-      <created>1729070332045</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1729070332046</updated>
     </task>
     <task id="LOCAL-00016" summary="подредактировал стили">
       <option name="closed" value="true" />
@@ -551,7 +541,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741539607332</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="SOLID: вынес лист курсов в отдельный класс">
+      <option name="closed" value="true" />
+      <created>1741546473354</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1741546473354</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -566,7 +564,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="сделал дизайн стартового и окна аутентификации (регистрации)" />
     <MESSAGE value="сделал дизайн админ меню" />
     <MESSAGE value="сделал редизайн" />
     <MESSAGE value="чуть причесал" />
@@ -591,7 +588,8 @@
     <MESSAGE value="пофиксил баг с отображением картинки в создании курса. заложил основу для автозаполнения карточек курса" />
     <MESSAGE value="Добавлен каталог карточек курсов из базы данных в окне администратора." />
     <MESSAGE value="Дабавление курсов пользователю" />
-    <option name="LAST_COMMIT_MESSAGE" value="Дабавление курсов пользователю" />
+    <MESSAGE value="SOLID: вынес лист курсов в отдельный класс" />
+    <option name="LAST_COMMIT_MESSAGE" value="SOLID: вынес лист курсов в отдельный класс" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

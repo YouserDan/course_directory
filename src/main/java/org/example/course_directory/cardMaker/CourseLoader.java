@@ -69,7 +69,7 @@ public class CourseLoader {
 
 
 
-    // Метод для добавления одной карточки в FlowPane
+    // Метод для добавления одной карточки в FlowPaneч
     private void addCourseToFlowPane(Course course) {
         try {
             // Загрузка FXML файла для карточки курса

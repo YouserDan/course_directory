@@ -190,6 +190,10 @@ public class AdminHomeController {
 
     }
 
+    public void openAboutCoursePage(){
+        System.out.println("Название курса");
+    }
+
     private void loadDataFromDatabase() {
         DatabaseConnection databaseConnection = new DatabaseConnection();
         Connection connection = databaseConnection.connectToDatabase();

@@ -8,15 +8,13 @@
 <?import javafx.scene.control.SplitMenuButton?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<SplitPane fx:id="splitPane" dividerPositions="0.3" prefHeight="603.0" prefWidth="1004.0" style="-fx-background-color: #1F3D69;" stylesheets="@../../styles/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.course_directory.controllers.UserHomeController">
+<SplitPane fx:id="splitPane" dividerPositions="0.3" prefHeight="603.0" prefWidth="1004.0" style="-fx-background-color: #1F3D69;" stylesheets="@../../styles/style.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.course_directory.controllers.UserHomeController">
    <items>
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
@@ -27,7 +25,7 @@
                         <Font name="Comic Sans MS Bold" size="21.0" />
                      </font>
                   </Label>
-                  <Button onAction="#openHomePage" mnemonicParsing="false" prefHeight="45.0" prefWidth="200.0" styleClass="userButtons" text="Главная">
+                  <Button mnemonicParsing="false" onAction="#openHomePage" prefHeight="45.0" prefWidth="200.0" styleClass="userButtons" text="Главная">
                      <font>
                         <Font name="Comic Sans MS Bold" size="17.0" />
                      </font>
@@ -59,236 +57,6 @@
       </AnchorPane>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <AnchorPane fx:id="courseCatalog" minHeight="0.0" minWidth="0.0" prefHeight="601.0" prefWidth="698.0" style="-fx-background-color: #1F3D69;" visible="false">
-               <children>
-                  <ScrollPane focusTraversable="false" layoutY="75.0" prefHeight="530.0" prefWidth="698.0">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="682.0" style="-fx-background-color: #1F3D69;">
-                           <children>
-                              <FlowPane hgap="10.0" layoutX="1.0" layoutY="1.0" prefWidth="682.0" rowValignment="TOP" style="-fx-background-color: #1F3D69;" vgap="10.0">
-                                 <children>
-                                    <VBox alignment="BOTTOM_CENTER" layoutX="20.0" layoutY="20.0" minWidth="-Infinity" prefHeight="231.0" prefWidth="200.0" style="-fx-border-color: white;" styleClass="card">
-                                       <children>
-                                          <ImageView fitHeight="124.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../../../../../languages_icons/20d159cea262332bdcc183320079cf49.png" />
-                                             </image>
-                                          </ImageView>
-                                          <Label alignment="CENTER" prefHeight="41.0" prefWidth="186.0" text="Название" textFill="WHITE">
-                                             <font>
-                                                <Font name="Comic Sans MS" size="17.0" />
-                                             </font>
-                                          </Label>
-                                          <Label alignment="CENTER" prefHeight="41.0" prefWidth="186.0" text="Краткое описание" textFill="WHITE">
-                                             <font>
-                                                <Font name="Comic Sans MS" size="17.0" />
-                                             </font>
-                                          </Label>
-                                          <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="206.0" styleClass="cardButtons" text="Посмотреть">
-                                             <VBox.margin>
-                                                <Insets top="5.0" />
-                                             </VBox.margin>
-                                          </Button>
-                                       </children>
-                                       <padding>
-                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                       </padding>
-                                    </VBox>
-                                    <VBox alignment="BOTTOM_CENTER" layoutX="10.0" layoutY="10.0" minWidth="-Infinity" prefHeight="231.0" prefWidth="200.0" style="-fx-border-color: white;" styleClass="card">
-                                       <children>
-                                          <ImageView fitHeight="124.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../../../../../languages_icons/C_Logo.png" />
-                                             </image>
-                                          </ImageView>
-                                          <Label alignment="CENTER" prefHeight="41.0" prefWidth="186.0" text="Название" textFill="WHITE">
-                                             <font>
-                                                <Font name="Comic Sans MS" size="17.0" />
-                                             </font>
-                                          </Label>
-                                          <Label alignment="CENTER" prefHeight="41.0" prefWidth="186.0" text="Краткое описание" textFill="WHITE">
-                                             <font>
-                                                <Font name="Comic Sans MS" size="17.0" />
-                                             </font>
-                                          </Label>
-                                          <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="206.0" styleClass="cardButtons" text="Посмотреть">
-                                             <VBox.margin>
-                                                <Insets top="5.0" />
-                                             </VBox.margin>
-                                          </Button>
-                                       </children>
-                                       <padding>
-                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                       </padding>
-                                    </VBox>
-                                    <VBox alignment="BOTTOM_CENTER" layoutX="430.0" layoutY="10.0" minWidth="-Infinity" prefHeight="231.0" prefWidth="200.0" style="-fx-border-color: white;" styleClass="card">
-                                       <children>
-                                          <ImageView fitHeight="124.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../../../../../languages_icons/Csharp_Logo.png" />
-                                             </image>
-                                          </ImageView>
-                                          <Label alignment="CENTER" prefHeight="41.0" prefWidth="186.0" text="Название" textFill="WHITE">
-                                             <font>
-                                                <Font name="Comic Sans MS" size="17.0" />
-                                             </font>
-                                          </Label>
-                                          <Label alignment="CENTER" prefHeight="41.0" prefWidth="186.0" text="Краткое описание" textFill="WHITE">
-                                             <font>
-                                                <Font name="Comic Sans MS" size="17.0" />
-                                             </font>
-                                          </Label>
-                                          <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="206.0" styleClass="cardButtons" text="Посмотреть">
-                                             <VBox.margin>
-                                                <Insets top="5.0" />
-                                             </VBox.margin>
-                                          </Button>
-                                       </children>
-                                       <padding>
-                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                       </padding>
-                                    </VBox>
-                                    <VBox alignment="BOTTOM_CENTER" layoutX="10.0" layoutY="251.0" minWidth="-Infinity" prefHeight="231.0" prefWidth="200.0" style="-fx-border-color: white;" styleClass="card">
-                                       <children>
-                                          <ImageView fitHeight="124.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../../../../../languages_icons/Dart_programming_language_logo.svg.png" />
-                                             </image>
-                                          </ImageView>
-                                          <Label alignment="CENTER" prefHeight="41.0" prefWidth="186.0" text="Название" textFill="WHITE">
-                                             <font>
-                                                <Font name="Comic Sans MS" size="17.0" />
-                                             </font>
-                                          </Label>
-                                          <Label alignment="CENTER" prefHeight="41.0" prefWidth="186.0" text="Краткое описание" textFill="WHITE">
-                                             <font>
-                                                <Font name="Comic Sans MS" size="17.0" />
-                                             </font>
-                                          </Label>
-                                          <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="206.0" styleClass="cardButtons" text="Посмотреть">
-                                             <VBox.margin>
-                                                <Insets top="5.0" />
-                                             </VBox.margin>
-                                          </Button>
-                                       </children>
-                                       <padding>
-                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                       </padding>
-                                    </VBox>
-                                    <VBox alignment="BOTTOM_CENTER" layoutX="220.0" layoutY="251.0" minWidth="-Infinity" prefHeight="231.0" prefWidth="200.0" style="-fx-border-color: white;" styleClass="card">
-                                       <children>
-                                          <ImageView fitHeight="124.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../../../../../languages_icons/Go-Logo_Blue.png" />
-                                             </image>
-                                          </ImageView>
-                                          <Label alignment="CENTER" prefHeight="41.0" prefWidth="186.0" text="Название" textFill="WHITE">
-                                             <font>
-                                                <Font name="Comic Sans MS" size="17.0" />
-                                             </font>
-                                          </Label>
-                                          <Label alignment="CENTER" prefHeight="41.0" prefWidth="186.0" text="Краткое описание" textFill="WHITE">
-                                             <font>
-                                                <Font name="Comic Sans MS" size="17.0" />
-                                             </font>
-                                          </Label>
-                                          <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="206.0" styleClass="cardButtons" text="Посмотреть">
-                                             <VBox.margin>
-                                                <Insets top="5.0" />
-                                             </VBox.margin>
-                                          </Button>
-                                       </children>
-                                       <padding>
-                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                       </padding>
-                                    </VBox>
-                                    <VBox alignment="BOTTOM_CENTER" layoutX="40.0" layoutY="20.0" minWidth="-Infinity" prefHeight="231.0" prefWidth="200.0" style="-fx-border-color: white;" styleClass="card">
-                                       <children>
-                                          <ImageView fitHeight="124.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../../../../../languages_icons/20d159cea262332bdcc183320079cf49.png" />
-                                             </image>
-                                          </ImageView>
-                                          <Label alignment="CENTER" prefHeight="41.0" prefWidth="186.0" text="Название" textFill="WHITE">
-                                             <font>
-                                                <Font name="Comic Sans MS" size="17.0" />
-                                             </font>
-                                          </Label>
-                                          <Label alignment="CENTER" prefHeight="41.0" prefWidth="186.0" text="Краткое описание" textFill="WHITE">
-                                             <font>
-                                                <Font name="Comic Sans MS" size="17.0" />
-                                             </font>
-                                          </Label>
-                                          <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="206.0" styleClass="cardButtons" text="Посмотреть">
-                                             <VBox.margin>
-                                                <Insets top="5.0" />
-                                             </VBox.margin>
-                                          </Button>
-                                       </children>
-                                       <padding>
-                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                       </padding>
-                                    </VBox>
-                                    <VBox alignment="BOTTOM_CENTER" layoutX="460.0" layoutY="261.0" minWidth="-Infinity" prefHeight="231.0" prefWidth="200.0" style="-fx-border-color: white;" styleClass="card">
-                                       <children>
-                                          <ImageView fitHeight="124.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../../../../../languages_icons/20d159cea262332bdcc183320079cf49.png" />
-                                             </image>
-                                          </ImageView>
-                                          <Label alignment="CENTER" prefHeight="41.0" prefWidth="186.0" text="Название" textFill="WHITE">
-                                             <font>
-                                                <Font name="Comic Sans MS" size="17.0" />
-                                             </font>
-                                          </Label>
-                                          <Label alignment="CENTER" prefHeight="41.0" prefWidth="186.0" text="Краткое описание" textFill="WHITE">
-                                             <font>
-                                                <Font name="Comic Sans MS" size="17.0" />
-                                             </font>
-                                          </Label>
-                                          <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="206.0" styleClass="cardButtons" text="Посмотреть">
-                                             <VBox.margin>
-                                                <Insets top="5.0" />
-                                             </VBox.margin>
-                                          </Button>
-                                       </children>
-                                       <padding>
-                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                       </padding>
-                                    </VBox>
-                                 </children>
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                                 <padding>
-                                    <Insets bottom="10.0" left="30.0" right="10.0" top="10.0" />
-                                 </padding>
-                              </FlowPane>
-                           </children>
-                        </AnchorPane>
-                    </content>
-                  </ScrollPane>
-                  <SplitMenuButton layoutX="14.0" layoutY="15.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="157.0" text="Сортировать по:">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
-                      <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
-                     <font>
-                        <Font name="Comic Sans MS" size="14.0" />
-                     </font>
-                  </SplitMenuButton>
-                  <TextField fx:id="emailField" layoutX="382.0" layoutY="15.0" prefHeight="35.0" prefWidth="219.0" promptText="Поиск 🔍" style="-fx-background-color: #1F3D69; -fx-border-color: white; -fx-border-width: 2; -fx-text-fill: white;">
-                     <font>
-                        <Font name="Comic Sans MS" size="14.0" />
-                     </font>
-                  </TextField>
-                  <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="608.0" layoutY="15.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="35.0" styleClass="cardButtons" text="🔍" textAlignment="CENTER">
-                     <font>
-                        <Font name="Comic Sans MS Bold" size="14.0" />
-                     </font>
-                  </Button>
-               </children>
-            </AnchorPane>
             <AnchorPane fx:id="helpPage" layoutX="-1.0" layoutY="-1.0" prefHeight="601.0" prefWidth="698.0" visible="false">
                <children>
                   <Label alignment="CENTER" layoutX="232.0" layoutY="247.0" prefHeight="54.0" prefWidth="235.0" styleClass="h1Text" text="help_me@gmail.com" textFill="WHITE">
@@ -300,13 +68,43 @@
                   <Text fill="WHITE" layoutX="180.0" layoutY="409.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h1Text" text="Мы обязательно постораемся решить вашу проблему!" textAlignment="CENTER" wrappingWidth="338.13671875" />
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="homePage" prefHeight="601.0" prefWidth="698.0">
+            <AnchorPane fx:id="homePage" prefHeight="601.0" prefWidth="698.0" visible="false">
                <children>
                   <Text fill="WHITE" layoutX="110.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h1Text" text="Добро пожаловать в справочник курсов по программированию. Здесь вы можете искать курсы по множеству языков программирования." textAlignment="JUSTIFY" wrappingWidth="459.0">
                      <font>
                         <Font name="Comic Sans MS Bold" size="20.0" />
                      </font>
                   </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="courseCatalog" minHeight="0.0" minWidth="0.0" prefHeight="601.0" prefWidth="698.0" style="-fx-background-color: #1F3D69;">
+               <children>
+                  <ScrollPane focusTraversable="false" layoutY="75.0" prefHeight="530.0" prefWidth="723.0">
+                     <content>
+                        <FlowPane fx:id="courseFlowPane" hgap="10.0" prefHeight="524.0" prefWidth="702.0" rowValignment="TOP" style="-fx-background-color: #1F3D69;" vgap="10.0">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </FlowPane>
+                     </content>
+                  </ScrollPane>
+                  <SplitMenuButton fx:id="sortMenu" layoutX="14.0" layoutY="15.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="157.0" text="Сортировать по:">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Action 1" />
+                        <MenuItem mnemonicParsing="false" text="Action 2" />
+                     </items>
+                     <font>
+                        <Font name="Comic Sans MS" size="14.0" />
+                     </font>
+                  </SplitMenuButton>
+                  <TextField fx:id="search" layoutX="466.0" layoutY="15.0" prefHeight="35.0" prefWidth="219.0" promptText="Поиск 🔍" style="-fx-background-color: #1F3D69; -fx-border-color: white; -fx-border-width: 2; -fx-text-fill: white;">
+                     <font>
+                        <Font name="Comic Sans MS" size="14.0" />
+                     </font>
+                  </TextField>
                </children>
             </AnchorPane>
          </children>

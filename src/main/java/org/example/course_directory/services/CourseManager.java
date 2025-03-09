@@ -24,7 +24,8 @@ public class CourseManager {
     }
 
     // Метод для загрузки данных (можно заменить на запрос в БД)
-    public void loadCourses() {
+    public ObservableList<Course> loadCourses() {
 
+        return null;
     }
 }

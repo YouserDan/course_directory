@@ -50,23 +50,26 @@ public class UserHomeController {
             courseCatalog.setVisible(false);
             helpPage.setVisible(false);
             homePage.setVisible(true);
+
+            // Инициализация courseLoader, передаем courseFlowPane
+            courseLoader = new CourseLoader(courseFlowPane);
         });
     }
 
-    public void viewCourses(ActionEvent actionEvent) throws SQLException {
-
-        // Проверяем, что courseLoader был инициализирован
-        if (courseLoader != null) {
-            courseLoader.loadCourses();  // Загружаем курсы
-        } else {
+    public void viewCourses(ActionEvent actionEvent) {
+        if (courseLoader == null) {
             System.out.println("Ошибка: CourseLoader не инициализирован!");
+            return;
         }
 
-        homePage.setVisible(false);
-        courseCatalog.setVisible(true);
-        helpPage.setVisible(false);
-//        aboutCoursePage.setVisible(false);
+        Platform.runLater(() -> {
+            courseLoader.loadCourses();
+            homePage.setVisible(false);
+            courseCatalog.setVisible(true);
+            helpPage.setVisible(false);
+        });
     }
+
 
 
     public void openHelpPage(ActionEvent event) {

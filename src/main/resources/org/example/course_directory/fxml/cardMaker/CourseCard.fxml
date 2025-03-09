@@ -35,7 +35,7 @@
                     </Label>
             </children>
          </HBox>
-            <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="206.0" styleClass="cardButtons" text="Посмотреть">
+            <Button onAction="#openAboutCoursePage" mnemonicParsing="false" prefHeight="35.0" prefWidth="206.0" styleClass="cardButtons" text="Посмотреть">
                 <VBox.margin>
                     <Insets top="5.0" />
                 </VBox.margin>
