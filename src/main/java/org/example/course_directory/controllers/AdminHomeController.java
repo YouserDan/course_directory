@@ -61,6 +61,8 @@ public class AdminHomeController {
     private AnchorPane addCourse;
     @FXML
     private AnchorPane editCourse;
+    @FXML
+    private AnchorPane aboutCoursePage;
 
     //Для поиска
     @FXML private TextField searchlInTableField;
@@ -141,6 +143,8 @@ public class AdminHomeController {
         helpPage.setVisible(false);
         addCourse.setVisible(false);
         editCourse.setVisible(false);
+        aboutCoursePage.setVisible(false);
+
 
         //Подгружаем таблицу
         loadDataFromDatabase();
@@ -182,6 +186,7 @@ public class AdminHomeController {
         searchlInTableField.setOnAction(this::searchInTable);  // Это будет вызывать метод поиска при нажатии Enter
 
     }
+
     private void loadDataFromDatabase() {
         DatabaseConnection databaseConnection = new DatabaseConnection();
         Connection connection = databaseConnection.connectToDatabase();
@@ -269,7 +274,6 @@ public class AdminHomeController {
 
 
     }
-
 
     private void handleAccessChoiceSelection() {
         // Проверяем, выбран ли тип курса "Бесплатный"
@@ -372,6 +376,7 @@ public class AdminHomeController {
             helpPage.setVisible(false);
             addCourse.setVisible(false);
             editCourse.setVisible(false);
+            aboutCoursePage.setVisible(false);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -380,7 +385,6 @@ public class AdminHomeController {
             showAlert("Ошибка ввода", "Пожалуйста, убедитесь, что все поля заполнены корректно.");
         }
     }
-
 
     //Можно оптимизировать
     // Метод для отображения сообщений об успехе или ошибке
@@ -406,9 +410,8 @@ public class AdminHomeController {
         helpPage.setVisible(false);
         addCourse.setVisible(false);
         editCourse.setVisible(false);
+        aboutCoursePage.setVisible(false);
     }
-
-
 
     public void openEditorCoursePage(ActionEvent actionEvent) {
         homePage.setVisible(false);
@@ -417,6 +420,7 @@ public class AdminHomeController {
         helpPage.setVisible(false);
         addCourse.setVisible(false);
         editCourse.setVisible(false);
+        aboutCoursePage.setVisible(false);
     }
 
     public void openHelpPage(ActionEvent actionEvent) {
@@ -426,6 +430,7 @@ public class AdminHomeController {
         helpPage.setVisible(true);
         addCourse.setVisible(false);
         editCourse.setVisible(false);
+        aboutCoursePage.setVisible(false);
     }
 
     public void backToMenu(javafx.event.ActionEvent event) {
@@ -459,6 +464,7 @@ public class AdminHomeController {
         helpPage.setVisible(false);
         addCourse.setVisible(false);
         editCourse.setVisible(false);
+        aboutCoursePage.setVisible(false);
     }
 
     public void openAddPage(ActionEvent actionEvent) {
@@ -468,6 +474,7 @@ public class AdminHomeController {
         helpPage.setVisible(false);
         addCourse.setVisible(true);
         editCourse.setVisible(false);
+        aboutCoursePage.setVisible(false);
     }
 
     public void backToEditor(ActionEvent actionEvent) {
@@ -477,6 +484,7 @@ public class AdminHomeController {
         helpPage.setVisible(false);
         addCourse.setVisible(false);
         editCourse.setVisible(false);
+        aboutCoursePage.setVisible(false);
         ClearForm.clearForm(courseNameFieldAdd, courseAutorFieldAdd, programmingLanguageChoiseAdd, imageView,
                 spinnerAdd, dataTypeAdd, levelChoiseAdd, accessAdd, priceFieldAdd, currencyChoiceBox, keywordsFieldAdd, descriptionAdd,
                 languageOfCourseAdd, urlAdd);
@@ -484,7 +492,6 @@ public class AdminHomeController {
                 spinnerEdit, dataTypeEdit, levelChoiseEdit, accessEdit, priceFieldEdit, currencyEditChoiceBox, keywordsFieldEdit, descriptionEdit,
                 languageOfCourseEdit, urlEdit);
     }
-
 
     public void chooseImage(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
@@ -520,8 +527,6 @@ public class AdminHomeController {
             }
         }
     }
-
-
 
     //УДАЛЕНИЕ КУРСА
     private NotificationService notificationService = new NotificationService();
@@ -626,7 +631,9 @@ public class AdminHomeController {
         helpPage.setVisible(false);
         addCourse.setVisible(false);
         editCourse.setVisible(true);
+        aboutCoursePage.setVisible(false);
     }
+
     private void updatePriceAndCurrencyFields() {
         // Получаем текущий тип доступа
         String access = (String) accessEdit.getValue();
@@ -718,7 +725,6 @@ public class AdminHomeController {
             notificationService.showNotification("Ошибка", "Ошибка сохранения", "Произошла ошибка при сохранении изменений.");
         }
     }
-
 
     public void doReport(ActionEvent actionEvent) {
         // Получаем текущую дату и время в нужном формате
@@ -821,7 +827,6 @@ public class AdminHomeController {
         }
     }
 
-
     @FXML
     private void searchInTable(ActionEvent event) {
         System.out.println("Поиск применён");
@@ -833,7 +838,6 @@ public class AdminHomeController {
         String query = searchlInTableField.getText().toLowerCase();  // Получаем текст поиска
         filterTable(query);  // Применяем фильтрацию
     }
-
 
     private void filterTable(String query) {
         ObservableList<Course> filteredCourses = FXCollections.observableArrayList();
@@ -867,7 +871,6 @@ public class AdminHomeController {
         }
     }
 
-
     private void selectAndScrollToCourse(Course course) {
         // Находим индекс нужного курса в таблице
         int index = tableView.getItems().indexOf(course);
@@ -880,7 +883,6 @@ public class AdminHomeController {
             tableView.scrollTo(index);
         }
     }
-
 
     public void reloadDataInTable(ActionEvent actionEvent) {
         // Очищаем список перед загрузкой новых данных
