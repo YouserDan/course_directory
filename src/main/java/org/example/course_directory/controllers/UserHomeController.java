@@ -7,12 +7,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.SplitPane;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 import org.example.course_directory.StartProgram;
 import javafx.scene.Node;
+import org.example.course_directory.cardMaker.CourseLoader;
 import org.example.course_directory.services.NotificationService;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class UserHomeController {
 
@@ -28,12 +31,14 @@ public class UserHomeController {
     @FXML
     private AnchorPane homePage;
 
+    //Для карточек курса
+    @FXML
+    private FlowPane courseFlowPane; // Это поле должно быть связано с FXML
+    private CourseLoader courseLoader;
 
     @FXML
     public void initialize() {
         Platform.runLater(() -> {
-            // Проверяем и настраиваем разделители после полной загрузки UI
-//            System.out.println("Найдено разделителей: " + splitPane.lookupAll(".split-pane-divider").size());
 
             splitPane.lookupAll(".split-pane-divider").forEach(divider -> {
                 divider.setMouseTransparent(true); // Отключаем взаимодействие с мышью
@@ -48,11 +53,20 @@ public class UserHomeController {
         });
     }
 
-    public void viewCourses(javafx.event.ActionEvent event) {
-        helpPage.setVisible(false);
-        courseCatalog.setVisible(true);
+    public void viewCourses(ActionEvent actionEvent) throws SQLException {
+        // Проверяем, что courseLoader был инициализирован
+        if (courseLoader != null) {
+            courseLoader.loadCourses();  // Загружаем курсы
+        } else {
+            System.out.println("Ошибка: CourseLoader не инициализирован!");
+        }
+
         homePage.setVisible(false);
+        courseCatalog.setVisible(true);
+        helpPage.setVisible(false);
+//        aboutCoursePage.setVisible(false);
     }
+
 
     public void openHelpPage(ActionEvent event) {
         helpPage.setVisible(true);

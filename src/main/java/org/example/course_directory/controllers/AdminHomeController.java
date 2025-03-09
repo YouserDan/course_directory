@@ -134,6 +134,8 @@ public class AdminHomeController {
 
 
     @FXML
+    private SplitPane splitPane;
+    @FXML
     private Button saveCourseButton;
 
     public void initialize(){
@@ -144,6 +146,11 @@ public class AdminHomeController {
         addCourse.setVisible(false);
         editCourse.setVisible(false);
         aboutCoursePage.setVisible(false);
+
+        Platform.runLater(() -> {
+            splitPane.lookupAll(".split-pane-divider").forEach(divider -> divider.setMouseTransparent(true));
+            splitPane.setDividerPositions(0.3);
+        });
 
 
         //Подгружаем таблицу
