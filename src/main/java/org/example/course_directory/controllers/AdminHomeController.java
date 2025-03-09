@@ -1,6 +1,5 @@
 package org.example.course_directory.controllers;
 
-import com.mysql.cj.x.protobuf.MysqlxResultset;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,7 +15,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.apache.poi.ss.usermodel.Cell;
@@ -35,12 +33,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import org.example.course_directory.services.CourseManager;
 
 
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -130,8 +125,9 @@ public class AdminHomeController {
     @FXML private TableColumn<Course, String> colUpdatedBy;
     @FXML private TableColumn<Course, String> colUpdatedAt;
 
-    private ObservableList<Course> courseList = FXCollections.observableArrayList();
+//    private ObservableList<Course> courseList = FXCollections.observableArrayList();
 
+    private CourseManager courseManager = new CourseManager();
 
     @FXML
     private SplitPane splitPane;
@@ -230,7 +226,8 @@ public class AdminHomeController {
                         resultSet.getString("updated_by"),
                         resultSet.getString("updated_at")
                 );
-                courseList.add(course);
+
+                courseManager.addCourse(course);
             }
 
             statement.close();
@@ -239,7 +236,7 @@ public class AdminHomeController {
             e.printStackTrace();
         }
 
-        tableView.setItems(courseList);
+        tableView.setItems(courseManager.getCourseList());
         setupColumns();
     }
 
@@ -372,7 +369,7 @@ public class AdminHomeController {
                     languageOfCourseAdd, urlAdd);
 
             // Очистить текущую таблицу
-            courseList.clear(); // Очистить коллекцию
+            courseManager.clearCourses(); // Очистить коллекцию
 
             // Перезагрузить данные в таблицу
             loadDataFromDatabase(); // Снова загрузить данные из базы данных
@@ -565,7 +562,7 @@ public class AdminHomeController {
                         "Курс \"" + selectedCourse.getTitle() + "\" был успешно удален.");
 
                 // Очистить текущую таблицу
-                courseList.clear(); // Очистить коллекцию
+                courseManager.clearCourses(); // Очистить коллекцию
 
                 // Перезагрузить данные в таблицу
                 loadDataFromDatabase(); // Снова загрузить данные из базы данных
@@ -853,7 +850,7 @@ public class AdminHomeController {
         query = query.toLowerCase();
 
         // Проходим по всем курсам и фильтруем по нескольким полям
-        for (Course course : courseList) {
+        for (Course course : courseManager.getCourseList()) {
             // Проверяем, содержат ли какие-либо из полей курс совпадение с запросом
             if (course.getTitle().toLowerCase().contains(query) ||  // Проверяем название курса
                     course.getAuthor().toLowerCase().contains(query) ||  // Проверяем автора
@@ -893,7 +890,7 @@ public class AdminHomeController {
 
     public void reloadDataInTable(ActionEvent actionEvent) {
         // Очищаем список перед загрузкой новых данных
-        courseList.clear();
+        courseManager.clearCourses();
         loadDataFromDatabase();
         setupColumns();
         tableView.refresh();

@@ -124,7 +124,7 @@
                   </Text>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="courseEditor" prefHeight="601.0" prefWidth="698.0">
+            <AnchorPane fx:id="courseEditor" prefHeight="601.0" prefWidth="698.0" visible="false">
                <children>
                   <TableView fx:id="tableView" layoutX="15.0" layoutY="65.0" prefHeight="458.0" prefWidth="670.0">
                     <columns>

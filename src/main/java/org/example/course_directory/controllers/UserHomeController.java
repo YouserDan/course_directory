@@ -54,6 +54,7 @@ public class UserHomeController {
     }
 
     public void viewCourses(ActionEvent actionEvent) throws SQLException {
+
         // Проверяем, что courseLoader был инициализирован
         if (courseLoader != null) {
             courseLoader.loadCourses();  // Загружаем курсы

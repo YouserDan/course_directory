@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="Добавлен каталог карточек курсов из базы данных в окне администратора.">
+    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="Дабавление курсов пользователю">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/services/CourseManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/course_directory/src/main/resources/org/example/course_directory/fxml/user/userHome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/course_directory/src/main/resources/org/example/course_directory/fxml/user/userHome.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/AdminHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/AdminHomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/UserHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/UserHomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/admin/adminHome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/admin/adminHome.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/admin/adminMenu.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/admin/registration.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/user/userCourses.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +23,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -48,7 +52,7 @@
         <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/course_directory" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
     <option name="ROOT_SYNC" value="SYNC" />
     <option name="UPDATE_TYPE" value="REBASE" />
@@ -154,14 +158,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1728294609573</updated>
-    </task>
-    <task id="LOCAL-00014" summary="убрал все  warning">
-      <option name="closed" value="true" />
-      <created>1728912990292</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1728912990292</updated>
     </task>
     <task id="LOCAL-00015" summary="убрал все  warning">
       <option name="closed" value="true" />
@@ -547,7 +543,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741432105821</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="Дабавление курсов пользователю">
+      <option name="closed" value="true" />
+      <created>1741539607332</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1741539607332</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -562,7 +566,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="сделал подключение к бд и вывод данных из таблицы" />
     <MESSAGE value="сделал дизайн стартового и окна аутентификации (регистрации)" />
     <MESSAGE value="сделал дизайн админ меню" />
     <MESSAGE value="сделал редизайн" />
@@ -587,7 +590,8 @@
     <MESSAGE value="Доработал тип доступа в режиме изменения курса" />
     <MESSAGE value="пофиксил баг с отображением картинки в создании курса. заложил основу для автозаполнения карточек курса" />
     <MESSAGE value="Добавлен каталог карточек курсов из базы данных в окне администратора." />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавлен каталог карточек курсов из базы данных в окне администратора." />
+    <MESSAGE value="Дабавление курсов пользователю" />
+    <option name="LAST_COMMIT_MESSAGE" value="Дабавление курсов пользователю" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
