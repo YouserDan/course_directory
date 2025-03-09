@@ -7,6 +7,12 @@ import java.sql.SQLException;
 
 public class DatabaseConnection {
 
+    //Host
+//    private static final String URL = "jdbc:mysql://188.225.32.244:3306/default_db";
+//    private static final String USERNAME = "gen_user";
+//    private static final String PASSWORD = "123456789db";
+
+    //local
     private static final String URL = "jdbc:mysql://localhost:3306/course_directory_DB";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "EW4kDaNlol7";
