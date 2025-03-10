@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="Добавил заготовку пот второй отчёт">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/connection/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/connection/DatabaseConnection.java" afterDir="false" />
-    </list>
+    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="Изменил на удалённое подключение к бд" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -151,14 +148,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1728294609573</updated>
-    </task>
-    <task id="LOCAL-00022" summary="сделал подключение к бд и вывод данных из таблицы">
-      <option name="closed" value="true" />
-      <created>1734609556801</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1734609556801</updated>
     </task>
     <task id="LOCAL-00023" summary="сделал дизайн стартового и окна аутентификации (регистрации)">
       <option name="closed" value="true" />
@@ -544,7 +533,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741645080058</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="Изменил на удалённое подключение к бд">
+      <option name="closed" value="true" />
+      <created>1741646286070</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1741646286070</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -559,7 +556,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="сделал переключение на окно просмотров курсов и ваозвращение назад, запретил взаимодействие с devider и resizable" />
     <MESSAGE value="редизайн с анимацией наведения и нажатия на кнопки userMenu" />
     <MESSAGE value="refactor папок админ и юзер fxml" />
     <MESSAGE value="сверстал окно авторизации и регистрации" />
@@ -584,7 +580,8 @@
     <MESSAGE value="Добавил переход на сайт по кнопке и улучшил описание на главной странице." />
     <MESSAGE value="Сделал авторизацию для обоих  типов пользователей" />
     <MESSAGE value="Добавил заготовку пот второй отчёт" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавил заготовку пот второй отчёт" />
+    <MESSAGE value="Изменил на удалённое подключение к бд" />
+    <option name="LAST_COMMIT_MESSAGE" value="Изменил на удалённое подключение к бд" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
