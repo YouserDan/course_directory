@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="Сделал авторизацию для обоих  типов пользователей">
+    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="Добавил заготовку пот второй отчёт">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/controllers/AdminHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/controllers/AdminHomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/controllers/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/controllers/UserHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/controllers/UserHomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/course_directory/src/main/resources/org/example/course_directory/fxml/admin/adminHome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/course_directory/src/main/resources/org/example/course_directory/fxml/admin/adminHome.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/connection/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/connection/DatabaseConnection.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,14 +151,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1728294609573</updated>
-    </task>
-    <task id="LOCAL-00021" summary="сделал подключение к бд и вывод данных из таблицы">
-      <option name="closed" value="true" />
-      <created>1734538597659</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1734538597659</updated>
     </task>
     <task id="LOCAL-00022" summary="сделал подключение к бд и вывод данных из таблицы">
       <option name="closed" value="true" />
@@ -547,7 +536,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741588357374</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="Добавил заготовку пот второй отчёт">
+      <option name="closed" value="true" />
+      <created>1741645080058</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1741645080058</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -562,7 +559,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="подключил css к startWindow настроил ховеры" />
     <MESSAGE value="сделал переключение на окно просмотров курсов и ваозвращение назад, запретил взаимодействие с devider и resizable" />
     <MESSAGE value="редизайн с анимацией наведения и нажатия на кнопки userMenu" />
     <MESSAGE value="refactor папок админ и юзер fxml" />
@@ -587,7 +583,8 @@
     <MESSAGE value="Сделал отображение курсов в окне пользователя" />
     <MESSAGE value="Добавил переход на сайт по кнопке и улучшил описание на главной странице." />
     <MESSAGE value="Сделал авторизацию для обоих  типов пользователей" />
-    <option name="LAST_COMMIT_MESSAGE" value="Сделал авторизацию для обоих  типов пользователей" />
+    <MESSAGE value="Добавил заготовку пот второй отчёт" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил заготовку пот второй отчёт" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
