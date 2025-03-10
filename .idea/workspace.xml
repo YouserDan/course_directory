@@ -8,10 +8,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/controllers/AdminHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/controllers/AdminHomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/controllers/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/entyty/Administrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/entyty/Administrator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/services/OpenNewWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/services/OpenNewWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/controllers/UserHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/controllers/UserHomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/course_directory/src/main/resources/org/example/course_directory/fxml/admin/adminHome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/course_directory/src/main/resources/org/example/course_directory/fxml/admin/adminHome.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/course_directory/src/main/resources/org/example/course_directory/fxml/user/userHome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/course_directory/src/main/resources/org/example/course_directory/fxml/user/userHome.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
