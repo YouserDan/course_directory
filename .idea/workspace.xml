@@ -4,9 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="Сделал отображение курсов в окне пользователя">
+    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="Добавил переход на сайт по кнопке и улучшил описание на главной странице.">
+      <change afterPath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/dto/AdminDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/entyty/Administrator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/cardMaker/CourseCardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/cardMaker/CourseCardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/cardMaker/CourseLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/cardMaker/CourseLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/controllers/AdminHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/controllers/AdminHomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/controllers/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/controllers/RegController.java" beforeDir="false" afterPath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/controllers/RegController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/dao/CourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/dto/CourseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/dto/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/entyty/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/entyty/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,14 +159,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1728294609573</updated>
-    </task>
-    <task id="LOCAL-00019" summary="сделал подключение к бд и вывод данных из таблицы">
-      <option name="closed" value="true" />
-      <created>1734440308661</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1734440308661</updated>
     </task>
     <task id="LOCAL-00020" summary="сделал подключение к бд и вывод данных из таблицы">
       <option name="closed" value="true" />
@@ -544,7 +544,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741583688235</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="Добавил переход на сайт по кнопке и улучшил описание на главной странице.">
+      <option name="closed" value="true" />
+      <created>1741584471261</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1741584471261</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -559,7 +567,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="сделал редизайн" />
     <MESSAGE value="чуть причесал" />
     <MESSAGE value="подключил css к startWindow настроил ховеры" />
     <MESSAGE value="сделал переключение на окно просмотров курсов и ваозвращение назад, запретил взаимодействие с devider и resizable" />
@@ -584,7 +591,8 @@
     <MESSAGE value="Дабавление курсов пользователю" />
     <MESSAGE value="SOLID: вынес лист курсов в отдельный класс" />
     <MESSAGE value="Сделал отображение курсов в окне пользователя" />
-    <option name="LAST_COMMIT_MESSAGE" value="Сделал отображение курсов в окне пользователя" />
+    <MESSAGE value="Добавил переход на сайт по кнопке и улучшил описание на главной странице." />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил переход на сайт по кнопке и улучшил описание на главной странице." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
