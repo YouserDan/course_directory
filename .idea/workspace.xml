@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="Сделал отображение курсов в окне пользователя">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/course_directory/src/main/resources/org/example/course_directory/fxml/admin/adminHome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/course_directory/src/main/resources/org/example/course_directory/fxml/admin/adminHome.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/course_directory/src/main/resources/org/example/course_directory/fxml/user/userHome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/course_directory/src/main/resources/org/example/course_directory/fxml/user/userHome.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/cardMaker/CourseCardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/course_directory/src/main/java/org/example/course_directory/cardMaker/CourseCardController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,22 +151,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1728294609573</updated>
-    </task>
-    <task id="LOCAL-00017" summary="сделал закрытие программы при нажатии кнопки выйти">
-      <option name="closed" value="true" />
-      <created>1729076156227</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1729076156227</updated>
-    </task>
-    <task id="LOCAL-00018" summary="сделал подключение к бд">
-      <option name="closed" value="true" />
-      <created>1734440081174</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1734440081174</updated>
     </task>
     <task id="LOCAL-00019" summary="сделал подключение к бд и вывод данных из таблицы">
       <option name="closed" value="true" />
@@ -545,7 +528,23 @@
       <option name="project" value="LOCAL" />
       <updated>1741553600805</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="Сделал отображение курсов в окне пользователя">
+      <option name="closed" value="true" />
+      <created>1741583670629</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1741583670629</updated>
+    </task>
+    <task id="LOCAL-00067" summary="Сделал отображение курсов в окне пользователя">
+      <option name="closed" value="true" />
+      <created>1741583688235</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1741583688235</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
