@@ -18,6 +18,7 @@ public class OpenNewWindow {
 
             // Создаем новое окно
             Stage newStage = new Stage();
+            IconManager.applyIcon(newStage);
             newStage.setTitle(title);
             newStage.setScene(new Scene(root));
             newStage.setResizable(false);
@@ -47,6 +48,7 @@ public class OpenNewWindow {
 
             // Устанавливаем сцену в новое окно
             Stage stage = new Stage();
+            IconManager.applyIcon(stage);
             stage.setScene(scene);
             stage.setTitle(title);
             stage.show();

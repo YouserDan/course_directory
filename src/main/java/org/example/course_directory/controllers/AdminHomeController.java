@@ -23,6 +23,7 @@ import org.example.course_directory.cardMaker.CourseLoader;
 import org.example.course_directory.dto.CourseDTO;
 import org.example.course_directory.entyty.Course;
 import org.example.course_directory.services.ClearForm;
+import org.example.course_directory.services.IconManager;
 import org.example.course_directory.services.NotificationService;
 import org.example.course_directory.connection.DatabaseConnection;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -465,6 +466,7 @@ public class AdminHomeController {
                 Parent root = loader.load();
 
                 Stage stage = new Stage();
+                IconManager.applyIcon(stage);
                 stage.setTitle("Авторизация");
                 stage.setScene(new Scene(root));
                 stage.show();

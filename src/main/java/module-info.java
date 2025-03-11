@@ -1,11 +1,12 @@
 module org.example.course_directory {
-    requires javafx.controls;
+
     requires javafx.fxml;
     requires java.sql;
     requires jbcrypt;
     requires org.apache.poi.ooxml;
     requires mysql.connector.j;
     requires java.desktop;
+    requires javafx.controls;
 
 
     opens org.example.course_directory.entyty to javafx.base;

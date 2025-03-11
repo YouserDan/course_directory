@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import org.example.course_directory.StartProgram;
 import javafx.scene.Node;
 import org.example.course_directory.cardMaker.CourseLoader;
+import org.example.course_directory.services.IconManager;
 import org.example.course_directory.services.NotificationService;
 
 import java.io.IOException;
@@ -102,6 +103,7 @@ public class UserHomeController {
                 Parent root = loader.load();
 
                 Stage stage = new Stage();
+                IconManager.applyIcon(stage);
                 stage.setTitle("Авторизация");
                 stage.setScene(new Scene(root));
                 stage.show();
