@@ -9,73 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="Версия 2.0">
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/languages_icons/20d159cea262332bdcc183320079cf49.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/languages_icons/C_Logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/languages_icons/Csharp_Logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/languages_icons/Dart_programming_language_logo.svg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/languages_icons/Go-Logo_Blue.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/languages_icons/HTML5_logo_and_wordmark.svg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/languages_icons/ISO_C++_Logo.svg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/languages_icons/JavaScript-Logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/languages_icons/Java_logo.svg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/languages_icons/Kotlin_Icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/languages_icons/PHP-logo.svg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/languages_icons/Python-logo-notext.svg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/languages_icons/R_logo.svg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/languages_icons/Ruby_logo.svg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/languages_icons/Rust_programming_language_black_logo.svg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/languages_icons/Sql_data_base_with_logo.svg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/languages_icons/Swift_logo.svg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/languages_icons/Typescript_logo_2020.svg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/languages_icons/images.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/course_directory/StartProgram.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/course_directory/cardMaker/CourseCardController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/course_directory/cardMaker/CourseLoader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/course_directory/connection/DatabaseConnection.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/course_directory/connection/ExecuteQuery.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/course_directory/controllers/AdminHomeController$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/course_directory/controllers/AdminHomeController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/course_directory/controllers/AuthController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/course_directory/controllers/RegController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/course_directory/controllers/UserHomeController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/course_directory/dto/AdminDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/course_directory/dto/CourseDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/course_directory/dto/UserDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/course_directory/entyty/Administrator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/course_directory/entyty/Course.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/course_directory/entyty/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/course_directory/fxml/admin/adminHome.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/course_directory/fxml/authWindow.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/course_directory/fxml/cardMaker/CourseCard.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/course_directory/fxml/registration.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/course_directory/fxml/user/userHome.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/course_directory/services/ClearForm.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/course_directory/services/CourseManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/course_directory/services/NotificationService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/course_directory/services/OpenNewWindow.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/course_directory/styles/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/prepared_pictures/c_lang.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/prepared_pictures/c_plus_plus_lang.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/prepared_pictures/c_sharp_lang.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/prepared_pictures/dart_lang.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/prepared_pictures/go_lang.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/prepared_pictures/html_lang.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/prepared_pictures/java_lang.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/prepared_pictures/java_script_lang.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/prepared_pictures/kotlin_lang.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/prepared_pictures/perl_lang.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/prepared_pictures/php_lang.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/prepared_pictures/python_lang.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/prepared_pictures/r_lang.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/prepared_pictures/ruby_lang.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/prepared_pictures/rust_lang.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/prepared_pictures/scala_lang.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/prepared_pictures/sql_lang.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/prepared_pictures/swift_lang.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/prepared_pictures/type_script_lang.png" beforeDir="false" />
+    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="Версия 4.0">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course_directory" beforeDir="false" afterPath="$PROJECT_DIR$/course_directory" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course_directory/course_directory_DB_Query.sql" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,6 +94,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "Application.HelloApplication.executor": "Run",
     "Application.StartProgram.executor": "Run",
     "Application.StartProgramm.executor": "Run",
@@ -220,38 +158,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1728294609573</updated>
-    </task>
-    <task id="LOCAL-00027" summary="сделал редизайн">
-      <option name="closed" value="true" />
-      <created>1734774355727</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1734774355727</updated>
-    </task>
-    <task id="LOCAL-00028" summary="чуть причесал">
-      <option name="closed" value="true" />
-      <created>1734775187437</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1734775187437</updated>
-    </task>
-    <task id="LOCAL-00029" summary="подключил css к startWindow настроил ховеры">
-      <option name="closed" value="true" />
-      <created>1734874955727</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1734874955727</updated>
-    </task>
-    <task id="LOCAL-00030" summary="подключил css к startWindow настроил ховеры">
-      <option name="closed" value="true" />
-      <created>1734875116427</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1734875116428</updated>
     </task>
     <task id="LOCAL-00031" summary="подключил css к startWindow настроил ховеры">
       <option name="closed" value="true" />
@@ -613,7 +519,39 @@
       <option name="project" value="LOCAL" />
       <updated>1741683960172</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="Версия 3.0">
+      <option name="closed" value="true" />
+      <created>1741684367190</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1741684367190</updated>
+    </task>
+    <task id="LOCAL-00077" summary="Версия 3.0">
+      <option name="closed" value="true" />
+      <created>1741684380170</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1741684380170</updated>
+    </task>
+    <task id="LOCAL-00078" summary="Версия 3.0">
+      <option name="closed" value="true" />
+      <created>1741684397989</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1741684397989</updated>
+    </task>
+    <task id="LOCAL-00079" summary="Версия 4.0">
+      <option name="closed" value="true" />
+      <created>1741685757345</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1741685757345</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -628,8 +566,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Добавил всплывающие уведомления, информирующие пользователя" />
-    <MESSAGE value="Добавил проверки при регистрации" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Добавил админских окон, окно админа, редактор, добавление (не до конца). Сделал импорт картинки" />
     <MESSAGE value="Работал на DAO курса, восстанавливал код" />
     <MESSAGE value="Улучшил сохранение курса и реализовал очистку его полей" />
@@ -653,7 +590,9 @@
     <MESSAGE value="Версия 1.0" />
     <MESSAGE value="Версия 1.1" />
     <MESSAGE value="Версия 2.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Версия 2.0" />
+    <MESSAGE value="Версия 3.0" />
+    <MESSAGE value="Версия 4.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Версия 4.0" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
