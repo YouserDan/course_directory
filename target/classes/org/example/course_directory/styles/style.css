@@ -1,0 +1,141 @@
+/* КНОПКИ СМОТРЕТЬ КУРСЫ И ВОЙТИ */
+.startWindowButtons {
+    -fx-font-family: "Comic Sans MS";
+    -fx-font-size: 16px;          /* Шрифт для кнопки */
+    -fx-background-color: #1F3D69; /* Основной цвет фона */
+    -fx-text-fill: white;         /* Цвет текста */
+    -fx-padding: 10px 20px;       /* Отступы */
+    -fx-border-color: white;      /* Основной цвет бордера */
+    -fx-border-width: 2;          /* Толщина бордера */
+    -fx-background-radius: 0;     /* Убираем скругления */
+    -fx-border-radius: 0;         /* Убираем скругления */
+    -fx-font-weight: bold;        /* Жирный текст для строгого стиля */
+}
+
+.startWindowButtons:hover {
+    -fx-background-color: #2A4C7A; /* Тёмно-синий фон при наведении */
+    -fx-text-fill: white;          /* Текст остаётся белым */
+}
+
+.startWindowButtons:pressed {
+    -fx-background-color: #1B2F4D; /* Ещё более тёмный фон при нажатии */
+    -fx-text-fill: white;          /* Текст остаётся белым */
+    -fx-border-color: white;       /* Бордер возвращается к белому */
+}
+
+
+/* КНОПКА ЗАРЕГИСТРИРОВАТЬСЯ */
+
+.regButton {
+    -fx-font-family: "Comic Sans MS";
+    -fx-font-size: 16px;          /* Шрифт для кнопки */
+    -fx-background-color: #1F3D69; /* Основной цвет фона */
+    -fx-text-fill: white;         /* Цвет текста */
+    -fx-background-radius: 0;     /* Убираем скругления */
+    -fx-border-radius: 0;         /* Убираем скругления */
+    -fx-font-weight: bold;        /* Жирный текст для строгого стиля */
+}
+
+.regButton:hover {
+-fx-underline: true;
+}
+
+.regButton:pressed {
+    -fx-underline: false;
+}
+
+.userButtons{
+   -fx-font-family: "Comic Sans MS";
+       -fx-font-size: 16px;          /* Шрифт для кнопки */
+       -fx-background-color: #1F3D69; /* Основной цвет фона */
+       -fx-text-fill: white;         /* Цвет текста */
+       -fx-padding: 10px 20px;       /* Отступы */
+       -fx-border-color: white;      /* Основной цвет бордера */
+       -fx-border-width: 2;          /* Толщина бордера */
+       -fx-background-radius: 0;     /* Убираем скругления */
+       -fx-border-radius: 0;         /* Убираем скругления */
+       -fx-font-weight: bold;        /* Жирный текст для строгого стиля */
+
+}
+
+.userButtons:hover {
+    -fx-background-color: #2A4C7A; /* Тёмно-синий фон при наведении */
+    -fx-text-fill: white;          /* Текст остаётся белым */
+}
+
+.userButtons:pressed {
+    -fx-background-color: #1B2F4D; /* Ещё более тёмный фон при нажатии */
+    -fx-text-fill: white;          /* Текст остаётся белым */
+    -fx-border-color: white;       /* Бордер возвращается к белому */
+}
+
+
+.cardButtons{
+   -fx-font-family: "Comic Sans MS";
+       -fx-font-size: 14px;          /* Шрифт для кнопки */
+       -fx-background-color: #1F3D69; /* Основной цвет фона */
+       -fx-text-fill: white;         /* Цвет текста */
+       -fx-padding: 5px 5px 5px 5px;  /* Отступы */
+       -fx-border-color: white;      /* Основной цвет бордера */
+       -fx-border-width: 2;          /* Толщина бордера */
+       -fx-background-radius: 0;     /* Убираем скругления */
+       -fx-border-radius: 0;         /* Убираем скругления */
+       -fx-font-weight: bold;        /* Жирный текст для строгого стиля */
+
+}
+
+.cardButtons:hover {
+    -fx-background-color: #2A4C7A; /* Тёмно-синий фон при наведении */
+    -fx-text-fill: white;          /* Текст остаётся белым */
+}
+
+.cardButtons:pressed {
+    -fx-background-color: #1B2F4D; /* Ещё более тёмный фон при нажатии */
+    -fx-text-fill: white;          /* Текст остаётся белым */
+    -fx-border-color: white;       /* Бордер возвращается к белому */
+}
+
+.card{
+       -fx-font-family: "Comic Sans MS";
+       -fx-background-color: #1F3D69; /* Основной цвет фона */
+       -fx-text-fill: white;         /* Цвет текста */
+       -fx-padding: 5px 5px 5px 5px;  /* Отступы */
+       -fx-margin: 10px 10px 10px 10px;
+       -fx-border-color: white;      /* Основной цвет бордера */
+       -fx-border-width: 1;          /* Толщина бордера */
+       -fx-background-radius: 0;     /* Убираем скругления */
+       -fx-border-radius: 0;         /* Убираем скругления */
+
+
+}
+
+.h1Text{
+       -fx-font-family: "Comic Sans MS";
+       -fx-background-color: #1F3D69; /* Основной цвет фона */
+       -fx-text-fill: white;         /* Цвет текста */
+       -fx-padding: 5px 5px 5px 5px;  /* Отступы */
+       -fx-margin: 10px 10px 10px 10px;
+        -fx-font-size: 18px;
+       -fx-background-radius: 0;     /* Убираем скругления */
+       -fx-border-radius: 0;         /* Убираем скругления */
+
+
+}
+
+.descText {
+    -fx-background-color: #1F3D69;
+    -fx-font-family: "Comic Sans MS";
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+
+}
+
+
+.scroll-pane {
+    -fx-background: #1F3D69; /* Цвет фона ScrollPane */
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: #1F3D69; /* Цвет фона области прокрутки */
+}
+
