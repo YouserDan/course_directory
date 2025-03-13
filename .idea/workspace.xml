@@ -9,8 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="Версия 5.0">
+    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="Версия 7.0 добавил иконку">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/program_icon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/program_icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/course_directory_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/course_directory_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course_directory_DB_Query.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/connection/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/connection/DatabaseConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/RegController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/RegController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,12 +104,14 @@
     "Application.HelloApplication.executor": "Run",
     "Application.StartProgram.executor": "Run",
     "Application.StartProgramm.executor": "Run",
+    "JAR Application.JavaFX App.executor": "Run",
+    "JAR Application.course_directory.jar.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/User/IdeaProjects/course_directory/src/main/resources",
-    "project.structure.last.edited": "Project",
+    "last_opened_file_path": "E:/course_directory/out/artifacts/course_directory_jar",
+    "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.3475712",
     "settings.editor.selected.configurable": "preferences.pluginManager"
@@ -116,9 +126,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\course_directory\out\artifacts\course_directory_jar" />
       <recent name="C:\Users\User\IdeaProjects\course_directory\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\course_directory\src\main\resources" />
       <recent name="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/cardMaker" />
       <recent name="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/admin" />
       <recent name="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/user" />
@@ -128,7 +140,7 @@
       <recent name="org.example.course_directory" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.StartProgram">
     <configuration name="StartProgram" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.course_directory.StartProgram" />
       <module name="course_directory" />
@@ -142,9 +154,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="JavaFX App" type="JarApplication">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/course_directory/course_directory.jar" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;E:\javafx-sdk-23.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml " />
+      <option name="WORKING_DIRECTORY" value="E:\course_directory" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="23" />
+      <method v="2" />
+    </configuration>
+    <configuration name="course_directory.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/course_directory_jar/course_directory.jar" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.StartProgram" />
+      <item itemvalue="JAR Application.JavaFX App" />
+      <item itemvalue="JAR Application.course_directory.jar" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.StartProgram" />
+        <item itemvalue="JAR Application.course_directory.jar" />
       </list>
     </recent_temporary>
   </component>
@@ -156,14 +186,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1728294609573</updated>
-    </task>
-    <task id="LOCAL-00032" summary="сделал переключение на окно просмотров курсов и ваозвращение назад, запретил взаимодействие с devider и resizable">
-      <option name="closed" value="true" />
-      <created>1736075890305</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1736075890305</updated>
     </task>
     <task id="LOCAL-00033" summary="редизайн с анимацией наведения и нажатия на кнопки userMenu">
       <option name="closed" value="true" />
@@ -549,7 +571,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741686465237</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="Версия 7.0 добавил иконку">
+      <option name="closed" value="true" />
+      <created>1741701402472</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1741701402472</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -565,7 +595,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Работал на DAO курса, восстанавливал код" />
     <MESSAGE value="Улучшил сохранение курса и реализовал очистку его полей" />
     <MESSAGE value="Исправил платность при Бесплатный, сделал кнопку отмена при создании курса с учётом очистки формы" />
     <MESSAGE value="Сделал отображение таблицы в редакторе, сделал корректное добавление и удаление с корректным отображением данных" />
@@ -590,7 +619,8 @@
     <MESSAGE value="Версия 3.0" />
     <MESSAGE value="Версия 4.0" />
     <MESSAGE value="Версия 5.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Версия 5.0" />
+    <MESSAGE value="Версия 7.0 добавил иконку" />
+    <option name="LAST_COMMIT_MESSAGE" value="Версия 7.0 добавил иконку" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -601,5 +631,8 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/course_directory$course_directory_jar.ic" NAME="course_directory.jar Coverage Results" MODIFIED="1741705634529" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>

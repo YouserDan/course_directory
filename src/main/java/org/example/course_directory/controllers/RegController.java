@@ -135,9 +135,9 @@ public class RegController {
             String sql = "INSERT INTO administrators (firstname, lastname, email, password, is_admin) VALUES (?, ?, ?, ?, ?)";
             try (PreparedStatement stmt = connection.prepareStatement(sql)) {
                 String[][] admins = {
-                        {"Admin1", "One", "admin1@gmail.com", "admin1234"},
-                        {"Admin2", "Two", "admin2@gmail.com", "admin1234"},
-                        {"Admin3", "Three", "admin3@gmail.com", "admin1234"}
+                        {"Admin", "One", "admin@gmail.com", "1234"},
+                        {"Admin2", "Two", "admin2@gmail.com", "1234"},
+                        {"Admin3", "Three", "admin3@gmail.com", "1234"}
                 };
 
                 for (String[] admin : admins) {
