@@ -54,10 +54,10 @@ public class UserHomeController {
 
             // Фиксируем положение разделителя
             splitPane.setDividerPositions(0.3);
-
+            homePage.setVisible(true);
             courseCatalog.setVisible(false);
             helpPage.setVisible(false);
-            homePage.setVisible(true);
+
 
             // Инициализация courseLoader, передаем courseFlowPane
             courseLoader = new CourseLoader(courseFlowPane);

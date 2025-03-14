@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<SplitPane fx:id="splitPane" dividerPositions="0.3" prefHeight="603.0" prefWidth="1015.0" style="-fx-background-color: #1F3D69;" stylesheets="@../../styles/style.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.course_directory.controllers.UserHomeController">
+<SplitPane fx:id="splitPane" dividerPositions="0.3" prefHeight="603.0" prefWidth="1015.0" style="-fx-background-color: #1F3D69;" stylesheets="@../../styles/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.course_directory.controllers.UserHomeController">
    <items>
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
@@ -69,16 +69,13 @@
                </children>
             </AnchorPane>
             <AnchorPane fx:id="homePage" prefHeight="601.0" prefWidth="698.0" visible="false">
-               <Text fill="WHITE" layoutX="110.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                     styleClass="h1Text"
-                     text="Добро пожаловать в каталог образовательных курсов! Здесь вы можете найти и изучить курсы по различным языкам программирования. Выбирайте уровень сложности, фильтруйте по языку обучения и находите лучшие курсы для своего развития!"
-                     textAlignment="JUSTIFY" wrappingWidth="459.0">
+               <Text fill="WHITE" layoutX="110.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h1Text" text="Добро пожаловать в каталог образовательных курсов! Здесь вы можете найти и изучить курсы по различным языкам программирования. Выбирайте уровень сложности, фильтруйте по языку обучения и находите лучшие курсы для своего развития!" textAlignment="JUSTIFY" wrappingWidth="459.0">
                   <font>
-                     <Font name="Comic Sans MS Bold" size="20.0"/>
+                     <Font name="Comic Sans MS Bold" size="20.0" />
                   </font>
                </Text>
             </AnchorPane>
-            <AnchorPane fx:id="courseCatalog" minHeight="0.0" minWidth="0.0" prefHeight="601.0" prefWidth="698.0" style="-fx-background-color: #1F3D69;">
+            <AnchorPane fx:id="courseCatalog" minHeight="0.0" minWidth="0.0" prefHeight="601.0" prefWidth="698.0" style="-fx-background-color: #1F3D69;" visible="false">
                <children>
                   <ScrollPane focusTraversable="false" layoutY="75.0" prefHeight="530.0" prefWidth="707.0">
                      <content>

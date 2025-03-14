@@ -1,5 +1,6 @@
 package org.example.course_directory.controllers;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -58,6 +59,18 @@ public class AuthController {
                 // Вызываем метод авторизации
             }
         });
+// Запрещаем изменение размера окна авторизации
+        Platform.runLater(() -> {
+            Stage stage = (Stage) emailField.getScene().getWindow();
+            stage.setResizable(false);
+            stage.setFullScreen(false);
+            stage.fullScreenProperty().addListener((obs, wasFullScreen, isFullScreen) -> {
+                if (isFullScreen) {
+                    stage.setFullScreen(false);
+                }
+            });
+        });
+
     }
 
     // Метод для авторизации

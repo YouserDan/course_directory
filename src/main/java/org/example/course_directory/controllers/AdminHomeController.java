@@ -184,6 +184,21 @@ public class AdminHomeController {
             });
         }
 
+        //Запрет изменения размера окна
+        Platform.runLater(() -> {
+            Stage stage = (Stage) homePage.getScene().getWindow(); // Получаем текущее окно
+            stage.setResizable(false); // Запрещаем изменение размера
+            stage.setFullScreen(false); // Отключаем полноэкранный режим
+
+            // Блокируем возможность перехода в полноэкранный режим через клавишу F11
+            stage.fullScreenProperty().addListener((obs, wasFullScreen, isFullScreen) -> {
+                if (isFullScreen) {
+                    stage.setFullScreen(false);
+                }
+            });
+        });
+
+
         // Устанавливаем диапазон значений (от 1 до 1000, шаг 1)
         spinnerAdd.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 1000, 1));
         // Включаем ввод вручную (если нужно)
