@@ -21,12 +21,23 @@ public class OpenNewWindow {
             IconManager.applyIcon(newStage);
             newStage.setTitle(title);
             newStage.setScene(new Scene(root));
-            newStage.setResizable(false);
             newStage.centerOnScreen();
             newStage.show();
-
             // Закрываем текущее окно (предыдущее)
             currentStage.close();
+
+            // Запрещаем изменение размера окна
+            newStage.setResizable(false);
+
+            // Принудительно блокируем полноэкранный режим
+            newStage.setFullScreen(false);
+
+            // Добавляем слушатель на изменение полноэкранного режима
+            newStage.fullScreenProperty().addListener((obs, wasFullScreen, isFullScreen) -> {
+                if (isFullScreen) {
+                    newStage.setFullScreen(false); // Принудительно блокируем полноэкранный режим
+                }
+            });
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -51,6 +62,7 @@ public class OpenNewWindow {
             IconManager.applyIcon(stage);
             stage.setScene(scene);
             stage.setTitle(title);
+            stage.setFullScreen(false);
             stage.show();
             // Закрываем текущее окно (предыдущее)
             currentStage.close();

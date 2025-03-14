@@ -21,6 +21,7 @@ public class StartProgram extends Application {
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.setResizable(false);
+        stage.setFullScreen(false);
 
         stage.show();
     }

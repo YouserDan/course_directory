@@ -22,9 +22,7 @@ import org.example.course_directory.StartProgram;
 import org.example.course_directory.cardMaker.CourseLoader;
 import org.example.course_directory.dto.CourseDTO;
 import org.example.course_directory.entyty.Course;
-import org.example.course_directory.services.ClearForm;
-import org.example.course_directory.services.IconManager;
-import org.example.course_directory.services.NotificationService;
+import org.example.course_directory.services.*;
 import org.example.course_directory.connection.DatabaseConnection;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.apache.poi.ss.usermodel.*;
@@ -34,7 +32,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import org.example.course_directory.services.CourseManager;
 
 
 import java.sql.Connection;
@@ -469,6 +466,7 @@ public class AdminHomeController {
                 IconManager.applyIcon(stage);
                 stage.setTitle("Авторизация");
                 stage.setScene(new Scene(root));
+                stage.setFullScreen(false);
                 stage.show();
 
                 // Закрываем текущее окно

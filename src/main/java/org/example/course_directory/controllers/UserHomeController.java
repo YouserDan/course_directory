@@ -106,6 +106,7 @@ public class UserHomeController {
                 IconManager.applyIcon(stage);
                 stage.setTitle("Авторизация");
                 stage.setScene(new Scene(root));
+                stage.setFullScreen(false);
                 stage.show();
 
                 // Закрываем текущее окно
