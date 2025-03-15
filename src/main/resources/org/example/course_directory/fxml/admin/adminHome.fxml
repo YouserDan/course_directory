@@ -25,7 +25,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<SplitPane fx:id="splitPane" dividerPositions="0.3" prefHeight="603.0" prefWidth="1004.0" style="-fx-background-color: #1F3D69;" stylesheets="@../../styles/style.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.course_directory.controllers.AdminHomeController">
+<SplitPane fx:id="splitPane" dividerPositions="0.3" prefHeight="603.0" prefWidth="1004.0" style="-fx-background-color: #1F3D69;" stylesheets="@../../styles/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.course_directory.controllers.AdminHomeController">
    <items>
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
@@ -87,7 +87,7 @@
                         </FlowPane>
                      </content>
                   </ScrollPane>
-<!--                  Сортировка курсов-->
+                  <!--                  Сортировка курсов-->
                   <SplitMenuButton fx:id="sortMenu" layoutX="14.0" layoutY="15.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="157.0" text="Сортировать по:">
                      <items>
                         <MenuItem mnemonicParsing="false" text="Action 1" />
@@ -124,10 +124,10 @@
                   </Text>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="courseEditor" prefHeight="601.0" prefWidth="698.0">
+            <AnchorPane fx:id="courseEditor" prefHeight="601.0" prefWidth="698.0" visible="false">
                <children>
                   <TableView fx:id="tableView" layoutX="15.0" layoutY="65.0" prefHeight="458.0" prefWidth="670.0">
-                    <columns>
+                     <columns>
                         <TableColumn fx:id="colId" prefWidth="75.0" text="Id" />
                         <TableColumn fx:id="colName" prefWidth="75.0" text="Название" />
                         <TableColumn fx:id="colAuthor" text="Автор" />
@@ -138,7 +138,7 @@
                         <TableColumn fx:id="colDurType" text="Вид продолжительности" />
                         <TableColumn fx:id="colAccess" text="Доступ" />
                         <TableColumn fx:id="colPrice" text="Стоимость" />
-                       <TableColumn fx:id="colCurrency" text="Валюта" />
+                        <TableColumn fx:id="colCurrency" text="Валюта" />
                         <TableColumn fx:id="colDescription" text="Описание" />
                         <TableColumn fx:id="colCourseLang" text="Язык курса" />
                         <TableColumn fx:id="colResourceURL" text="Ссылка на ресурс" />
@@ -146,7 +146,7 @@
                         <TableColumn fx:id="colCreatedAt" text="Дата создания" />
                         <TableColumn fx:id="colUpdatedAt" text="Кто изменил" />
                         <TableColumn fx:id="colUpdatedBy" text="Когда изменил" />
-                    </columns>
+                     </columns>
                   </TableView>
                   <HBox alignment="CENTER" layoutX="15.0" layoutY="537.0" prefHeight="56.0" prefWidth="670.0">
                      <children>
@@ -174,7 +174,7 @@
                   </HBox>
                   <HBox alignment="CENTER" layoutX="15.0" layoutY="5.0" prefHeight="47.0" prefWidth="670.0">
                      <children>
-      
+
                         <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#reloadDataInTable" prefHeight="35.0" prefWidth="150.0" styleClass="cardButtons" text="Обновить таблицу" textAlignment="CENTER">
                            <font>
                               <Font name="Comic Sans MS Bold" size="14.0" />
@@ -267,13 +267,13 @@
                                  </HBox.margin>
                               </Spinner>
                               <ChoiceBox fx:id="dataTypeAdd" prefHeight="25.0" prefWidth="83.0">
-                              <items>
-                                 <FXCollections fx:factory="observableArrayList">
-                                    <String fx:value="чч" />
-                                    <String fx:value="мм" />
-                                    <String fx:value="гг" />
-                                 </FXCollections>
-                              </items>
+                                 <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                       <String fx:value="чч" />
+                                       <String fx:value="мм" />
+                                       <String fx:value="гг" />
+                                    </FXCollections>
+                                 </items>
                               </ChoiceBox>
                            </children>
                         </HBox>
@@ -346,8 +346,8 @@
                </children>
             </AnchorPane>
 
-<!--            about course-->
-            <AnchorPane fx:id="aboutCoursePage" layoutX="-1.0" prefHeight="601.0" prefWidth="724.0" visible="false">
+            <!--            about course-->
+            <AnchorPane fx:id="aboutCoursePage" layoutX="-1.0" prefHeight="601.0" prefWidth="724.0">
                <children>
                   <VBox layoutX="337.0" layoutY="42.0" prefHeight="285.0" prefWidth="374.0">
                      <children>
@@ -373,8 +373,8 @@
                         <HBox alignment="CENTER_LEFT" layoutX="15.0" layoutY="137.0" prefHeight="15.0" prefWidth="338.0">
                            <children>
                               <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="35.0" prefWidth="198.0" styleClass="h1Text" text="Длительность курса:" />
-                              <Label fx:id="courseAboutDurationLabel" alignment="TOP_RIGHT" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="35.0" prefWidth="127.0" styleClass="h1Text" text="4" />
-                              <Label fx:id="courseAboutDurationTypeLabel" alignment="TOP_RIGHT" contentDisplay="CENTER" layoutX="208.0" layoutY="10.0" prefHeight="35.0" prefWidth="50.0" styleClass="h1Text" text="мм" />
+                              <Label fx:id="courseAboutDurationLabel" alignment="TOP_RIGHT" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="35.0" prefWidth="88.0" styleClass="h1Text" text="4" />
+                              <Label fx:id="courseAboutDurationTypeLabel" alignment="TOP_RIGHT" contentDisplay="CENTER" layoutX="208.0" layoutY="10.0" prefHeight="35.0" prefWidth="80.0" styleClass="h1Text" text="мм" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" layoutX="15.0" layoutY="172.0" prefHeight="15.0" prefWidth="338.0">
@@ -425,12 +425,12 @@
                   </HBox>
                   <HBox alignment="CENTER" layoutX="30.0" layoutY="519.0" prefHeight="50.0" prefWidth="678.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="115.0" styleClass="cardButtons" text="Назад">
+                        <Button mnemonicParsing="false" onAction="#backToCatalog" prefHeight="50.0" prefWidth="115.0" styleClass="cardButtons" text="Назад">
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
                         </Button>
-                        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="170.0" styleClass="cardButtons" text="Перейти на ресурс">
+                        <Button onAction="#openCourseResourse" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="170.0" styleClass="cardButtons" text="Перейти на ресурс">
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
@@ -441,7 +441,7 @@
             </AnchorPane>
 
 
-<!--            Edit pane-->
+            <!--            Edit pane-->
 
 
             <AnchorPane fx:id="editCourse" prefHeight="601.0" prefWidth="698.0" visible="false">

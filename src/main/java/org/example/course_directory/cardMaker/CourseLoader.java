@@ -4,6 +4,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.FlowPane;
+import org.example.course_directory.controllers.AdminHomeController;
 import org.example.course_directory.dto.CourseDTO;
 import org.example.course_directory.entyty.Course;
 
@@ -68,21 +69,42 @@ public class CourseLoader {
 
 
 
-    // Метод для добавления одной карточки в FlowPaneч
+    private AdminHomeController adminHomeController;
+
+    public void setAdminHomeController(AdminHomeController adminHomeController) {
+        this.adminHomeController = adminHomeController;
+        if (adminHomeController == null) {
+            System.out.println("Ошибка: передан NULL в CourseLoader.setAdminHomeController!");
+        } else {
+            System.out.println("AdminHomeController успешно передан в CourseLoader.");
+        }
+    }
+
     private void addCourseToFlowPane(Course course) {
         try {
-            // Загрузка FXML файла для карточки курса
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/course_directory/fxml/cardMaker/CourseCard.fxml"));
             Parent courseCard = loader.load();
 
-            // Получение контроллера и передача данных
             CourseCardController cardController = loader.getController();
             cardController.setCourse(course);
+            cardController.setAdminHomeController(adminHomeController);
+            cardController.setAdminHomeController(this.adminHomeController);
 
-            // Добавление карточки в FlowPane
+            // Проверяем adminHomeController перед передачей в карточку курса
+            if (adminHomeController != null) {
+                cardController.setAdminHomeController(adminHomeController);
+                System.out.println("AdminHomeController передан в карточку курса: " + course.getTitle());
+            } else {
+                System.out.println("Ошибка: AdminHomeController в CourseLoader равен NULL перед передачей в карточку!");
+            }
+
             flowPane.getChildren().add(courseCard);
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public AdminHomeController getAdminHomeController() {
+        return adminHomeController;
     }
 }

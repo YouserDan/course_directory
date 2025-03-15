@@ -240,4 +240,8 @@ public class Course {
     public void setDurationType(String durationType) {
         this.durationType = durationType;
     }
+
+    public String getCourseLanguage() {
+        return languageOfCourse;
+    }
 }

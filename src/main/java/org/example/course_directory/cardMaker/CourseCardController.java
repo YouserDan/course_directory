@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import org.example.course_directory.controllers.AdminHomeController;
 import org.example.course_directory.entyty.Course;
 
 
@@ -58,19 +59,27 @@ public class CourseCardController {
     // Метод, который вызывается при нажатии на кнопку
     @FXML
     private void openAboutCoursePage() {
-        if (currentCourse != null && currentCourse.getResourceUrl() != null) {
-            String url = currentCourse.getResourceUrl();
-            System.out.println("Открываем ссылку: " + url);
-
-            try {
-                Desktop.getDesktop().browse(new URI(url)); // Открывает ссылку в браузере
-            } catch (Exception e) {
-                System.out.println("Ошибка при открытии ссылки: " + e.getMessage());
-            }
+        if (adminHomeController != null && currentCourse != null) {
+            // Передаем курс в AdminHomeController
+            adminHomeController.showAboutCoursePage(currentCourse);
         } else {
-            System.out.println("Курс не загружен или ссылка отсутствует!");
+            System.out.println("Ошибка: AdminHomeController не установлен или курс отсутствует.");
         }
     }
+
+
+    //Для передачи данных курса в админХомКонтроллер
+    private AdminHomeController adminHomeController;
+
+    public void setAdminHomeController(AdminHomeController adminHomeController) {
+        this.adminHomeController = adminHomeController;
+        if (adminHomeController == null) {
+            System.out.println("Ошибка: передан NULL в CourseCardController.setAdminHomeController!");
+        } else {
+            System.out.println("AdminHomeController успешно передан в CourseCardController.");
+        }
+    }
+
 
 
 }

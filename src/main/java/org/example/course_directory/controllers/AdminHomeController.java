@@ -10,14 +10,20 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Font;
 import org.example.course_directory.StartProgram;
 import org.example.course_directory.cardMaker.CourseLoader;
 import org.example.course_directory.dto.CourseDTO;
@@ -27,9 +33,13 @@ import org.example.course_directory.connection.DatabaseConnection;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import java.awt.*;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
@@ -74,7 +84,19 @@ public class AdminHomeController {
         adminNameLabel.setText(name); // Устанавливаем имя в метку
     }
 
-
+    //Для заполнения панели о курса
+    @FXML private Label courseAboutTitleLabel;
+    @FXML private Label courseAboutAutorLabel;
+    @FXML private Label courseAboutLevelLabel;
+    @FXML private Label courseAboutProgLangLabel;
+    @FXML private Label courseAboutDurationLabel;
+    @FXML private Label courseAboutDurationTypeLabel;
+    @FXML private Label courseAboutAccessLabel;
+    @FXML private Label courseAboutPriceLabel;
+    @FXML private Label courseAboutCurrencyLabel;
+    @FXML private Label courseAboutCourseLanguageLabel;
+    @FXML private ImageView courseAboutImageView;
+    @FXML private Text courseAboutDescriptionText;
 
     // Заполнение формы курса
     @FXML private TextField courseNameFieldAdd;
@@ -140,7 +162,8 @@ public class AdminHomeController {
     @FXML
     private Button saveCourseButton;
 
-    public void initialize(){
+    @FXML
+    public void initialize() {
         homePage.setVisible(true);
         courseCatalog.setVisible(false);
         courseEditor.setVisible(false);
@@ -148,6 +171,16 @@ public class AdminHomeController {
         addCourse.setVisible(false);
         editCourse.setVisible(false);
         aboutCoursePage.setVisible(false);
+
+        if (courseFlowPane == null) {
+            System.out.println("Ошибка: courseFlowPane не загружен из FXML!");
+        } else {
+            courseLoader = new CourseLoader(courseFlowPane);
+            courseLoader.setAdminHomeController(this); // ✅ Устанавливаем AdminHomeController ОДИН РАЗ!
+            System.out.println("CourseLoader успешно инициализирован!");
+        }
+
+        loadDataFromDatabase();
 
         if (adminNameLabel != null) {
             System.out.println("adminNameLabel инициализирован");
@@ -160,18 +193,6 @@ public class AdminHomeController {
             splitPane.setDividerPositions(0.3);
         });
 
-
-        //Подгружаем таблицу
-        loadDataFromDatabase();
-
-        if (courseFlowPane == null) {
-            System.out.println("Ошибка: courseFlowPane не загружен из FXML!");
-        } else {
-            courseLoader = new CourseLoader(courseFlowPane);
-            System.out.println("CourseLoader успешно инициализирован!");
-        }
-
-// Проверяем, что tableView не пустой перед работой с ним
         if (tableView != null) {
             tableView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
                 if (newSelection != null) {
@@ -184,13 +205,10 @@ public class AdminHomeController {
             });
         }
 
-        //Запрет изменения размера окна
         Platform.runLater(() -> {
-            Stage stage = (Stage) homePage.getScene().getWindow(); // Получаем текущее окно
-            stage.setResizable(false); // Запрещаем изменение размера
-            stage.setFullScreen(false); // Отключаем полноэкранный режим
-
-            // Блокируем возможность перехода в полноэкранный режим через клавишу F11
+            Stage stage = (Stage) homePage.getScene().getWindow();
+            stage.setResizable(false);
+            stage.setFullScreen(false);
             stage.fullScreenProperty().addListener((obs, wasFullScreen, isFullScreen) -> {
                 if (isFullScreen) {
                     stage.setFullScreen(false);
@@ -198,28 +216,82 @@ public class AdminHomeController {
             });
         });
 
-
-        // Устанавливаем диапазон значений (от 1 до 1000, шаг 1)
         spinnerAdd.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 1000, 1));
-        // Включаем ввод вручную (если нужно)
         spinnerAdd.setEditable(true);
 
-        // Устанавливаем диапазон значений (от 1 до 1000, шаг 1)
         spinnerEdit.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 1000, 1));
-        // Включаем ввод вручную (если нужно)
         spinnerEdit.setEditable(true);
 
-        // Устанавливаем обработчик события изменения типа курса
         accessAdd.setOnAction(event -> handleAccessChoiceSelection());
-
-        // Устанавливаем обработчик для нажатия клавиши в поле поиска
-        searchlInTableField.setOnAction(this::searchInTable);  // Это будет вызывать метод поиска при нажатии Enter
-
+        searchlInTableField.setOnAction(this::searchInTable);
     }
 
-    public void openAboutCoursePage(){
-        System.out.println("Название курса");
+    private Course currentCourse; // Это будет хранить текущий выбранный курс
+
+    public void showAboutCoursePage(Course course) {
+        if (course == null) return;
+
+        // Сохраняем курс в переменную currentCourse
+        currentCourse = course;
+
+        // Заполняем данные в панели
+        courseAboutTitleLabel.setText(course.getTitle());
+        courseAboutAutorLabel.setText(course.getAuthor());
+        courseAboutLevelLabel.setText(course.getLevel());
+        courseAboutProgLangLabel.setText(course.getProgrammingLanguage());
+        courseAboutDurationLabel.setText(String.valueOf(course.getDuration()));
+        courseAboutDurationTypeLabel.setText(course.getDurationType());
+        courseAboutAccessLabel.setText(course.getAccess());
+        courseAboutPriceLabel.setText(String.valueOf(course.getPrice()));
+        courseAboutCurrencyLabel.setText(course.getCurrency());
+        courseAboutCourseLanguageLabel.setText(course.getCourseLanguage());
+        courseAboutDescriptionText.setText(course.getDescription());
+
+        // Загружаем картинку курса
+        if (course.getImageUrl() != null && !course.getImageUrl().isEmpty()) {
+            Image image = new Image(course.getImageUrl(), true);
+            courseAboutImageView.setImage(image);
+        }
+
+        // Делаем панель видимой
+        homePage.setVisible(false);
+        courseCatalog.setVisible(false);
+        courseEditor.setVisible(false);
+        helpPage.setVisible(false);
+        addCourse.setVisible(false);
+        editCourse.setVisible(false);
+        aboutCoursePage.setVisible(true);
     }
+
+
+    @FXML
+    private void backToCatalog(ActionEvent event) {
+        aboutCoursePage.setVisible(false); // Скрываем страницу о курсе
+        courseCatalog.setVisible(true); // Показываем каталог курсов
+    }
+
+
+    @FXML
+    private void openCourseResourse(ActionEvent event) {
+        if (currentCourse != null) {
+            String url = currentCourse.getResourceUrl();
+            System.out.println("Попытка открыть ссылку: " + url); // Выводим текущий URL
+
+            if (url == null || url.isEmpty()) {
+                System.out.println("❌ Ошибка: Ссылка на ресурс отсутствует!");
+            } else {
+                try {
+                    Desktop.getDesktop().browse(new URI(url)); // Открываем в браузере
+                } catch (IOException | URISyntaxException e) {
+                    System.out.println("Ошибка при открытии ссылки: " + e.getMessage());
+                }
+            }
+        } else {
+            System.out.println("❌ Ошибка: currentCourse не инициализирован.");
+        }
+    }
+
+
 
     private void loadDataFromDatabase() {
         DatabaseConnection databaseConnection = new DatabaseConnection();
@@ -434,7 +506,12 @@ public class AdminHomeController {
     public void viewCourses(ActionEvent actionEvent) throws SQLException {
         // Проверяем, что courseLoader был инициализирован
         if (courseLoader != null) {
-            courseLoader.loadCourses();  // Загружаем курсы
+            if (courseLoader.getAdminHomeController() == null) {
+                System.out.println("❌ Ошибка: AdminHomeController потерян в CourseLoader!");
+            } else {
+                System.out.println("✅ AdminHomeController в CourseLoader есть, загружаем курсы.");
+            }
+            courseLoader.loadCourses();
         } else {
             System.out.println("Ошибка: CourseLoader не инициализирован!");
         }
