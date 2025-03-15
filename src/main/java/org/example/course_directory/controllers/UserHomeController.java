@@ -33,11 +33,11 @@ public class UserHomeController {
     @FXML
     private AnchorPane homePage;
 
-//    @FXML
-//    private Label userNameLabel;
-//    public void setUserNameLabelLabel(String name) {
-//        userNameLabel.setText(name); // Устанавливаем имя в метку
-//    }
+    @FXML
+    private Label userNameLabel;
+    public void setUserLabel(String name) {
+        userNameLabel.setText(name); // Устанавливаем имя в метку
+    }
 
     //Для карточек курса
     @FXML

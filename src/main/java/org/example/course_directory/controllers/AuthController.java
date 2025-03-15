@@ -77,19 +77,25 @@ public class AuthController {
     public void autoris(ActionEvent event) {
         System.out.println("Попытка авторизации");
 
+//        Сравниваем данные
         String email = emailField.getText().trim().toLowerCase();
         String password = passwordField.getText().trim();
 
+        //Проверка заполненности полей
         if (email.isEmpty() || password.isEmpty()) {
             notificationService.showNotification("Ошибка", "Заполните все поля!", "Для авторизации требуется заполнить все поля.");
             return;
         }
 
+        //Проверка чекбокса
         boolean isAdmin = adminBox.isSelected(); // Проверяем, отмечен ли чекбокс для администратора
+
         String adminName = ""; // Инициализируем переменную adminName, чтобы она была доступна в любом блоке
+
 
         try (Connection connection = new DatabaseConnection().connectToDatabase()) {
 
+            //Если админ
             if (isAdmin) {
                 // Ищем администратора
                 AdminDTO adminDTO = new AdminDTO(connection);
@@ -111,7 +117,7 @@ public class AuthController {
                 // Передаем имя администратора в метод открытия окна
                 openAdminWindow(event, adminName);
             } else {
-                // Ищем пользователя
+                // Проверяем пользователя
                 UserDTO userDAO = new UserDTO(connection);
                 User user = userDAO.getUserByEmail(email);
 
@@ -132,8 +138,11 @@ public class AuthController {
                     openAdminWindow(event, adminName); // Здесь вам нужно передать имя администратора
                 } else {
                     System.out.println("Вход как пользователь");
-                    openUserWindow(event);
                     // Отображаем имя пользователя в метке
+                    // Вход как пользователь
+                    System.out.println("Вход как пользователь");
+                    String userName = user.getFirstName(); // Получаем имя пользователя
+                    openUserWindow(event, userName); // Передаем имя пользователя
                 }
             }
 
@@ -160,11 +169,23 @@ public class AuthController {
 
 
     // Метод для открытия окна пользователя
-    private void openUserWindow(ActionEvent event) {
+    private void openUserWindow(ActionEvent event, String userName) {
         Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         OpenNewWindow openNewWindow = new OpenNewWindow();
-        openNewWindow.openNewWindow(currentStage, "/org/example/course_directory/fxml/user/userHome.fxml", "Пользователь");
+
+        // Открываем новое окно и получаем контроллер
+        UserHomeController userHomeController = openNewWindow.openNewWindowWithController(
+                currentStage,
+                "/org/example/course_directory/fxml/user/userHome.fxml",
+                "Пользователь"
+        );
+
+        // Устанавливаем имя пользователя в Label
+        if (userHomeController != null) {
+            userHomeController.setUserLabel(userName);
+        }
     }
+
 
 
     // Метод для перехода в окно регистрации
