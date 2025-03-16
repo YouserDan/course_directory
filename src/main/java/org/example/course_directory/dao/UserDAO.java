@@ -1,4 +1,4 @@
-package org.example.course_directory.dto;
+package org.example.course_directory.dao;
 import org.example.course_directory.entyty.User;
 
 import java.sql.Connection;
@@ -6,10 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class UserDTO {
+public class UserDAO {
     private final Connection connection;
 
-    public UserDTO(Connection connection) {
+    public UserDAO(Connection connection) {
         this.connection = connection;
     }
 
@@ -38,7 +38,15 @@ public class UserDTO {
             stmt.setString(1, email);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
+                    // Теперь извлекаем также и id
+                    Integer id = rs.getInt("id");  // Предполагаем, что в таблице есть колонка id
+                    if (rs.wasNull()) {  // Проверяем, если id действительно существует в записи
+                        return null;  // Если id пусто или null, возвращаем null
+                    }
+
+                    // Создаем объект User с id, первым и последним именем, email, паролем и ролью
                     return new User(
+                            id,  // Устанавливаем id
                             rs.getString("first_name"),
                             rs.getString("last_name"),
                             rs.getString("email"),

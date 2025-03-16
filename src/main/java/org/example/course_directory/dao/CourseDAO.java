@@ -1,4 +1,4 @@
-package org.example.course_directory.dto;
+package org.example.course_directory.dao;
 
 import org.example.course_directory.connection.DatabaseConnection;
 import org.example.course_directory.entyty.Course;
@@ -6,12 +6,12 @@ import org.example.course_directory.entyty.Course;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-public class CourseDTO {
+public class CourseDAO {
 
     private Connection connection;
 
     // Конструктор CourseDAO, который получает соединение
-    public CourseDTO() {
+    public CourseDAO() {
         DatabaseConnection dbConnection = new DatabaseConnection();
         this.connection = dbConnection.connectToDatabase();
     }

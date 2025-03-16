@@ -8,7 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import org.example.course_directory.connection.DatabaseConnection;
-import org.example.course_directory.dto.UserDTO;
+import org.example.course_directory.dao.UserDAO;
 import org.example.course_directory.entyty.User;
 import org.example.course_directory.services.NotificationService;
 import org.example.course_directory.services.OpenNewWindow;
@@ -106,7 +106,7 @@ public class RegController {
         }
 
         try (Connection connection = new DatabaseConnection().connectToDatabase()) {
-            UserDTO userDTO = new UserDTO(connection);
+            UserDAO userDTO = new UserDAO(connection);
             if (userDTO.emailExists(email)) {
                 notificationService.showNotification("Ошибка", "Email уже зарегистрирован", "Этот email уже используется.");
                 return;

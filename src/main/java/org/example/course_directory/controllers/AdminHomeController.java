@@ -26,7 +26,7 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Font;
 import org.example.course_directory.StartProgram;
 import org.example.course_directory.cardMaker.CourseLoader;
-import org.example.course_directory.dto.CourseDTO;
+import org.example.course_directory.dao.CourseDAO;
 import org.example.course_directory.entyty.Course;
 import org.example.course_directory.services.*;
 import org.example.course_directory.connection.DatabaseConnection;
@@ -459,7 +459,7 @@ public class AdminHomeController {
             newCourse.setUpdatedAt(java.time.LocalDateTime.now());
 
             // Добавляем курс в базу данных через CourseDAO
-            CourseDTO courseDTO = new CourseDTO();
+            CourseDAO courseDTO = new CourseDAO();
             courseDTO.addCourse(newCourse);
 //            courseLoader.addCourseToFlowPane(course); // Добавляем курс в интерфейс
 
@@ -644,7 +644,7 @@ public class AdminHomeController {
 
     //УДАЛЕНИЕ КУРСА
     private NotificationService notificationService = new NotificationService();
-    private CourseDTO courseDTO = new CourseDTO();
+    private CourseDAO courseDTO = new CourseDAO();
 
     @FXML
     public void deleteCourse() {

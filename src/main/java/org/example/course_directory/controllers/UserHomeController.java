@@ -16,9 +16,12 @@ import javafx.stage.Stage;
 import org.example.course_directory.StartProgram;
 import javafx.scene.Node;
 import org.example.course_directory.cardMaker.CourseLoader;
+import org.example.course_directory.connection.DatabaseConnection;
+import org.example.course_directory.dao.ClickDAO;
 import org.example.course_directory.entyty.Course;
 import org.example.course_directory.services.IconManager;
 import org.example.course_directory.services.NotificationService;
+import org.example.course_directory.services.ClickService;
 
 import java.awt.*;
 import java.io.IOException;
@@ -27,6 +30,11 @@ import java.net.URISyntaxException;
 import java.sql.SQLException;
 
 public class UserHomeController {
+
+    private ClickService clickService;
+    private int userId; // ID текущего пользователя
+    private Course currentCourse; // Текущий выбранный курс
+
     //Для заполнения панели о курса
     @FXML private Label courseAboutTitleLabel;
     @FXML private Label courseAboutAutorLabel;
@@ -69,6 +77,7 @@ public class UserHomeController {
 
     @FXML
     public void initialize() {
+
         Platform.runLater(() -> {
 
             splitPane.lookupAll(".split-pane-divider").forEach(divider -> {
@@ -120,9 +129,14 @@ public class UserHomeController {
                 System.out.println("❌ Ошибка: Ссылка на ресурс отсутствует!");
             } else {
                 try {
+                    // Фиксируем переход
+                    clickService.recordTransition(userId, currentCourse.getId());
+
                     Desktop.getDesktop().browse(new URI(url)); // Открываем в браузере
                 } catch (IOException | URISyntaxException e) {
                     System.out.println("Ошибка при открытии ссылки: " + e.getMessage());
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
                 }
             }
         } else {
@@ -187,12 +201,36 @@ public class UserHomeController {
         }
     }
 
-    private Course currentCourse; // Это будет хранить текущий выбранный курс
+
+    public UserHomeController() {
+        // Инициализируем ClickService
+        this.clickService = new ClickService(new ClickDAO(new DatabaseConnection().connectToDatabase()));
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
     public void showAboutCoursePage(Course course) {
         if (course == null) return;
 
         // Сохраняем курс в переменную currentCourse
         currentCourse = course;
+
+        System.out.println(userId);
+        // Проверка userId перед записью клика
+        if (userId <= 0) {
+            System.out.println("❌ Ошибка: userId не установлен! (значение: " + userId + ")");
+            return;
+        }
+
+        // Регистрируем клик по карточке курса
+        try {
+            clickService.recordClick(userId, course.getId());
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Ошибка при записи клика по курсу: " + e.getMessage());
+        }
 
         // Заполняем данные в панели
         courseAboutTitleLabel.setText(course.getTitle());
@@ -219,6 +257,7 @@ public class UserHomeController {
         helpPage.setVisible(false);
         aboutCoursePage.setVisible(true);
     }
+
 
 }
 

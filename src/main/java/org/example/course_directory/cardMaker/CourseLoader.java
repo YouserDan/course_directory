@@ -6,7 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.layout.FlowPane;
 import org.example.course_directory.controllers.AdminHomeController;
 import org.example.course_directory.controllers.UserHomeController;
-import org.example.course_directory.dto.CourseDTO;
+import org.example.course_directory.dao.CourseDAO;
 import org.example.course_directory.entyty.Course;
 
 import java.io.IOException;
@@ -16,7 +16,7 @@ import java.util.List;
 
 public class CourseLoader {
     private final FlowPane flowPane;  // Контейнер, куда добавляются карточки курсов
-    private final CourseDTO courseDTO;  // Работа с базой данных
+    private final CourseDAO courseDTO;  // Работа с базой данных
     private List<Course> cachedCourses = new ArrayList<>();
 
     // Контроллеры
@@ -25,7 +25,7 @@ public class CourseLoader {
 
     public CourseLoader(FlowPane flowPane) {
         this.flowPane = flowPane;
-        this.courseDTO = new CourseDTO();
+        this.courseDTO = new CourseDAO();
     }
 
     // Метод для загрузки всех курсов

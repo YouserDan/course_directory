@@ -11,8 +11,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import org.example.course_directory.connection.DatabaseConnection;
-import org.example.course_directory.dto.AdminDTO;
-import org.example.course_directory.dto.UserDTO;
+import org.example.course_directory.dao.AdminDAO;
+import org.example.course_directory.dao.UserDAO;
 import org.example.course_directory.entyty.Administrator;
 import org.example.course_directory.entyty.User;
 import org.example.course_directory.services.NotificationService;
@@ -98,7 +98,7 @@ public class AuthController {
             //Если админ
             if (isAdmin) {
                 // Ищем администратора
-                AdminDTO adminDTO = new AdminDTO(connection);
+                AdminDAO adminDTO = new AdminDAO(connection);
                 Administrator admin = adminDTO.getAdminByEmail(email);
                 if (admin == null) {
                     notificationService.showNotification("Ошибка", "Администратор не найден", "Проверьте введенные данные и попробуйте снова.");
@@ -118,7 +118,7 @@ public class AuthController {
                 openAdminWindow(event, adminName);
             } else {
                 // Проверяем пользователя
-                UserDTO userDAO = new UserDTO(connection);
+                UserDAO userDAO = new UserDAO(connection);
                 User user = userDAO.getUserByEmail(email);
 
                 if (user == null) {
@@ -140,9 +140,11 @@ public class AuthController {
                     System.out.println("Вход как пользователь");
                     // Отображаем имя пользователя в метке
                     // Вход как пользователь
+                    int userId = user.getId(); // Получаем ID из объекта пользователя
+
+                    // Передаем в контроллер для отображения на пользовательском окне
                     System.out.println("Вход как пользователь");
-                    String userName = user.getFirstName(); // Получаем имя пользователя
-                    openUserWindow(event, userName); // Передаем имя пользователя
+                    openUserWindow(event, user.getFirstName(), userId);
                 }
             }
 
@@ -169,7 +171,8 @@ public class AuthController {
 
 
     // Метод для открытия окна пользователя
-    private void openUserWindow(ActionEvent event, String userName) {
+    // Метод для открытия окна пользователя
+    private void openUserWindow(ActionEvent event, String userName, int userId) {
         Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         OpenNewWindow openNewWindow = new OpenNewWindow();
 
@@ -182,9 +185,11 @@ public class AuthController {
 
         // Устанавливаем имя пользователя в Label
         if (userHomeController != null) {
-            userHomeController.setUserLabel(userName);
+            userHomeController.setUserLabel(userName); // Устанавливаем имя пользователя
+            userHomeController.setUserId(userId); // Устанавливаем ID пользователя
         }
     }
+
 
 
 

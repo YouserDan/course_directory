@@ -1,4 +1,4 @@
-package org.example.course_directory.dto;
+package org.example.course_directory.dao;
 
 import org.example.course_directory.entyty.Administrator;
 
@@ -7,10 +7,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class AdminDTO {
+public class AdminDAO {
     private final Connection connection;
 
-    public AdminDTO(Connection connection) {
+    public AdminDAO(Connection connection) {
         this.connection = connection;
     }
 
