@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import org.example.course_directory.controllers.AdminHomeController;
+import org.example.course_directory.controllers.UserHomeController;
 import org.example.course_directory.entyty.Course;
 
 
@@ -60,16 +61,22 @@ public class CourseCardController {
     @FXML
     private void openAboutCoursePage() {
         if (adminHomeController != null && currentCourse != null) {
-            // Передаем курс в AdminHomeController
             adminHomeController.showAboutCoursePage(currentCourse);
+            System.out.println("Открытие страницы курса в AdminHomeController.");
+        } else if (userHomeController != null && currentCourse != null) {
+            userHomeController.showAboutCoursePage(currentCourse);
+            System.out.println("Открытие страницы курса в UserHomeController.");
         } else {
-            System.out.println("Ошибка: AdminHomeController не установлен или курс отсутствует.");
+            System.out.println("Ошибка: ни AdminHomeController, ни UserHomeController не установлены, или курс отсутствует.");
         }
     }
 
 
     //Для передачи данных курса в админХомКонтроллер
     private AdminHomeController adminHomeController;
+
+
+
 
     public void setAdminHomeController(AdminHomeController adminHomeController) {
         this.adminHomeController = adminHomeController;
@@ -79,6 +86,18 @@ public class CourseCardController {
             System.out.println("AdminHomeController успешно передан в CourseCardController.");
         }
     }
+
+    private UserHomeController userHomeController;
+
+    public void setUserHomeController(UserHomeController userHomeController) {
+        this.userHomeController = userHomeController;
+        if (userHomeController == null) {
+            System.out.println("Ошибка: передан NULL в CourseCardController.setUserHomeController!");
+        } else {
+            System.out.println("UserHomeController успешно передан в CourseCardController.");
+        }
+    }
+
 
 
 

@@ -84,7 +84,7 @@ public class AdminHomeController {
         adminNameLabel.setText(name); // Устанавливаем имя в метку
     }
 
-    //Для заполнения панели о курса
+    //Для заполнения панели о курсе
     @FXML private Label courseAboutTitleLabel;
     @FXML private Label courseAboutAutorLabel;
     @FXML private Label courseAboutLevelLabel;

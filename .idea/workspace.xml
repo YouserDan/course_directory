@@ -9,10 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="Сделал отображение имени пользователя после авторизации">
+    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="Починил пуш для важного коммита открытия панели о курсе с обработкой кнопок в админ панеле">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/course_directory-1.0.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/cardMaker/CourseCardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/cardMaker/CourseCardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/cardMaker/CourseLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/cardMaker/CourseLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/AdminHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/AdminHomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/UserHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/UserHomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/user/userHome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/user/userHome.fxml" afterDir="false" />
     </list>
@@ -176,14 +177,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1728294609573</updated>
-    </task>
-    <task id="LOCAL-00037" summary="Добавил всплывающие уведомления, информирующие пользователя">
-      <option name="closed" value="true" />
-      <created>1738590694207</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1738590694207</updated>
     </task>
     <task id="LOCAL-00038" summary="Добавил проверки при регистрации">
       <option name="closed" value="true" />
@@ -569,7 +562,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741955544484</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="Починил пуш для важного коммита открытия панели о курсе с обработкой кнопок в админ панеле">
+      <option name="closed" value="true" />
+      <created>1742048270137</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1742048270137</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -585,7 +586,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Добавил окно карточки курса" />
     <MESSAGE value="Сделал переход в окно изменения, применил очистку при выходе" />
     <MESSAGE value="Сделал изменение курса и вывод отчёта в эксель" />
     <MESSAGE value="Доработал тип доступа в режиме изменения курса" />
@@ -610,7 +610,8 @@
     <MESSAGE value="Запуск снапшота с бд" />
     <MESSAGE value="Запрет изменения размера окон" />
     <MESSAGE value="Сделал отображение имени пользователя после авторизации" />
-    <option name="LAST_COMMIT_MESSAGE" value="Сделал отображение имени пользователя после авторизации" />
+    <MESSAGE value="Починил пуш для важного коммита открытия панели о курсе с обработкой кнопок в админ панеле" />
+    <option name="LAST_COMMIT_MESSAGE" value="Починил пуш для важного коммита открытия панели о курсе с обработкой кнопок в админ панеле" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.FlowPane;
 import org.example.course_directory.controllers.AdminHomeController;
+import org.example.course_directory.controllers.UserHomeController;
 import org.example.course_directory.dto.CourseDTO;
 import org.example.course_directory.entyty.Course;
 
@@ -16,9 +17,11 @@ import java.util.List;
 public class CourseLoader {
     private final FlowPane flowPane;  // Контейнер, куда добавляются карточки курсов
     private final CourseDTO courseDTO;  // Работа с базой данных
-
     private List<Course> cachedCourses = new ArrayList<>();
 
+    // Контроллеры
+    private AdminHomeController adminHomeController;
+    private UserHomeController userHomeController;
 
     public CourseLoader(FlowPane flowPane) {
         this.flowPane = flowPane;
@@ -67,16 +70,23 @@ public class CourseLoader {
         return true;
     }
 
-
-
-    private AdminHomeController adminHomeController;
-
+    // Метод для установки AdminHomeController
     public void setAdminHomeController(AdminHomeController adminHomeController) {
         this.adminHomeController = adminHomeController;
         if (adminHomeController == null) {
             System.out.println("Ошибка: передан NULL в CourseLoader.setAdminHomeController!");
         } else {
             System.out.println("AdminHomeController успешно передан в CourseLoader.");
+        }
+    }
+
+    // Метод для установки UserHomeController
+    public void setUserHomeController(UserHomeController userHomeController) {
+        this.userHomeController = userHomeController;
+        if (userHomeController == null) {
+            System.out.println("Ошибка: передан NULL в CourseLoader.setUserHomeController!");
+        } else {
+            System.out.println("UserHomeController успешно передан в CourseLoader.");
         }
     }
 
@@ -87,15 +97,24 @@ public class CourseLoader {
 
             CourseCardController cardController = loader.getController();
             cardController.setCourse(course);
-            cardController.setAdminHomeController(adminHomeController);
-            cardController.setAdminHomeController(this.adminHomeController);
 
-            // Проверяем adminHomeController перед передачей в карточку курса
+            // Передача контроллеров
+            cardController.setAdminHomeController(this.adminHomeController);
+            cardController.setUserHomeController(this.userHomeController);
+
+            // Проверки перед передачей
             if (adminHomeController != null) {
                 cardController.setAdminHomeController(adminHomeController);
-                System.out.println("AdminHomeController передан в карточку курса: " + course.getTitle());
+                System.out.println("✅ AdminHomeController передан в карточку курса: " + course.getTitle());
             } else {
-                System.out.println("Ошибка: AdminHomeController в CourseLoader равен NULL перед передачей в карточку!");
+                System.out.println("❌ Ошибка: AdminHomeController равен NULL!");
+            }
+
+            if (userHomeController != null) {
+                cardController.setUserHomeController(userHomeController);
+                System.out.println("✅ UserHomeController передан в карточку курса: " + course.getTitle());
+            } else {
+                System.out.println("❌ Ошибка: UserHomeController равен NULL!");
             }
 
             flowPane.getChildren().add(courseCard);
@@ -106,5 +125,9 @@ public class CourseLoader {
 
     public AdminHomeController getAdminHomeController() {
         return adminHomeController;
+    }
+
+    public UserHomeController getUserHomeController() {
+        return userHomeController;
     }
 }
