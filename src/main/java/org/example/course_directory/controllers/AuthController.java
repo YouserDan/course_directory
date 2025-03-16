@@ -159,21 +159,22 @@ public class AuthController {
     private void openAdminWindow(ActionEvent event, String adminName) {
         Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         OpenNewWindow openNewWindow = new OpenNewWindow();
-        // Открываем новое окно и получаем ссылку на его контроллер
+
+        // Открываем новое окно и получаем ссылку на контроллер
         AdminHomeController adminHomeController = openNewWindow.openNewWindowWithController(
                 currentStage,
                 "/org/example/course_directory/fxml/admin/adminHome.fxml",
                 "Админ-панель"
         );
 
-        // Устанавливаем имя администратора в метку через контроллер
-        adminHomeController.setAdminLabel(adminName); // Здесь передаем имя администратора
-         // Проверяем логин и пароль
+        // Устанавливаем имя администратора в Label
+        adminHomeController.setAdminLabel(adminName);
 
-        UserSession.getInstance(adminName);
+        // Теперь сохраняем имя в UserSession
+        UserSession.getInstance(adminName);  // Теперь имя точно сохранится
         System.out.println("Вы вошли как " + adminName);
-
     }
+
 
 
     // Метод для открытия окна пользователя

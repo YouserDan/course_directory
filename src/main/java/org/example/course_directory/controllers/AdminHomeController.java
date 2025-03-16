@@ -399,6 +399,14 @@ public class AdminHomeController {
     public void saveCourse() {
 
         try {
+            // Получаем имя администратора
+            UserSession session = UserSession.getInstance();
+            String createdBy = (session != null) ? session.getUsername() : "Неизвестный админ";  // Подстраховка
+
+            if (createdBy == null || createdBy.isEmpty()) {
+                showAlert("Ошибка", "Не удалось определить администратора. Пожалуйста, войдите в систему.");
+                return;
+            }
             // Считываем данные из формы
             String title = courseNameFieldAdd.getText();
             String author = courseAutorFieldAdd.getText();
@@ -426,7 +434,7 @@ public class AdminHomeController {
             String description = descriptionAdd.getText();
             String languageOfCourse = languageOfCourseAdd.getText();
             String resourceUrl = urlAdd.getText();
-            String createdBy = UserSession.getInstance().getUsername();;
+
 
             // Проверяем, не превышает ли описание 550 символов
             if (description.length() > 550) {
@@ -574,7 +582,7 @@ public class AdminHomeController {
 
     public void logout() {
         UserSession.getInstance().clearSession();
-        showAlert("Выход", "Вы вышли из системы.");
+        System.out.println("Вы вышли из системы.");
     }
 
 
@@ -704,6 +712,15 @@ public class AdminHomeController {
             return;
         }
 
+        // Получаем имя администратора, который редактирует курс
+        UserSession session = UserSession.getInstance();
+        String updatedBy = (session != null) ? session.getUsername() : "Неизвестный админ"; // Подстраховка
+
+        if (updatedBy == null || updatedBy.isEmpty()) {
+            notificationService.showNotification("Ошибка", "Ошибка аутентификации", "Не удалось определить администратора.");
+            return;
+        }
+
         // Заполняем форму данными из выбранного курса
         courseNameFieldEdit.setText(selectedCourse.getTitle());
         courseAutorFieldEdit.setText(selectedCourse.getAuthor());
@@ -742,6 +759,9 @@ public class AdminHomeController {
         accessEdit.setOnAction(event -> {
             updatePriceAndCurrencyFields();
         });
+        // Устанавливаем, кто последний редактировал курс
+        selectedCourse.setUpdatedBy(updatedBy); // Добавляем администратора, который редактировал
+
 
         // Вызовем функцию блокировки полей сразу после загрузки данных
         updatePriceAndCurrencyFields();
