@@ -27,6 +27,7 @@ import org.apache.poi.ss.usermodel.Font;
 import org.example.course_directory.StartProgram;
 import org.example.course_directory.cardMaker.CourseLoader;
 import org.example.course_directory.dao.CourseDAO;
+import org.example.course_directory.entyty.Click;
 import org.example.course_directory.entyty.Course;
 import org.example.course_directory.services.*;
 import org.example.course_directory.connection.DatabaseConnection;
@@ -40,14 +41,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.sql.*;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.time.LocalDateTime;
 
 public class AdminHomeController {
@@ -1006,8 +1005,110 @@ public class AdminHomeController {
         tableView.refresh();
     }
 
-    public void saveStatistic(ActionEvent actionEvent) {
-        doReport(actionEvent);
+    private List<Click> getClickStatistics() {
+        List<Click> clicks = new ArrayList<>();
+        String query = "SELECT * FROM clicks";
 
+        try (Connection connection = new DatabaseConnection().connectToDatabase();
+             PreparedStatement statement = connection.prepareStatement(query);
+             ResultSet resultSet = statement.executeQuery()) {
+
+            while (resultSet.next()) {
+                Click click = new Click(
+                        resultSet.getInt("id"),
+                        resultSet.getInt("user_id"),
+                        resultSet.getInt("course_id"),
+                        resultSet.getTimestamp("clicked_at"),  // ✅ Убираем лишний Timestamp.valueOf()
+                        resultSet.getInt("transition_count")
+                );
+                clicks.add(click);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Ошибка при загрузке статистики кликов: " + e.getMessage());
+        }
+
+        return clicks;
     }
+
+
+
+    public void saveStatistic(ActionEvent actionEvent) {
+        // Получаем текущую дату и время в нужном формате
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss");
+        String formattedDateTime = now.format(formatter);
+
+        // Создаем объект FileChooser для выбора места сохранения
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Сохранить статистику кликов");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Excel файлы (*.xlsx)", "*.xlsx"));
+        fileChooser.setInitialFileName("статистика_кликов_" + formattedDateTime + ".xlsx");
+
+        // Показываем диалоговое окно выбора файла
+        File file = fileChooser.showSaveDialog(new Stage());
+
+        if (file != null) {
+            try (Workbook workbook = new XSSFWorkbook(); FileOutputStream fileOut = new FileOutputStream(file)) {
+                Sheet sheet = workbook.createSheet("Статистика кликов");
+
+                // Создаём стиль для форматирования даты
+                CreationHelper createHelper = workbook.getCreationHelper();
+                CellStyle dateCellStyle = workbook.createCellStyle();
+                dateCellStyle.setDataFormat(createHelper.createDataFormat().getFormat("dd.MM.yyyy HH:mm"));
+
+                // Заголовки
+                Row headerRow = sheet.createRow(0);
+                String[] columns = {"ID", "ID пользователя", "ID курса", "Дата клика", "Количество переходов"};
+
+                for (int i = 0; i < columns.length; i++) {
+                    Cell cell = headerRow.createCell(i);
+                    cell.setCellValue(columns[i]);
+                    CellStyle headerStyle = workbook.createCellStyle();
+                    Font font = workbook.createFont();
+                    font.setBold(true);
+                    headerStyle.setFont(font);
+                    cell.setCellStyle(headerStyle);
+                }
+
+                // Получаем данные из БД
+                List<Click> clicks = getClickStatistics();
+
+                // Заполняем данные
+                int rowNum = 1;
+                for (Click click : clicks) {
+                    Row row = sheet.createRow(rowNum++);
+                    row.createCell(0).setCellValue(click.getId());
+                    row.createCell(1).setCellValue(click.getUserId());
+                    row.createCell(2).setCellValue(click.getCourseId());
+
+                    // Дата клика
+                    if (click.getClickedAt() != null) {
+                        Cell clickedAtCell = row.createCell(3);
+                        clickedAtCell.setCellValue(click.getClickedAt()); // ✅ Timestamp передаётся напрямую
+                        clickedAtCell.setCellStyle(dateCellStyle);
+                    }
+
+                    row.createCell(4).setCellValue(click.getTransitionCount());
+                }
+
+                // Авторазмер колонок
+                for (int i = 0; i < columns.length; i++) {
+                    sheet.autoSizeColumn(i);
+                }
+
+                // Сохраняем в файл
+                workbook.write(fileOut);
+
+                // Уведомление
+                notificationService.showNotification("Успех", "Статистика сохранена", "Файл сохранен в " + file.getAbsolutePath());
+            } catch (IOException e) {
+                e.printStackTrace();
+                notificationService.showNotification("Ошибка", "Ошибка экспорта", "Не удалось сохранить статистику.");
+            }
+        }
+    }
+
+
 }

@@ -9,7 +9,10 @@ public class Click {
     private Timestamp clickedAt;
     private int transitionCount;
 
-    // Конструктор для нового клика (без ID)
+    public Click() {
+    }
+
+    // Конструктор без ID (новый клик)
     public Click(int userId, int courseId, Timestamp clickedAt, int transitionCount) {
         this.userId = userId;
         this.courseId = courseId;
@@ -17,7 +20,7 @@ public class Click {
         this.transitionCount = transitionCount;
     }
 
-    // Конструктор для клика с ID (например, при извлечении из БД)
+    // Конструктор с ID (из БД)
     public Click(int id, int userId, int courseId, Timestamp clickedAt, int transitionCount) {
         this.id = id;
         this.userId = userId;
@@ -25,6 +28,7 @@ public class Click {
         this.clickedAt = clickedAt;
         this.transitionCount = transitionCount;
     }
+
     // Геттеры и сеттеры
     public int getId() {
         return id;
