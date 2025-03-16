@@ -9,10 +9,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="Сделал сбор статистики кликов у пользователя">
+    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="Добавил отчёт кликов">
+      <change afterPath="$PROJECT_DIR$/.VSCodeCounter/2025-03-17_00-08-20/details.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.VSCodeCounter/2025-03-17_00-08-20/diff-details.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.VSCodeCounter/2025-03-17_00-08-20/diff.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.VSCodeCounter/2025-03-17_00-08-20/diff.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.VSCodeCounter/2025-03-17_00-08-20/diff.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.VSCodeCounter/2025-03-17_00-08-20/results.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.VSCodeCounter/2025-03-17_00-08-20/results.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.VSCodeCounter/2025-03-17_00-08-20/results.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.VSCodeCounter/2025-03-17_00-08-20/results.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/services/UserSession.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/AdminHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/AdminHomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/entyty/Click.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/entyty/Click.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/AuthController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,14 +184,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1728294609573</updated>
-    </task>
-    <task id="LOCAL-00040" summary="Добавил админских окон, окно админа, редактор, добавление (не до конца). Сделал импорт картинки">
-      <option name="closed" value="true" />
-      <created>1740813593341</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1740813593341</updated>
     </task>
     <task id="LOCAL-00041" summary="Работал на DAO курса, восстанавливал код">
       <option name="closed" value="true" />
@@ -567,7 +569,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742156261327</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="Добавил отчёт кликов">
+      <option name="closed" value="true" />
+      <created>1742158461559</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1742158461559</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -583,7 +593,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Доработал тип доступа в режиме изменения курса" />
     <MESSAGE value="пофиксил баг с отображением картинки в создании курса. заложил основу для автозаполнения карточек курса" />
     <MESSAGE value="Добавлен каталог карточек курсов из базы данных в окне администратора." />
     <MESSAGE value="Дабавление курсов пользователю" />
@@ -608,7 +617,8 @@
     <MESSAGE value="Починил пуш для важного коммита открытия панели о курсе с обработкой кнопок в админ панеле" />
     <MESSAGE value="Сделал открытие и обработку кнопок при нажатии посмотреть подробности курса в окне пользователя" />
     <MESSAGE value="Сделал сбор статистики кликов у пользователя" />
-    <option name="LAST_COMMIT_MESSAGE" value="Сделал сбор статистики кликов у пользователя" />
+    <MESSAGE value="Добавил отчёт кликов" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил отчёт кликов" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

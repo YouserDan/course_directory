@@ -17,6 +17,7 @@ import org.example.course_directory.entyty.Administrator;
 import org.example.course_directory.entyty.User;
 import org.example.course_directory.services.NotificationService;
 import org.example.course_directory.services.OpenNewWindow;
+import org.example.course_directory.services.UserSession;
 import org.mindrot.jbcrypt.BCrypt;
 
 import java.sql.Connection;
@@ -167,6 +168,11 @@ public class AuthController {
 
         // Устанавливаем имя администратора в метку через контроллер
         adminHomeController.setAdminLabel(adminName); // Здесь передаем имя администратора
+         // Проверяем логин и пароль
+
+        UserSession.getInstance(adminName);
+        System.out.println("Вы вошли как " + adminName);
+
     }
 
 

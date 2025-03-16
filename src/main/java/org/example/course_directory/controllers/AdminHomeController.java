@@ -112,7 +112,7 @@ public class AdminHomeController {
     @FXML private TextArea descriptionAdd;
     @FXML private TextField languageOfCourseAdd;
     @FXML private TextField urlAdd;
-    @FXML private String createdByField = "Admin";
+//    @FXML private String createdByField = "Admin";
 
 
     //Изменение формы курса
@@ -397,6 +397,7 @@ public class AdminHomeController {
     // Метод для сохранения курса в базу данных
     @FXML
     public void saveCourse() {
+
         try {
             // Считываем данные из формы
             String title = courseNameFieldAdd.getText();
@@ -425,7 +426,7 @@ public class AdminHomeController {
             String description = descriptionAdd.getText();
             String languageOfCourse = languageOfCourseAdd.getText();
             String resourceUrl = urlAdd.getText();
-            String createdBy = createdByField;
+            String createdBy = UserSession.getInstance().getUsername();;
 
             // Проверяем, не превышает ли описание 550 символов
             if (description.length() > 550) {
@@ -568,7 +569,14 @@ public class AdminHomeController {
                 System.out.println("Не удалось загрузить окно авторизации");
             }
         }
+        logout();
     }
+
+    public void logout() {
+        UserSession.getInstance().clearSession();
+        showAlert("Выход", "Вы вышли из системы.");
+    }
+
 
     public void openHomePage(ActionEvent actionEvent) {
         homePage.setVisible(true);
@@ -1032,8 +1040,6 @@ public class AdminHomeController {
         return clicks;
     }
 
-
-
     public void saveStatistic(ActionEvent actionEvent) {
         // Получаем текущую дату и время в нужном формате
         LocalDateTime now = LocalDateTime.now();
@@ -1109,6 +1115,5 @@ public class AdminHomeController {
             }
         }
     }
-
 
 }

@@ -1,0 +1,85 @@
+Date : 2025-03-17 00:08:20
+Directory : e:\course_directory
+Total : 33 files,  3849 codes, 289 comments, 676 blanks, all 4814 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Java     |         24 |      2,440 |        232 |        563 |      3,235 |
+| XML      |          7 |      1,196 |          4 |         48 |      1,248 |
+| CSS      |          1 |        111 |          2 |         29 |        142 |
+| Batch    |          1 |        102 |         51 |         36 |        189 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                   |         33 |      3,849 |        289 |        676 |      4,814 |
+| . (Files)                                                                                           |          3 |        333 |         51 |         53 |        437 |
+| src                                                                                                 |         30 |      3,516 |        238 |        623 |      4,377 |
+| src\main                                                                                            |         30 |      3,516 |        238 |        623 |      4,377 |
+| src\main\java                                                                                       |         24 |      2,440 |        232 |        563 |      3,235 |
+| src\main\java (Files)                                                                               |          1 |         15 |          0 |          3 |         18 |
+| src\main\java\org                                                                                   |         23 |      2,425 |        232 |        560 |      3,217 |
+| src\main\java\org\example                                                                           |         23 |      2,425 |        232 |        560 |      3,217 |
+| src\main\java\org\example\course_directory                                                          |         23 |      2,425 |        232 |        560 |      3,217 |
+| src\main\java\org\example\course_directory (Files)                                                  |          1 |         25 |          0 |          8 |         33 |
+| src\main\java\org\example\course_directory\cardMaker                                                |          2 |        174 |         17 |         48 |        239 |
+| src\main\java\org\example\course_directory\connection                                               |          2 |         54 |          5 |         17 |         76 |
+| src\main\java\org\example\course_directory\controllers                                              |          4 |      1,343 |        144 |        284 |      1,771 |
+| src\main\java\org\example\course_directory\dao                                                      |          4 |        290 |         16 |         55 |        361 |
+| src\main\java\org\example\course_directory\entyty                                                   |          4 |        365 |         16 |         97 |        478 |
+| src\main\java\org\example\course_directory\services                                                 |          6 |        174 |         34 |         51 |        259 |
+| src\main\resources                                                                                  |          6 |      1,076 |          6 |         60 |      1,142 |
+| src\main\resources\org                                                                              |          6 |      1,076 |          6 |         60 |      1,142 |
+| src\main\resources\org\example                                                                      |          6 |      1,076 |          6 |         60 |      1,142 |
+| src\main\resources\org\example\course_directory                                                     |          6 |      1,076 |          6 |         60 |      1,142 |
+| src\main\resources\org\example\course_directory\fxml                                                |          5 |        965 |          4 |         31 |      1,000 |
+| src\main\resources\org\example\course_directory\fxml (Files)                                        |          2 |        130 |          0 |          6 |        136 |
+| src\main\resources\org\example\course_directory\fxml\admin                                          |          1 |        584 |          3 |         15 |        602 |
+| src\main\resources\org\example\course_directory\fxml\cardMaker                                      |          1 |         46 |          0 |          4 |         50 |
+| src\main\resources\org\example\course_directory\fxml\user                                           |          1 |        205 |          1 |          6 |        212 |
+| src\main\resources\org\example\course_directory\styles                                              |          1 |        111 |          2 |         29 |        142 |
++-----------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                            | language | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| e:\course_directory\dependency-reduced-pom.xml                                                      | XML      |        109 |          0 |          1 |        110 |
+| e:\course_directory\mvnw.cmd                                                                        | Batch    |        102 |         51 |         36 |        189 |
+| e:\course_directory\pom.xml                                                                         | XML      |        122 |          0 |         16 |        138 |
+| e:\course_directory\src\main\java\module-info.java                                                  | Java     |         15 |          0 |          3 |         18 |
+| e:\course_directory\src\main\java\org\example\course_directory\StartProgram.java                    | Java     |         25 |          0 |          8 |         33 |
+| e:\course_directory\src\main\java\org\example\course_directory\cardMaker\CourseCardController.java  | Java     |         72 |          7 |         26 |        105 |
+| e:\course_directory\src\main\java\org\example\course_directory\cardMaker\CourseLoader.java          | Java     |        102 |         10 |         22 |        134 |
+| e:\course_directory\src\main\java\org\example\course_directory\connection\DatabaseConnection.java   | Java     |         20 |          5 |          6 |         31 |
+| e:\course_directory\src\main\java\org\example\course_directory\connection\ExecuteQuery.java         | Java     |         34 |          0 |         11 |         45 |
+| e:\course_directory\src\main\java\org\example\course_directory\controllers\AdminHomeController.java | Java     |        841 |        105 |        166 |      1,112 |
+| e:\course_directory\src\main\java\org\example\course_directory\controllers\AuthController.java      | Java     |        142 |         25 |         42 |        209 |
+| e:\course_directory\src\main\java\org\example\course_directory\controllers\RegController.java       | Java     |        157 |          1 |         28 |        186 |
+| e:\course_directory\src\main\java\org\example\course_directory\controllers\UserHomeController.java  | Java     |        203 |         13 |         48 |        264 |
+| e:\course_directory\src\main\java\org\example\course_directory\dao\AdminDAO.java                    | Java     |         62 |          3 |         10 |         75 |
+| e:\course_directory\src\main\java\org\example\course_directory\dao\ClickDAO.java                    | Java     |         59 |          4 |         14 |         77 |
+| e:\course_directory\src\main\java\org\example\course_directory\dao\CourseDAO.java                   | Java     |        116 |          7 |         21 |        144 |
+| e:\course_directory\src\main\java\org\example\course_directory\dao\UserDAO.java                     | Java     |         53 |          2 |         10 |         65 |
+| e:\course_directory\src\main\java\org\example\course_directory\entyty\Administrator.java            | Java     |         70 |          0 |         20 |         90 |
+| e:\course_directory\src\main\java\org\example\course_directory\entyty\Click.java                    | Java     |         59 |          3 |         17 |         79 |
+| e:\course_directory\src\main\java\org\example\course_directory\entyty\Course.java                   | Java     |        191 |          9 |         48 |        248 |
+| e:\course_directory\src\main\java\org\example\course_directory\entyty\User.java                     | Java     |         45 |          4 |         12 |         61 |
+| e:\course_directory\src\main\java\org\example\course_directory\services\ClearForm.java              | Java     |         36 |          9 |          4 |         49 |
+| e:\course_directory\src\main\java\org\example\course_directory\services\ClickService.java           | Java     |         26 |          6 |         10 |         42 |
+| e:\course_directory\src\main\java\org\example\course_directory\services\CourseManager.java          | Java     |         22 |          1 |          9 |         32 |
+| e:\course_directory\src\main\java\org\example\course_directory\services\IconManager.java            | Java     |         11 |          0 |          4 |         15 |
+| e:\course_directory\src\main\java\org\example\course_directory\services\NotificationService.java    | Java     |         29 |          6 |          9 |         44 |
+| e:\course_directory\src\main\java\org\example\course_directory\services\OpenNewWindow.java          | Java     |         50 |         12 |         15 |         77 |
+| e:\course_directory\src\main\resources\org\example\course_directory\fxml\admin\adminHome.fxml       | XML      |        584 |          3 |         15 |        602 |
+| e:\course_directory\src\main\resources\org\example\course_directory\fxml\authWindow.fxml            | XML      |         57 |          0 |          3 |         60 |
+| e:\course_directory\src\main\resources\org\example\course_directory\fxml\cardMaker\CourseCard.fxml  | XML      |         46 |          0 |          4 |         50 |
+| e:\course_directory\src\main\resources\org\example\course_directory\fxml\registration.fxml          | XML      |         73 |          0 |          3 |         76 |
+| e:\course_directory\src\main\resources\org\example\course_directory\fxml\user\userHome.fxml         | XML      |        205 |          1 |          6 |        212 |
+| e:\course_directory\src\main\resources\org\example\course_directory\styles\style.css                | CSS      |        111 |          2 |         29 |        142 |
+| Total                                                                                               |          |      3,849 |        289 |        676 |      4,814 |
++-----------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
