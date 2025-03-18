@@ -9,11 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="Сделал поле кто создал и изменил по имени админа">
+    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="Сделал поле кто создал и изменил по имени админа (оказывается не работает)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/connection/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/connection/DatabaseConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/AdminHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/AdminHomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/services/UserSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/services/UserSession.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +71,13 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/AdminHomeController.java" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -99,7 +105,7 @@
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/devTools/javafx/javafx-sdk-23.0.2/lib&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/курсовая/cd/course_directory&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.19165379&quot;,
@@ -175,14 +181,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1728294609573</updated>
-    </task>
-    <task id="LOCAL-00042" summary="Улучшил сохранение курса и реализовал очистку его полей">
-      <option name="closed" value="true" />
-      <created>1741004513929</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1741004513929</updated>
     </task>
     <task id="LOCAL-00043" summary="Исправил платность при Бесплатный, сделал кнопку отмена при создании курса с учётом очистки формы">
       <option name="closed" value="true" />
@@ -568,7 +566,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742161868101</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="Сделал поле кто создал и изменил по имени админа (оказывается не работает)">
+      <option name="closed" value="true" />
+      <created>1742167959003</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1742167959003</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -584,7 +590,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Добавлен каталог карточек курсов из базы данных в окне администратора." />
     <MESSAGE value="Дабавление курсов пользователю" />
     <MESSAGE value="SOLID: вынес лист курсов в отдельный класс" />
     <MESSAGE value="Сделал отображение курсов в окне пользователя" />
@@ -609,7 +614,8 @@
     <MESSAGE value="Сделал сбор статистики кликов у пользователя" />
     <MESSAGE value="Добавил отчёт кликов" />
     <MESSAGE value="Сделал поле кто создал и изменил по имени админа" />
-    <option name="LAST_COMMIT_MESSAGE" value="Сделал поле кто создал и изменил по имени админа" />
+    <MESSAGE value="Сделал поле кто создал и изменил по имени админа (оказывается не работает)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Сделал поле кто создал и изменил по имени админа (оказывается не работает)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
