@@ -26,6 +26,7 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Font;
 import org.example.course_directory.StartProgram;
 import org.example.course_directory.cardMaker.CourseLoader;
+import org.example.course_directory.dao.ClickDAO;
 import org.example.course_directory.dao.CourseDAO;
 import org.example.course_directory.entyty.Click;
 import org.example.course_directory.entyty.Course;
@@ -43,12 +44,12 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.sql.*;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 
 import java.time.LocalDateTime;
-import java.util.Optional;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class AdminHomeController {
 
@@ -162,6 +163,14 @@ public class AdminHomeController {
     @FXML
     private Button saveCourseButton;
 
+    //Сортировка
+    @FXML private SplitMenuButton sortMenu;
+
+    //Поиск
+    @FXML
+    private TextField search; // Поле поиска
+    private ClickService clickService;
+
     @FXML
     public void initialize() {
         homePage.setVisible(true);
@@ -172,6 +181,15 @@ public class AdminHomeController {
         editCourse.setVisible(false);
         aboutCoursePage.setVisible(false);
 
+        DatabaseConnection databaseConnection = new DatabaseConnection(); // создаем объект
+        Connection connection = databaseConnection.connectToDatabase(); // вызываем метод через объект
+        ClickDAO clickDAO = new ClickDAO(connection);
+        clickService = new ClickService(clickDAO);
+
+        search.textProperty().addListener((observable, oldValue, newValue) -> {
+            filterCourses(newValue);
+        });
+
         if (courseFlowPane == null) {
             System.out.println("Ошибка: courseFlowPane не загружен из FXML!");
         } else {
@@ -179,6 +197,12 @@ public class AdminHomeController {
             courseLoader.setAdminHomeController(this); // ✅ Устанавливаем AdminHomeController ОДИН РАЗ!
             System.out.println("CourseLoader успешно инициализирован!");
         }
+        sortMenu.getItems().get(0).setOnAction(event -> sortCoursesByPopularity());
+
+        Platform.runLater(() -> {
+            sortMenu.getItems().get(1).setOnAction(event -> sortCoursesByDateAdded());  // Добавляем обработчик для сортировки по дате
+            // Остальной код...
+        });
 
         loadDataFromDatabase();
 
@@ -224,6 +248,81 @@ public class AdminHomeController {
 
         accessAdd.setOnAction(event -> handleAccessChoiceSelection());
         searchlInTableField.setOnAction(this::searchInTable);
+    }
+
+    private void filterCourses(String searchText) {
+        List<Course> filteredCourses = new ArrayList<>();
+
+        if (searchText == null || searchText.isEmpty()) {
+            courseFlowPane.getChildren().clear();
+            for (Course course : courseLoader.getCourses()) {
+                courseLoader.addCourseCard(course);
+            }
+            return;
+        }
+
+        String lowerCaseSearch = searchText.toLowerCase();
+
+        // Фильтрация с проверкой на null
+        for (Course course : courseLoader.getCourses()) {
+            String title = course.getTitle() != null ? course.getTitle().toLowerCase() : "";
+            String programmingLanguage = course.getProgrammingLanguage() != null ? course.getProgrammingLanguage().toLowerCase() : "";
+            String keywords = course.getKeywords() != null ? course.getKeywords().toLowerCase() : "";
+
+            if (title.contains(lowerCaseSearch) ||
+                    programmingLanguage.contains(lowerCaseSearch) ||
+                    keywords.contains(lowerCaseSearch)) {
+                filteredCourses.add(course);
+            }
+        }
+
+        // Обновляем FlowPane
+        courseFlowPane.getChildren().clear();
+        for (Course course : filteredCourses) {
+            courseLoader.addCourseCard(course);
+        }
+    }
+
+    private void sortCoursesByPopularity() {
+        if (clickService == null) {
+            System.out.println("clickService не инициализирован!");
+            return;
+        }
+
+        try {
+            Map<Integer, Integer> popularityMap = clickService.getCoursesPopularity();
+
+            // Загружаем все курсы (или бери из текущего courseLoader'а, если хранятся в списке)
+            List<Course> allCourses = courseLoader.getCourses(); // Сделай метод getCourses() в CourseLoader, чтобы возвращал список
+
+            // Сортируем: сначала по популярности, потом остальные
+            List<Course> sortedCourses = allCourses.stream()
+                    .sorted(Comparator.comparingInt((Course c) -> popularityMap.getOrDefault(c.getId(), 0))
+                            .reversed())
+                    .collect(Collectors.toList());
+
+            // Очищаем FlowPane и заново рендерим отсортированные карточки
+            courseFlowPane.getChildren().clear();
+            for (Course course : sortedCourses) {
+                courseLoader.addCourseCard(course); // Сделай метод addCourseCard(), который рендерит одну карточку
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void sortCoursesByDateAdded() {
+        try {
+            // Загружаем курсы, отсортированные по дате добавления
+            List<Course> sortedCourses = courseLoader.getCourses();
+            sortedCourses.sort((c1, c2) -> c2.getCreatedAt().compareTo(c1.getCreatedAt()));  // Сортировка вручную, если нужно
+            courseFlowPane.getChildren().clear();  // Очищаем старые карточки
+            for (Course course : sortedCourses) {
+                courseLoader.addCourseCard(course);  // Добавляем отсортированные курсы в FlowPane
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private Course currentCourse; // Это будет хранить текущий выбранный курс
