@@ -96,6 +96,10 @@ public class UserHomeController {
 
     @FXML
     public void initialize() {
+        homePage.setVisible(true);
+        courseCatalog.setVisible(false);
+        helpPage.setVisible(false);
+        aboutCoursePage.setVisible(false);
 
         Platform.runLater(() -> {
 
@@ -117,10 +121,7 @@ public class UserHomeController {
 
             // Фиксируем положение разделителя
             splitPane.setDividerPositions(0.3);
-            homePage.setVisible(true);
-            courseCatalog.setVisible(false);
-            helpPage.setVisible(false);
-            aboutCoursePage.setVisible(false);
+
 
             Platform.runLater(() -> {
                 Stage stage = (Stage) homePage.getScene().getWindow();
