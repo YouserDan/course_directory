@@ -4,6 +4,7 @@ import org.example.course_directory.dao.ClickDAO;
 import org.example.course_directory.entyty.Click;
 
 import java.sql.SQLException;
+import java.util.Map;
 
 public class ClickService {
 
@@ -38,4 +39,8 @@ public class ClickService {
             System.out.println("User ID: " + click.getUserId() + ", Total Transitions: " + click.getTransitionCount());
         }
     }
+    public Map<Integer, Integer> getCoursesPopularity() throws SQLException {
+        return clickDAO.getCoursesPopularity();
+    }
+
 }

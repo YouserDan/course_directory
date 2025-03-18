@@ -80,7 +80,7 @@
                </Text>
             </AnchorPane>
 
-<!--            about course -->
+<!--            about course и сортировка-->
             <AnchorPane fx:id="courseCatalog" minHeight="0.0" minWidth="0.0" prefHeight="601.0" prefWidth="698.0" style="-fx-background-color: #1F3D69;" visible="false">
                <children>
                   <ScrollPane focusTraversable="false" layoutY="75.0" prefHeight="530.0" prefWidth="707.0">
@@ -97,8 +97,8 @@
                   </ScrollPane>
                   <SplitMenuButton fx:id="sortMenu" layoutX="14.0" layoutY="15.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="157.0" text="Сортировать по:">
                      <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
+                        <MenuItem mnemonicParsing="false" text="По популярности: сначала популярные" />
+                        <MenuItem mnemonicParsing="false" text="По дате добавления: сначала новые" />
                      </items>
                      <font>
                         <Font name="Comic Sans MS" size="14.0" />

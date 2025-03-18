@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.SplitMenuButton;
 import javafx.scene.control.SplitPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -22,12 +23,17 @@ import org.example.course_directory.entyty.Course;
 import org.example.course_directory.services.IconManager;
 import org.example.course_directory.services.NotificationService;
 import org.example.course_directory.services.ClickService;
+import java.util.List;
+
 
 import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.sql.SQLException;
+import java.util.Comparator;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class UserHomeController {
 
@@ -75,6 +81,10 @@ public class UserHomeController {
     private FlowPane courseFlowPane; // Это поле должно быть связано с FXML
     private CourseLoader courseLoader;
 
+    //Сортировка
+    @FXML private SplitMenuButton sortMenu;
+
+
     @FXML
     public void initialize() {
 
@@ -83,6 +93,8 @@ public class UserHomeController {
             splitPane.lookupAll(".split-pane-divider").forEach(divider -> {
                 divider.setMouseTransparent(true); // Отключаем взаимодействие с мышью
             });
+
+            sortMenu.getItems().get(0).setOnAction(event -> sortCoursesByPopularity());
 
             // Фиксируем положение разделителя
             splitPane.setDividerPositions(0.3);
@@ -111,6 +123,30 @@ public class UserHomeController {
             courseLoader.loadCourses(); // Только после установки контроллера
         });
     }
+
+    private void sortCoursesByPopularity() {
+        try {
+            Map<Integer, Integer> popularityMap = clickService.getCoursesPopularity();
+
+            // Загружаем все курсы (или бери из текущего courseLoader'а, если хранятся в списке)
+            List<Course> allCourses = courseLoader.getCourses(); // Сделай метод getCourses() в CourseLoader, чтобы возвращал список
+
+            // Сортируем: сначала по популярности, потом остальные
+            List<Course> sortedCourses = allCourses.stream()
+                    .sorted(Comparator.comparingInt((Course c) -> popularityMap.getOrDefault(c.getId(), 0))
+                            .reversed())
+                    .collect(Collectors.toList());
+
+            // Очищаем FlowPane и заново рендерим отсортированные карточки
+            courseFlowPane.getChildren().clear();
+            for (Course course : sortedCourses) {
+                courseLoader.addCourseCard(course); // Сделай метод addCourseCard(), который рендерит одну карточку
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     @FXML
     private void backToCatalog(ActionEvent event) {

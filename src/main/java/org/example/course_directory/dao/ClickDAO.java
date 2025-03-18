@@ -5,6 +5,7 @@ import org.example.course_directory.entyty.Click;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class ClickDAO {
 
@@ -72,5 +73,24 @@ public class ClickDAO {
         }
         return clicks;
     }
+
+    // Метод для получения популярности курсов (course_id -> total_transitions)
+    public Map<Integer, Integer> getCoursesPopularity() throws SQLException {
+        Map<Integer, Integer> popularityMap = new java.util.LinkedHashMap<>();
+        String sql = "SELECT course_id, SUM(transition_count) AS total_transitions " +
+                "FROM clicks GROUP BY course_id ORDER BY total_transitions DESC";
+
+        try (Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(sql)) {
+            while (resultSet.next()) {
+                int courseId = resultSet.getInt("course_id");
+                int totalTransitions = resultSet.getInt("total_transitions");
+                popularityMap.put(courseId, totalTransitions);
+            }
+        }
+        return popularityMap;
+    }
+
+
 
 }

@@ -130,4 +130,13 @@ public class CourseLoader {
     public UserHomeController getUserHomeController() {
         return userHomeController;
     }
+    public List<Course> getCourses() {
+        return cachedCourses;
+    }
+    public void addCourseCard(Course course) {
+        addCourseToFlowPane(course);
+    }
+
+
+
 }
