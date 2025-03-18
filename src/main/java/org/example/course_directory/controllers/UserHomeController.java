@@ -23,7 +23,12 @@ import org.example.course_directory.entyty.Course;
 import org.example.course_directory.services.IconManager;
 import org.example.course_directory.services.NotificationService;
 import org.example.course_directory.services.ClickService;
+
+import java.util.ArrayList;
 import java.util.List;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.scene.control.TextField;
 
 
 import java.awt.*;
@@ -84,6 +89,10 @@ public class UserHomeController {
     //Сортировка
     @FXML private SplitMenuButton sortMenu;
 
+    //Поиск
+    @FXML
+    private TextField search; // Поле поиска
+
 
     @FXML
     public void initialize() {
@@ -100,6 +109,12 @@ public class UserHomeController {
                 sortMenu.getItems().get(1).setOnAction(event -> sortCoursesByDateAdded());  // Добавляем обработчик для сортировки по дате
                 // Остальной код...
             });
+
+            search.textProperty().addListener((observable, oldValue, newValue) -> {
+                filterCourses(newValue);
+            });
+
+
             // Фиксируем положение разделителя
             splitPane.setDividerPositions(0.3);
             homePage.setVisible(true);
@@ -127,6 +142,41 @@ public class UserHomeController {
             courseLoader.loadCourses(); // Только после установки контроллера
         });
     }
+
+    private void filterCourses(String searchText) {
+        List<Course> filteredCourses = new ArrayList<>();
+
+        if (searchText == null || searchText.isEmpty()) {
+            courseFlowPane.getChildren().clear();
+            for (Course course : courseLoader.getCourses()) {
+                courseLoader.addCourseCard(course);
+            }
+            return;
+        }
+
+        String lowerCaseSearch = searchText.toLowerCase();
+
+        // Фильтрация с проверкой на null
+        for (Course course : courseLoader.getCourses()) {
+            String title = course.getTitle() != null ? course.getTitle().toLowerCase() : "";
+            String programmingLanguage = course.getProgrammingLanguage() != null ? course.getProgrammingLanguage().toLowerCase() : "";
+            String keywords = course.getKeywords() != null ? course.getKeywords().toLowerCase() : "";
+
+            if (title.contains(lowerCaseSearch) ||
+                    programmingLanguage.contains(lowerCaseSearch) ||
+                    keywords.contains(lowerCaseSearch)) {
+                filteredCourses.add(course);
+            }
+        }
+
+        // Обновляем FlowPane
+        courseFlowPane.getChildren().clear();
+        for (Course course : filteredCourses) {
+            courseLoader.addCourseCard(course);
+        }
+    }
+
+
 
 
     public void sortCoursesByDateAdded() {

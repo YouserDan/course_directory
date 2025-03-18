@@ -138,6 +138,28 @@ public class CourseLoader {
         addCourseToFlowPane(course);
     }
 
+    // В классе CourseLoader добавьте метод для фильтрации курсов
+    public void filterCourses(String query) {
+        List<Course> filteredCourses = new ArrayList<>();
+
+        // Фильтрация курсов, которые содержат текст запроса в заголовке или ключевых словах
+        for (Course course : cachedCourses) {
+            if (course.getTitle().toLowerCase().contains(query.toLowerCase()) ||
+                    course.getKeywords().toLowerCase().contains(query.toLowerCase())) {
+                filteredCourses.add(course);
+            }
+        }
+
+        // Обновление отображаемых курсов
+        Platform.runLater(() -> {
+            flowPane.getChildren().clear();
+            for (Course course : filteredCourses) {
+                addCourseToFlowPane(course); // Метод для добавления курса в FlowPane
+            }
+        });
+    }
+
+
 
 
 }
