@@ -98,10 +98,9 @@ public class CourseDAO {
         }
     }
 
-    // Метод для получения списка всех курсов
     public List<Course> getAllCourses() throws SQLException {
         List<Course> courses = new ArrayList<>();
-        String sql = "SELECT * FROM courses";
+        String sql = "SELECT * FROM courses ORDER BY created_at DESC";  // Сортировка по дате добавления
 
         try (PreparedStatement statement = connection.prepareStatement(sql);
              ResultSet resultSet = statement.executeQuery()) {
@@ -112,6 +111,7 @@ public class CourseDAO {
         }
         return courses;
     }
+
 
     // Метод для преобразования ResultSet в объект Course
     private Course mapResultSetToCourse(ResultSet resultSet) throws SQLException {

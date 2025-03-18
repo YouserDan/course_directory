@@ -32,7 +32,7 @@ public class CourseLoader {
     public void loadCourses() {
         List<Course> newCourses;
         try {
-            newCourses = courseDTO.getAllCourses();
+            newCourses = courseDTO.getAllCourses();  // Курсы будут уже отсортированы по дате
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Ошибка загрузки курсов!");
@@ -57,6 +57,7 @@ public class CourseLoader {
             System.out.println("Курсы обновлены.");
         });
     }
+
 
     // Метод для сравнения двух списков курсов
     private boolean isCourseListEqual(List<Course> list1, List<Course> list2) {

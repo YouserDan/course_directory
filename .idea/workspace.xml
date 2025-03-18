@@ -9,13 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="Исправил ошибку со спиннером">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="6a0d1787-9382-4fc6-93f8-2b1d827ee564" name="Changes" comment="Добавил сортировку по популярности">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/cardMaker/CourseLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/cardMaker/CourseLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/UserHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/controllers/UserHomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/dao/ClickDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/dao/ClickDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/services/ClickService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/services/ClickService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/user/userHome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/course_directory/fxml/user/userHome.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/course_directory/dao/CourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/course_directory/dao/CourseDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,14 +181,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1728294609573</updated>
-    </task>
-    <task id="LOCAL-00044" summary="Исправил платность при Бесплатный, сделал кнопку отмена при создании курса с учётом очистки формы">
-      <option name="closed" value="true" />
-      <created>1741005801500</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1741005801500</updated>
     </task>
     <task id="LOCAL-00045" summary="Исправил платность при Бесплатный, сделал кнопку отмена при создании курса с учётом очистки формы">
       <option name="closed" value="true" />
@@ -577,7 +566,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742315736460</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="Добавил сортировку по популярности">
+      <option name="closed" value="true" />
+      <created>1742317293123</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1742317293123</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -593,7 +590,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="SOLID: вынес лист курсов в отдельный класс" />
     <MESSAGE value="Сделал отображение курсов в окне пользователя" />
     <MESSAGE value="Добавил переход на сайт по кнопке и улучшил описание на главной странице." />
     <MESSAGE value="Сделал авторизацию для обоих  типов пользователей" />
@@ -618,7 +614,8 @@
     <MESSAGE value="Сделал поле кто создал и изменил по имени админа" />
     <MESSAGE value="Сделал поле кто создал и изменил по имени админа (оказывается не работает)" />
     <MESSAGE value="Исправил ошибку со спиннером" />
-    <option name="LAST_COMMIT_MESSAGE" value="Исправил ошибку со спиннером" />
+    <MESSAGE value="Добавил сортировку по популярности" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил сортировку по популярности" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

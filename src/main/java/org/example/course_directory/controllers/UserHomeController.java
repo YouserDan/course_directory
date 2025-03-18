@@ -96,6 +96,10 @@ public class UserHomeController {
 
             sortMenu.getItems().get(0).setOnAction(event -> sortCoursesByPopularity());
 
+            Platform.runLater(() -> {
+                sortMenu.getItems().get(1).setOnAction(event -> sortCoursesByDateAdded());  // Добавляем обработчик для сортировки по дате
+                // Остальной код...
+            });
             // Фиксируем положение разделителя
             splitPane.setDividerPositions(0.3);
             homePage.setVisible(true);
@@ -122,6 +126,21 @@ public class UserHomeController {
             courseLoader.setUserHomeController(this); // Передаем текущий контроллер
             courseLoader.loadCourses(); // Только после установки контроллера
         });
+    }
+
+
+    public void sortCoursesByDateAdded() {
+        try {
+            // Загружаем курсы, отсортированные по дате добавления
+            List<Course> sortedCourses = courseLoader.getCourses();
+            sortedCourses.sort((c1, c2) -> c2.getCreatedAt().compareTo(c1.getCreatedAt()));  // Сортировка вручную, если нужно
+            courseFlowPane.getChildren().clear();  // Очищаем старые карточки
+            for (Course course : sortedCourses) {
+                courseLoader.addCourseCard(course);  // Добавляем отсортированные курсы в FlowPane
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void sortCoursesByPopularity() {
